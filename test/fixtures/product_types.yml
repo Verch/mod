@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  big_image_url: MyString
+  small_image_url: MyString
+  white_price_id: 1
+  color_price_id: 1
+  white_old_price_id: 1
+  color_old_price_id: 1
+  all_sizes: MyString
+
+two:
+  name: MyString
+  description: MyString
+  big_image_url: MyString
+  small_image_url: MyString
+  white_price_id: 1
+  color_price_id: 1
+  white_old_price_id: 1
+  color_old_price_id: 1
+  all_sizes: MyString

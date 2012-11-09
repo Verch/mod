@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  count: 1
+  reserv: 1
+  number: 1
+  product_color: 
+  product_type: 
+  product: 
+
+two:
+  name: MyString
+  count: 1
+  reserv: 1
+  number: 1
+  product_color: 
+  product_type: 
+  product: 

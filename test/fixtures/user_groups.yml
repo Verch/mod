@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  least_order: 1
+  admin_flag: false
+  view_reserv_flag: false
+  view_sklad_flag: false
+
+two:
+  name: MyString
+  least_order: 1
+  admin_flag: false
+  view_reserv_flag: false
+  view_sklad_flag: false
