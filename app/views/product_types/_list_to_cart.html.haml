@@ -1,0 +1,19 @@
+= form_tag line_items_path, remote: true, method: :post  do
+  %table.table_to_cart
+    %tr 
+      %td{colspan: @product_sizes.count}
+        %b 
+          Цвет:
+          =@product_color.name
+        %br &nbsp;
+    %tr
+      - @product_sizes.each do |product_size_to_cart|
+        %td
+          = label_tag product_size_to_cart.id, product_size_to_cart.name
+    %tr
+      - @product_sizes.each do |product_size_to_cart|
+        %td  
+          = number_field_tag "product_sizes[#{product_size_to_cart.id}]", "", class: "input-mini"
+    %tr 
+      %td{colspan: @product_sizes.count} 
+        = submit_tag "Добавить в корзину", class: "btn btn-inverse"

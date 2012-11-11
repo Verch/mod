@@ -11,3 +11,82 @@
  *= require_self
  *= require_tree .
  */
+
+/* The html and body elements cannot have any padding or margin. */
+html, body {
+	height: 100%;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by it's height */
+	margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push, #footer {
+	height: 60px;
+}
+#footer {
+	background-color: #f5f5f5;
+}
+#p_footer {
+	margin: 7px;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+	#footer {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+#home {
+	font-size: 12px;
+}
+
+#temp_params_info {
+	float: left;
+	z-index: 10;
+	padding: 7px;
+	border: 1px solid blue;
+	background-color: rgba(70,70,200,0.5);
+	position: absolute;
+}
+
+.clear {
+	clear: both;
+}
+
+.hide {
+	display: none;
+}
+
+/* product_type#show */
+#order_menu {
+	display: none;
+}
+.link_to_order_menu_color
+{
+	color: black;
+	font-weight: bold;
+	padding: 5px 10px;
+	width: 90px;
+	border: 2px solid grey;
+	border-radius: 2px;
+	text-decoration: none;
+	text-align: center;	
+	float: left;
+}
+.table_to_cart
+{
+	margin: 20px auto;
+	//border: 3px solid royalblue;
+	text-align: center
+}

@@ -1,0 +1,44 @@
+- if params[:get_product_color_id]
+  - if @current_group.admin_flag
+    = render 'users/admin_form'
+    %br
+    %h2 Редактирование элементов склада
+    %i=link_to "Назад", :back
+    %br
+    #price_editor
+      =render "price_editor"
+- else
+  %h2 Поиск товара
+  = form_tag '/product_sizes', method: :get do
+    %table
+      %tr
+        %td{class: "span4"} Товар:
+        %td{class: "span4"} Тип:
+        %td{class: "span4"} Цвет:
+      %tr
+        %td= select_tag "product_id", options_from_collection_for_select(@products, "id", "name", @current_product.id), prompt: @current_product.name, class: "span12"
+        %td= select_tag "product_type_id", options_from_collection_for_select(@product_types, "id", "name", @current_product_type.id), prompt: @current_product_type.name, class: "span12"
+        %td= select_tag "product_color_id", options_from_collection_for_select(@product_colors, "id", "name", @current_product_color.id), prompt: @current_product_color.name, class: "span12"
+    
+  %hr
+
+  - if @product_sizes.first
+    = form_tag line_items_path, remote: true, method: :post do
+      %table.table_to_cart
+        %tr 
+          %td{colspan: @product_sizes.count}
+            %b 
+              Цвет:
+              =@current_product_color.name
+            %br &nbsp;
+        %tr
+          - @product_sizes.each do |product_size_to_cart|
+            %td
+              = label_tag product_size_to_cart.id, product_size_to_cart.name
+        %tr
+          - @product_sizes.each do |product_size_to_cart|
+            %td  
+              = number_field_tag "product_sizes[#{product_size_to_cart.id}]", "", class: "input-mini"
+        %tr 
+          %td{colspan: @product_sizes.count} 
+            = submit_tag "Добавить в корзину", class: "btn btn-inverse"
