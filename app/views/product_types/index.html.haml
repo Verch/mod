@@ -1,0 +1,13 @@
+- if @current_group.admin_flag
+  = render 'users/admin_form'
+  %br
+  %h1 Редактирование элементов склада
+  %i=link_to "Назад", :back
+  %br
+  - @product_types.each do |product_type|
+    %td
+      %b=link_to product_type.name, product_colors_path(get_product_type_id: product_type.id)
+- else
+  %h1 Просмотр склада
+  #price_list
+    = render "price_list"

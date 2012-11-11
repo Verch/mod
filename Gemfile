@@ -10,9 +10,13 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'uglifier'
 gem 'haml-rails'
-gem 'sass-rails'
+# gem 'sass-rails'
 gem 'jquery-rails'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'sqlite3'
+
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 
 gem 'writeexcel'

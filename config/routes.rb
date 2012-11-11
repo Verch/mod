@@ -1,4 +1,27 @@
 Modernimport::Application.routes.draw do
+  root to: 'pages#home'
+  
+  resources :products
+  resources :product_types
+  resources :product_colors
+  resources :product_sizes
+  resources :line_items
+  resources :carts
+  resources :orders
+
+  match "/convertsizes" => "pages#convertsizes"
+  match "/scheme" => "pages#scheme"
+  match "/about" => "pages#about"
+  match "/contact" => "pages#contact"
+  match "/register" => "users#new"
+
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

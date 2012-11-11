@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @order.name
+%p
+  %b Email:
+  = @order.email
+%p
+  %b Details:
+  = @order.details
+%p
+  - if @order.reserv_flag
+    %i Резерв
+
+= render "show_form"
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

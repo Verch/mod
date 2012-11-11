@@ -1,0 +1,18 @@
+= image_tag @product_type.big_image_url,{width: "300px", class: "img-rounded", align: "left", hspace: "10px", vspace: "10px"}
+%b
+  = @product_type.name
+%p
+  = @product_type.description
+.clear
+%button#link_to_order_menu.btn.btn-primary.btn-block
+  Заказать
+#order_menu
+  %hr
+  %button#link_out_order_menu.btn.btn-primary.btn-block
+    Закрыть
+  %br
+  - @product_colors.each do |product_color|
+    .link_to_order_menu_color{:style => "background-color: #{product_color.rgb}"}
+      =link_to product_color.name, product_type_path(get_product_color_id: product_color.id), remote: true 
+  .clear
+  #list_to_cart  
