@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20121109230151) do
 
   create_table "product_types", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "big_image_url"
     t.string   "small_image_url"
     t.integer  "white_price_id"
