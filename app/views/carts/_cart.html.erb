@@ -1,12 +1,15 @@
-<% unless cart.line_items.empty? %>
-<div class="nav-header">Ваша корзина</div>
-<table>
-	<%= render(@cart.line_items) %>
-	<tr class="total_line">	
-		<td colspan="2">Total</td>
-		<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
-	</tr>
-</table>
-<%= button_to 'Заказать', new_order_path, method: :get, class: "btn btn-success btn-block" %>
-<%= button_to 'Очистить', cart, method: :delete, class: "btn btn-danger btn-block", confirm: 'Вы уверены?' %>
+<% unless @cart.line_items.empty? %>
+	<div class="well">
+		<div class="nav-header">Ваша корзина</div>
+		<ul class= "nav nav-list"><li class="divider"></li></ul>
+		<table>
+			<%= render(@cart.line_items) %>
+			<tr class="total_line">	
+				<td colspan="2">Total</td>
+				<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+			</tr>
+		</table>
+		<%= button_to 'Заказать', new_order_path, method: :get, class: "btn btn-success btn-block" %>
+		<%= button_to 'Очистить', cart, method: :delete, class: "btn btn-danger btn-block", confirm: 'Вы уверены?' %>
+	</div>
 <% end %>

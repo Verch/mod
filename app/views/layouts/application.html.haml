@@ -12,7 +12,7 @@
 			=image_tag "Hat.png",{width: "100%" }
 			.navbar
 				.navbar-inner
-					= link_to "Модерн Импорт", root_path, class:"brand"
+					= link_to "Модерн Импорт", root_path, class: "brand"
 					%ul{class: "nav"}
 						%li{class: "divider-vertical"}
 						%li= link_to "Склад", "/products"
@@ -39,8 +39,9 @@
 				.row-fluid
 					.span3
 						.well.sidebar-nav
-							%ul{class:"nav nav-list"}
-								%li{class:"nav-header"}Наша продукция
+							%ul{class: "nav nav-list"}
+								%li{class: "nav-header"}Наша продукция
+								%li{class: "divider"}
 								//%li{class:"active"}= link_to "Футболки", "/products/1"
 								%li= link_to "Футболки", "/products/1"
 								%li= link_to "Рубашки поло", "/products/2"
@@ -49,11 +50,10 @@
 						.well
 							= link_to "Поиск товара", product_sizes_path			
 						- if @cart
-							.well
-								#cart
-									= render @cart
+							#cart
+								= render @cart
 					.span9
-						.hero-unit
+						.well
 							= yield
 			#push
 		%footer#footer

@@ -1,16 +1,16 @@
 <% @products.each do |product| %>
-  <h2><%= product.name %></h2>
+  <h3><%= product.name %></h3>
   <div class="hide"><%= @product_types = ProductType.find_all_by_product_id(product.id) %></div>
   <table class="table_product">
   <% @product_types.each do |product_type| %>
-    <tr><td><h3><%= product_type.name %></h3>
+    <tr><td class="span4"><h4><%= product_type.name %></h4>
     <div class="hide"><%= @product_colors = ProductColor.find_all_by_product_type_id(product_type.id) %></div>
-    </td><td>
+    </td><td class="span8">
     <table class="table_product_type">
     <% @product_colors.each do |product_color| %>
-      <tr><td><%= product_color.name %><br>
+      <tr><td class="span2"><%= product_color.name %><br>
       <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(product_color.id) %></div>
-      </td><td>
+      </td><td class="span10">
       <table class="table_product_size">
       <tr>
       <% @product_sizes.each do |product_size| %>
