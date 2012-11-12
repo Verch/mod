@@ -1,9 +1,10 @@
-#rails runner ~/Projects/modern/putdb.rb
-#for heroku copy to heroku console
+﻿#rails runner ~/Projects/modern/putdb.rb
+#for heroku do in terminal
+#heroku run console --app modernimport 'cat putdb.rb'
 
 temp_product = Product.new
 temp_product.name = "Футболки"
-temp_product.small_image_url = "F1_small.png"				## I'M HERE WAITING!
+temp_product.small_image_url = "F1_small.png"				
 temp_product.description_top = "<h1>Продажа футболок от компании «Модерн импорт»</h1>
 <p>Существенным преимуществом компании «Модерн импорт» является возможность <strong>купить футболки в Минске оптом</strong>. Вы можете сделать заказ как на одну футболку, так и на целую фуру трикотажных изделий. Мы предлагаем детские, мужские и женские футболки.</p>
 <p>Мы знаем, что при всем разнообразии рынка трикотажа, купить футболку высокого качества не так-то просто. Для трикотажной продукции практичность и удобство изделий – обязательные условия, кроме того, немаловажным фактором является наличие большого выбора цветов, фасонов и размеров – и здесь наши футболки для мужчин и женщин вне конкуренции. Наши покупатели остаются довольны!</p>"
@@ -23,8 +24,8 @@ temp_product.save
 		temp_product_type.description = "Состав: хлопок 100%. Яркие цвета. Изделия не деформируются после многочисленных стирок. Воротник с добавлением лайкры. Мягкий компенсатор горловины. Усиленные плечевые швы. Везде двойная строчка. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Для производства футболок используется суперчесанный хлопок высшего качества. Плотная вязка - идеально подходят для нанесения сложных цветных изображений. <b><br>Плотность: 155 гр/м2<br>
 Размеры: S-5XL<br>
 Количество цветов: 24<br></b>"
-	    temp_product_type.big_image_url = "wear/f_m_kor_krug/okean_zeleniy.jpg"			## I'M HERE WAITING!
-	    temp_product_type.small_image_url = "F1_small.png"	## I'M HERE WAITING!
+	    temp_product_type.big_image_url = "wear/f_m_kor_krug/okean_zeleniy.jpg"			
+	    temp_product_type.small_image_url = "F1_small.png"	
 	    temp_product_type.white_price_id = 0
 	    temp_product_type.color_price_id = 0
 	    temp_product_type.white_old_price_id = 0
@@ -115,7 +116,7 @@ temp_product.save
 		temp_product_type.name = "Футболки жен. кор. рук. Круглый ворот 155 гр. Хлопок 100%"
 		temp_product_type.description = "<b><br>Плотность: 155 гр/м2<br>Размеры: S-2XL<br>Количество цветов: 9<br></b>"
 	    temp_product_type.big_image_url = "wear/f_f_kor_krug/red_blue.png"
-	    temp_product_type.small_image_url = "F1_small.png"	## I'M HERE WAITING!
+	    temp_product_type.small_image_url = "F1_small.png"	
 	    temp_product_type.white_price_id = 0
 	    temp_product_type.color_price_id = 0
 	    temp_product_type.white_old_price_id = 0
@@ -181,7 +182,7 @@ temp_product.save
 Размеры: S-5XL<br>
 Количество цветов: 24<br></b>"
 	    temp_product_type.big_image_url = "wear/f_m_dl_krug/black_red.jpg"
-	    temp_product_type.small_image_url = "F1_small.png"	## I'M HERE WAITING!
+	    temp_product_type.small_image_url = "F1_small.png"	
 	    temp_product_type.white_price_id = 0
 	    temp_product_type.color_price_id = 0
 	    temp_product_type.white_old_price_id = 0
@@ -274,7 +275,7 @@ temp_product.save
 Размеры: S-5XL<br>
 Количество цветов: 24<br></b>"
 	    temp_product_type.big_image_url = "wear/f_m_kor_krug_s/fiol_black.jpg"
-	    temp_product_type.small_image_url = "F1_small.png"	## I'M HERE WAITING!
+	    temp_product_type.small_image_url = "F1_small.png"	
 	    temp_product_type.white_price_id = 0
 	    temp_product_type.color_price_id = 0
 	    temp_product_type.white_old_price_id = 0
@@ -367,7 +368,7 @@ temp_product.save
 Размеры: S-5XL<br>
 Количество цветов: 24<br></b>"
 	    temp_product_type.big_image_url = "wear/f_f_kor_krug_s/black_red.jpg"
-	    temp_product_type.small_image_url = "F1_small.png"	## I'M HERE WAITING!
+	    temp_product_type.small_image_url = "F1_small.png"	
 	    temp_product_type.white_price_id = 0
 	    temp_product_type.color_price_id = 0
 	    temp_product_type.white_old_price_id = 0
