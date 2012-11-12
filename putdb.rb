@@ -1,4 +1,4 @@
-﻿#rails runner ~/Projects/modern/putdb.rb
+#rails runner ~/Projects/modern/putdb.rb
 #for heroku do in terminal
 #heroku run console --app modernimport 'cat putdb.rb'
 
