@@ -13,7 +13,13 @@ gem 'haml-rails'
 # gem 'sass-rails'
 gem 'jquery-rails'
 gem 'coffee-rails', '~> 3.2.1'
-gem 'sqlite3'
+
+group :development, :test do
+	gem 'sqlite3'
+end
+group :production do
+	gem 'pg'
+end
 
 gem "therubyracer"
 gem "less-rails"
