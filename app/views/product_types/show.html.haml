@@ -1,8 +1,11 @@
-= image_tag @product_type.big_image_url,{width: "300px", class: "img-rounded", align: "left", hspace: "10px", vspace: "10px"}
-%b
-  = @product_type.name
-%p
-  = @product_type.description
+.container-fluid
+  .row-fluid
+    .span4
+      = image_tag @product_type.big_image_url,{width: "300px", class: "img-rounded", align: "left", hspace: "10px", vspace: "10px"}
+    .span7.offset1
+      %b= @product_type.name
+      %p
+        = @product_type.description.html_safe
 .clear
 %button#link_to_order_menu.btn.btn-primary.btn-block
   Заказать
