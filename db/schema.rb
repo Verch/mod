@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20121109230151) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "type_of_ownership"
     t.string   "company_name"
     t.string   "unp"
     t.string   "juridical_address"

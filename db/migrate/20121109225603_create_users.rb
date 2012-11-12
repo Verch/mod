@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password_digest
+      t.string :type_of_ownership
       t.string :company_name
       t.string :unp
       t.string :juridical_address
@@ -19,6 +20,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :reg_confirm_admin, default: false
       t.datetime :last_in
       t.references :user_group, default: 2
+
 
       t.timestamps
     end

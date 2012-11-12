@@ -1,0 +1,23 @@
+﻿= render 'users/admin_form'
+%br
+%h1 Пользователи
+%br
+= form_tag '/users', method: :get do
+  = select_tag :temp_id, options_for_select([['Зарегестрированные пользователи', 1], ['Ожидают регистрации', 2]], params[:temp_id])
+Поиск:
+= search_field_tag "search"
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @users.each do |user|
+    %tr.company_name
+      %td= user.company_name
+      %td= link_to 'Show', user
+      %td= link_to 'Edit', edit_user_path(user)
+      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td= "Последний раз на сайте:"
+      %td= user.last_in.in_time_zone('Minsk').strftime("%d.%m.%Y %H:%M")

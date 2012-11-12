@@ -27,3 +27,66 @@ $ ->
 
 	$("#product_color_id").change(->
 		$(this).closest("form").submit())
+
+
+# users regidtration form
+$ -> #add phone number by press button
+	$("#phones").children(".field").each(()->
+			$(this).addClass("hide") if $(this).find("input").val() == "")
+	$("#phones").children(".field:eq(0)").removeClass("hide")
+	$(".my_button").click(()->
+		$("#phones").children(".field.hide:first").slideDown(350).removeClass("hide"))
+
+
+# users company sort
+$ -> #reload page when change option for sort
+	$("#temp_id").change(->
+		$(this).closest("form").submit())
+
+$ ->
+	$("input")
+    .change(()-> 
+      filter = $(this).val();
+      if(filter)
+        $("tr.company_name").children("td:first:not(:Contains(" + filter + "))").parent().slideUp();
+        $("tr.company_name").children("td:first:Contains(" + filter + ")").parent().slideDown();
+      else
+        $("tr.company_name").slideDown();
+      return false;
+    )
+    .keyup(()->
+      $(this).change();
+  );
+
+# on registration option copy juridical address to mailing address 
+$ ->
+  $("#mail_duplicate").click(()->
+    if($(this).val() == "false")
+      $("#user_mailing_address").parent().slideUp();
+      $(this).val("true");
+    else
+      $("#user_mailing_address").parent().slideDown();
+      $(this).val("false");
+  );
+
+
+# order sort & etc.
+$ ->
+	$("#temp_order_id").change(()->
+    $("table").find("form").submit()
+	)
+
+$ ->
+	$("input")
+      .change(()-> 
+        filter = $(this).val();
+        if(filter)
+          $("tr.order_name").children("td:first:not(:Contains(" + filter + "))").parent().slideUp();
+          $("tr.order_name").children("td:first:Contains(" + filter + ")").parent().slideDown();
+        else
+          $("tr.order_name").slideDown();
+        return false;
+      )
+    .keyup(()->
+        $(this).change();
+    );

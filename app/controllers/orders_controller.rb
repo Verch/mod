@@ -1,21 +1,26 @@
 ﻿class OrdersController < ApplicationController
-  skip_before_filter :authorize, only:[:new, :create, :show]
   # GET /orders
   def index
-    if @current_group && @current_group.admin_flag
-      if params[:temp_order_id] == "1"
-        @orders = Order.where("reserv_flag = ?", false)
-      else
-        if params[:temp_order_id] == "2"
-          @orders = Order.where("reserv_flag = ?", true)
-        else
+    respond_to do |format|
+      if @current_group && @current_group.admin_flag
+        if params[:temp_order_id] == "1"
           @orders = Order.where("reserv_flag = ?", false)
+        else
+          if params[:temp_order_id] == "2"
+            @orders = Order.where("reserv_flag = ?", true)
+          else
+            @orders = Order.where("reserv_flag = ?", false)
+          end
+        end
+      else
+        if @current_user
+          @orders = Order.find_all_by_user_id(@current_user.id)
+        else
+          format.html { redirect_to root_path }
         end
       end
-    else
-      @orders = Order.find_all_by_user_id(@current_user.id)
+      format.html # index.html.erb
     end
-    respond_to :html # index.html.erb
   end
 
   # GET /orders/1

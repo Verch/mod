@@ -8,6 +8,8 @@ Modernimport::Application.routes.draw do
   resources :line_items
   resources :carts
   resources :orders
+  resources :users
+  resources :user_groups
 
   match "/convertsizes" => "pages#convertsizes"
   match "/scheme" => "pages#scheme"

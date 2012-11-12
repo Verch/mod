@@ -1,4 +1,4 @@
-- if @current_group.admin_flag
+- if @current_group && @current_group.admin_flag
   = render 'users/admin_form'
 - else 
   = render 'users/userform'
@@ -13,7 +13,7 @@
     %th
     %th
     %th
-  - if @current_group.admin_flag
+  - if @current_group && @current_group.admin_flag
     = form_tag '/orders', method: :get do
       = select_tag :temp_order_id, options_for_select([['Заказы', 1], ['Резервы', 2]], params[:temp_order_id])
     Поиск:
