@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered table-condensed">
   <% @product_colors.each do |product_color| %>
     <tr>
       <td class="span2">
@@ -6,7 +6,7 @@
         <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(product_color.id) %></div>
       </td>
     <td class="span10">
-      <table class="table">
+      <table class="table table-condensed">
         <tr>
           <% @product_sizes.each do |product_size| %>
             <% if @current_product_size_id && @current_product_size_id == product_size.id %>
@@ -17,13 +17,11 @@
             <%= product_size.name %></th>
           <% end %>
         </tr>
-      </table>
-      <table class="table table-condensed">
         <tr>
           <% @product_sizes.each do |product_size| %>
             <td class="span1">
               <%= form_for product_size, remote: true do |f| %>
-                <%= f.text_field :count, value: "0", class: "input-mini" %>
+                <%= f.text_field :count, class: "span12" %>
               <% end %>
             </td>
           <% end %>

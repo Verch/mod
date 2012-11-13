@@ -40,12 +40,12 @@ class ProductSizesController < ApplicationController
 
   # PUT /product_sizes/1
   def update
-    @products = Product.all
     @product_size = ProductSize.find(params[:id])
 
     if params[:product_size]
       @product_color = ProductColor.find_by_id(@product_size.product_color_id)
       @product_sizes = ProductSize.where("product_color_id = ?", @product_color.id)
+      @product_colors = ProductColor.where("product_type_id = ?", @product_size.product_type_id)
       if params[:common_size]
         @product_sizes.each do |product_size|
           product_size.price = params[:product_size][:price]
@@ -54,8 +54,8 @@ class ProductSizesController < ApplicationController
 
       else
       if params[:common_color]
-        product_colors = ProductColor.where("product_type_id = ?", @product_color.product_type_id)
-        product_colors.each do |product_color_temp|
+        temp_product_colors = ProductColor.where("product_type_id = ?", @product_color.product_type_id)
+        temp_product_colors.each do |product_color_temp|
           product_color_temp.product_sizes.each do |product_size_temp|
             if product_size_temp.name == @product_size.name
               product_size_temp.price = params[:product_size][:price]
@@ -74,7 +74,7 @@ class ProductSizesController < ApplicationController
       end
     end
     respond_to do |format|
-      format.html { redirect_to @product_size, notice: 'Product size was successfully updated.' }
+      #format.html { redirect_to @product_size, notice: 'Product size was successfully updated.' }
       format.js { @current_product_size_id}
     end
   end
