@@ -7,12 +7,6 @@
 Поиск:
 = search_field_tag "search"
 %table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
   - @users.each do |user|
     %tr.company_name
       %td= user.company_name

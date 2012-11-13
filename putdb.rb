@@ -464,6 +464,7 @@ temp_user_group.save
 
 temp_user = User.new
 temp_user.name = "admin"
+temp_user.company_name = "admin"
 temp_user.email = "admin@admin"
 temp_user.password = "admin"
 temp_user.password_confirmation = "admin"
@@ -474,6 +475,7 @@ temp_user.save
 
 temp_user = User.new
 temp_user.name = "user"
+temp_user.company_name = "user"
 temp_user.email = "user@user"
 temp_user.password = "user"
 temp_user.password_confirmation = "user"

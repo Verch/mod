@@ -1,84 +1,85 @@
-﻿= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
+﻿.form-horizontal
+  = form_for @user do |f|
+    - if @user.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
 
-  - if @current_group != nil && @current_group.admin_flag
+    - if @current_group && @current_group.admin_flag
+      .field
+        = f.select "user_group_id", options_from_collection_for_select(@user_groups, "id", "name", @current_user_group.id)
+      .field
+        = f.label "Подтверждение регистрации:"
+        = f.check_box :reg_confirm_admin
+    .control-group
+      = f.label "Имя:", :class => "control-label"
+      = f.text_field :name, :class => "controls"
     .field
-      = f.select "user_group_id", options_from_collection_for_select(@user_groups, "id", "name", @current_user_group.id)
+      = f.label "Адрес электронной почты:"
+      = f.email_field :email
     .field
-      = f.label "Подтверждение регистрации:"
-      = f.check_box :reg_confirm_admin
-  .field
-    = f.label "Имя:"
-    = f.text_field :name
-  .field
-    = f.label "Адрес электронной почты:"
-    = f.email_field :email
-  .field
-    = f.label "Пароль:"
-    = f.password_field :password
-  .field
-    = f.label "Подтверждение пароля:"
-    = f.password_field :password_confirmation
-  .field
-    = f.label "Форма собственности: "
-    = f.text_field :type_of_ownership
-  - if @user.edit_data_flag  
+      = f.label "Пароль:"
+      = f.password_field :password
     .field
-      = f.label "Название организации: "
-      = f.text_field :company_name
-      - if @current_group != nil && @current_group.admin_flag
-        = f.label "Разрешить редактирование: "
-        = f.check_box :edit_data_flag
-  - else
+      = f.label "Подтверждение пароля:"
+      = f.password_field :password_confirmation
     .field
-      = f.label "Название организации: "
-      = f.label @user.company_name
-  .field
-    = f.label "УНП: "
-    = f.text_field :unp
-  .field
-    = f.label "Юридический адрес: "
-    = f.text_field :juridical_address
+      = f.label "Форма собственности: "
+      = f.text_field :type_of_ownership
+    - if @user.edit_data_flag  
+      .field
+        = f.label "Название организации: "
+        = f.text_field :company_name
+        - if @current_group != nil && @current_group.admin_flag
+          = f.label "Разрешить редактирование: "
+          = f.check_box :edit_data_flag
+    - else
+      .field
+        = f.label "Название организации: "
+        = f.label @user.company_name
+    .field
+      = f.label "УНП: "
+      = f.text_field :unp
+    .field
+      = f.label "Юридический адрес: "
+      = f.text_field :juridical_address
+      %br
+      = f.label "Совподает с почтовым: "
+      = check_box_tag :mail_duplicate, "false"
+      %br
+    .field
+      = f.label "Почтовый адрес: "
+      = f.text_field :mailing_address
+    .field
+      = f.label "Контактное лицо: "
+      = f.text_field :contact_name
+    %div#phones
+      .field
+        = f.label "Номер телефона: "
+        = f.text_field :phone_number_0
+      .field
+        = f.label "Номер телефона: "
+        = f.text_field :phone_number_1
+      .field
+        = f.label "Номер телефона: "
+        = f.text_field :phone_number_2
+      .field
+        = f.label "Номер телефона: "
+        = f.text_field :phone_number_3
+    =link_to "Add phone number", "#",{:class => "my_button", :remote => true}
     %br
-    = f.label "Совподает с почтовым: "
-    = check_box_tag :mail_duplicate, "false"
     %br
-  .field
-    = f.label "Почтовый адрес: "
-    = f.text_field :mailing_address
-  .field
-    = f.label "Контактное лицо: "
-    = f.text_field :contact_name
-  %div#phones
     .field
-      = f.label "Номер телефона: "
-      = f.text_field :phone_number_0
+      = f.label "Skype: "
+      = f.text_field :skype
     .field
-      = f.label "Номер телефона: "
-      = f.text_field :phone_number_1
-    .field
-      = f.label "Номер телефона: "
-      = f.text_field :phone_number_2
-    .field
-      = f.label "Номер телефона: "
-      = f.text_field :phone_number_3
-  =link_to "Add phone number", "#",{:class => "my_button", :remote => true}
-  %br
-  %br
-  .field
-    = f.label "Skype: "
-    = f.text_field :skype
-  .field
-    = f.label "Время работы: "
-    = f.text_field :work_time
-  -if (params[:action] == "edit")
-    .actions
-      = f.submit 'Сохранить'
-  -else
-    .actions
-      = f.submit 'Зарегистрироваться'
+      = f.label "Время работы: "
+      = f.text_field :work_time
+    -if (params[:action] == "edit")
+      .actions
+        = f.submit 'Сохранить'
+    -else
+      .actions
+        = f.submit 'Зарегистрироваться'

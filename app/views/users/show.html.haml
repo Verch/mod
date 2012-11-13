@@ -1,12 +1,12 @@
+- if UserGroup.find_by_id(@user.user_group_id).admin_flag
+  = render 'admin_form'
+- else
+  = render 'userform'
 %p#notice= notice
 %h4
   Личный кабинет
   =@user.name 
 %h6= link_to 'Редактировать', edit_user_path(@user)
-- if UserGroup.find_by_id(@user.user_group_id).admin_flag
-  = render 'admin_form'
-- else
-  = render 'userform'
 %hr{color: "green"}
 %table
   %tr

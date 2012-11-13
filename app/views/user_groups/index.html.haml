@@ -1,21 +1,11 @@
 = render 'users/admin_form'
 %br
-%h1 Listing user_groups
-
+%h1 Группы пользователей
+= link_to 'Создать новую группу', new_user_group_path
 %table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
   - @user_groups.each do |user_group|
     %tr
       %td= user_group.name
-      %td= link_to 'Show', user_group
-      %td= link_to 'Edit', edit_user_group_path(user_group)
-      %td= link_to 'Destroy', user_group, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New User group', new_user_group_path
+      %td= link_to 'Показать', user_group
+      %td= link_to 'Редактировать', edit_user_group_path(user_group)
+      %td= link_to 'Удалить', user_group, :confirm => 'Вы уверены?', :method => :delete

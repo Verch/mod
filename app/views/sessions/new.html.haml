@@ -1,13 +1,13 @@
 - if flash[:alert]
 	%p#notice
-		=flash[:alert]
-= form_tag do
-	%fieldset
-		%div
-			= label_tag :email, 'e-mail:'
-			= text_field_tag :email, params[:email]
-		%div
-			= label_tag :password, 'пароль:'
-			= password_field_tag :password, params[:password]
-		%div
-			= submit_tag "Войти"
+		= flash[:alert]
+
+.form-signin
+	= form_tag do
+		%h3.form-signin-heading Авторизация
+		%h5.form-signin-heading Введите адрес электронной почты и пароль
+		.input-block-level
+			= text_field_tag :email, params[:email], :placeholder => "Email address"
+		.input-block-level
+			= password_field_tag :password, params[:password], :placeholder => "Password"
+		= submit_tag "Войти", :class => "btn btn-large btn-primary"

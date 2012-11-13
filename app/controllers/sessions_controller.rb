@@ -9,7 +9,7 @@
         user.last_in = DateTime.now
         user.save
         session[:user_id] = user.id
-        redirect_to user, alert: "Ух-ты... Админ!!!"
+        redirect_to user
       else
     		if user.reg_confirm_admin
           user.last_in = DateTime.now 
