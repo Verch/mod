@@ -29,13 +29,13 @@ $ ->
 		$(this).closest("form").submit())
 
 
-# users regidtration form
+# users registration form
 $ -> #add phone number by press button
-	$("#phones").children(".field").each(()->
+	$("#phones").children(".control-group").each(()->
 			$(this).addClass("hide") if $(this).find("input").val() == "")
-	$("#phones").children(".field:eq(0)").removeClass("hide")
-	$(".my_button").click(()->
-		$("#phones").children(".field.hide:first").slideDown(350).removeClass("hide"))
+	$("#phones").children(".control-group:eq(0)").removeClass("hide")
+	$("#my_button").click(()->
+		$("#phones").children(".control-group.hide:first").slideDown(350).removeClass("hide"))
 
 
 # users company sort
@@ -62,10 +62,10 @@ $ ->
 $ ->
   $("#mail_duplicate").click(()->
     if($(this).val() == "false")
-      $("#user_mailing_address").parent().slideUp();
+      $("#user_mailing_address").parent().parent().slideUp();
       $(this).val("true");
     else
-      $("#user_mailing_address").parent().slideDown();
+      $("#user_mailing_address").parent().parent().slideDown();
       $(this).val("false");
   );
 

@@ -1,85 +1,101 @@
-﻿.form-horizontal
-  = form_for @user do |f|
-    - if @user.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-        %ul
-          - @user.errors.full_messages.each do |msg|
-            %li= msg
+﻿= form_for @user, html: {class: "form-horizontal"} do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
 
-    - if @current_group && @current_group.admin_flag
-      .field
-        = f.select "user_group_id", options_from_collection_for_select(@user_groups, "id", "name", @current_user_group.id)
-      .field
-        = f.label "Подтверждение регистрации:"
-        = f.check_box :reg_confirm_admin
+  - if @current_group && @current_group.admin_flag
     .control-group
-      = f.label "Имя:", :class => "control-label"
-      = f.text_field :name, :class => "controls"
-    .field
-      = f.label "Адрес электронной почты:"
+      = f.select "user_group_id", options_from_collection_for_select(@user_groups, "id", "name", @current_user_group.id)
+    .control-group
+      = f.label "Подтверждение регистрации:"
+      .controls
+        = f.check_box :reg_confirm_admin
+  .control-group
+    = f.label "Имя:", class: "control-label"
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label "Адрес электронной почты:", class: "control-label"
+    .controls  
       = f.email_field :email
-    .field
-      = f.label "Пароль:"
+  .control-group
+    = f.label "Пароль:", class: "control-label"
+    .controls
       = f.password_field :password
-    .field
-      = f.label "Подтверждение пароля:"
+  .control-group
+    = f.label "Подтверждение пароля:", class: "control-label"
+    .controls
       = f.password_field :password_confirmation
-    .field
-      = f.label "Форма собственности: "
+  .control-group
+    = f.label "Форма собственности: ", class: "control-label"
+    .controls
       = f.text_field :type_of_ownership
-    - if @user.edit_data_flag  
-      .field
-        = f.label "Название организации: "
+  - if @user.edit_data_flag  
+    .control-group
+      = f.label "Название организации: ", class: "control-label"
+      .controls
         = f.text_field :company_name
-        - if @current_group != nil && @current_group.admin_flag
-          = f.label "Разрешить редактирование: "
-          = f.check_box :edit_data_flag
-    - else
-      .field
-        = f.label "Название организации: "
-        = f.label @user.company_name
-    .field
-      = f.label "УНП: "
+      - if @current_group && @current_group.admin_flag
+        = f.label "Разрешить редактирование: ", class: "control-label"
+        = f.check_box :edit_data_flag
+  - else
+    .control-group
+      = f.label "Название организации: ", class: "control-label"
+      .controls
+        = f.label @user.company_name, class: "control-label"
+  .control-group
+    = f.label "УНП: ", class: "control-label"
+    .controls
       = f.text_field :unp
-    .field
-      = f.label "Юридический адрес: "
+  .control-group
+    = f.label "Юридический адрес: ", class: "control-label"
+    .controls
       = f.text_field :juridical_address
-      %br
-      = f.label "Совподает с почтовым: "
+    .controls
+    = f.label "Совподает с почтовым: ", class: "control-label"
+    .controls
       = check_box_tag :mail_duplicate, "false"
-      %br
-    .field
-      = f.label "Почтовый адрес: "
+  .control-group
+    = f.label "Почтовый адрес: ", class: "control-label"
+    .controls
       = f.text_field :mailing_address
-    .field
-      = f.label "Контактное лицо: "
+  .control-group
+    = f.label "Контактное лицо: ", class: "control-label"
+    .controls
       = f.text_field :contact_name
-    %div#phones
-      .field
-        = f.label "Номер телефона: "
+  %div#phones
+    .control-group
+      = f.label "Номер телефона: ", class: "control-label"
+      .controls
         = f.text_field :phone_number_0
-      .field
-        = f.label "Номер телефона: "
+    .control-group
+      = f.label "Номер телефона: ", class: "control-label"
+      .controls
         = f.text_field :phone_number_1
-      .field
-        = f.label "Номер телефона: "
+    .control-group
+      = f.label "Номер телефона: ", class: "control-label"
+      .controls
         = f.text_field :phone_number_2
-      .field
-        = f.label "Номер телефона: "
+    .control-group
+      = f.label "Номер телефона: ", class: "control-label"
+      .controls
         = f.text_field :phone_number_3
-    =link_to "Add phone number", "#",{:class => "my_button", :remote => true}
-    %br
-    %br
-    .field
-      = f.label "Skype: "
+    .control-group
+      .controls
+        =link_to "Добавить телефонный номер", "#",{class: "btn", id: "my_button", remote: true}
+  .control-group
+    = f.label "Skype: ", class: "control-label"
+    .controls
       = f.text_field :skype
-    .field
-      = f.label "Время работы: "
+  .control-group
+    = f.label "Время работы: ", class: "control-label"
+    .controls
       = f.text_field :work_time
-    -if (params[:action] == "edit")
-      .actions
-        = f.submit 'Сохранить'
-    -else
-      .actions
-        = f.submit 'Зарегистрироваться'
+  -if (params[:action] == "edit")
+    = f.submit 'Сохранить', class: "btn btn-primary"
+    =link_to "Отмена", user_path, {class: "btn"}
+  -else
+    = f.submit 'Зарегистрироваться', class: "btn"

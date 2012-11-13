@@ -4,8 +4,7 @@
   = render 'userform'
 %p#notice= notice
 %h4
-  Личный кабинет
-  =@user.name 
+  Личный кабинет пользователя
 %h6= link_to 'Редактировать', edit_user_path(@user)
 %hr{color: "green"}
 %table
