@@ -31,9 +31,8 @@ class ProductSizesController < ApplicationController
       @current_product = Product.find_by_id(params[:product_id])
     end
 
-    if params[:get_product_color_id]
-      @product_sizes = ProductSize.where("product_color_id = ?", params[:get_product_color_id])
-      @product_color = ProductColor.find_by_id(params[:get_product_color_id])
+    if params[:get_product_type_id]
+      @product_colors = ProductColor.where("product_type_id = ?", params[:get_product_type_id])
     end
 
     respond_to :html # index.html.erb

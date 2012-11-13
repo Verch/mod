@@ -1,9 +1,9 @@
 <% @products.each do |product| %>
-  <h3><%= product.name %></h3>
+  <h4><%= product.name %></h4>
   <div class="hide"><%= @product_types = ProductType.find_all_by_product_id(product.id) %></div>
   <table class="table_product">
   <% @product_types.each do |product_type| %>
-    <tr><td class="span4"><h4><%= product_type.name %></h4>
+    <tr><td class="span4"><h5><%= product_type.name %></h5>
     <div class="hide"><%= @product_colors = ProductColor.find_all_by_product_type_id(product_type.id) %></div>
     </td><td class="span8">
     <table class="table_product_type">
@@ -14,14 +14,14 @@
       <table class="table_product_size">
       <tr>
       <% @product_sizes.each do |product_size| %>
-        <td><%= product_size.name %></td>
+        <td class="span1"><%= product_size.name %></td>
       <% end %>
-        <td>Сумма</td>
+        <td class="span1">Сумма</td>
       </tr>
       <tr>
       <div class="hide"><%= @sum = 0 %></div>
       <% @product_sizes.each do |product_size| %>
-        <td class="td_product_count">
+        <td class="td_product_count span1">
           <div class="static_product_count"><%= product_size.count %></div>
           <div class="hide"><%= @sum += product_size.count %></div>
         </td>

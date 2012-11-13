@@ -10,6 +10,7 @@ Modernimport::Application.routes.draw do
   resources :orders
   resources :users
   resources :user_groups
+  resources :prices
 
   match "/convertsizes" => "pages#convertsizes"
   match "/scheme" => "pages#scheme"
