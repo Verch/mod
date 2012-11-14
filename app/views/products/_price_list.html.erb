@@ -1,7 +1,7 @@
 <% @products.each do |product| %>
   <h4><%= product.name %></h4>
   <div class="hide"><%= @product_types = ProductType.find_all_by_product_id(product.id) %></div>
-  <table class="table_product">
+  <table class="table-bordered table-considered">
   <% @product_types.each do |product_type| %>
     <tr><td class="span4"><h5><%= product_type.name %></h5>
     <div class="hide"><%= @product_colors = ProductColor.find_all_by_product_type_id(product_type.id) %></div>
