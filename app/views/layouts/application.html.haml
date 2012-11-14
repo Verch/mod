@@ -7,7 +7,7 @@
 		= csrf_meta_tags
 	%body
 		#wrap
-			#temp_params_info
+			#temp_params_info.hide
 				=params
 			=image_tag "Hat.png",{width: "100%" }
 			.navbar
@@ -21,6 +21,7 @@
 						%li= link_to "О нас", "/about"
 						%li= link_to "Контакты", "/contact"
 						//%li{class: "active"}
+					%ul{class: "nav pull-right"}
 						%li{class: "divider-vertical"}
 						%li
 							- if @current_user
@@ -39,8 +40,8 @@
 								//%li{class:"active"}= link_to "Футболки", "/products/1"
 								%li= link_to "Футболки", "/products/1"
 								%li= link_to "Рубашки поло", "/products/2"
-								%li= link_to "Бейсболки", "/products/3"
-								%li= link_to "Толстовки", "/products/4"
+								%li= link_to "Толстовки", "/products/3"
+								%li= link_to "Бейсболки", "/products/4"
 						.well
 							= link_to "Поиск товара", product_sizes_path			
 						- if @cart

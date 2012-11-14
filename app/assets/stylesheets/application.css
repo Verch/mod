@@ -12,8 +12,7 @@
  *= require_tree .
  */
 
-.center
-{
+.center {
 	text-align: center;
 }
 
@@ -92,6 +91,5 @@ html, body {
 .table_to_cart
 {
 	margin: 20px auto;
-	//border: 3px solid royalblue;
 	text-align: center
 }

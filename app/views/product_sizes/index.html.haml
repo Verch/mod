@@ -1,12 +1,8 @@
-- if params[:get_product_color_id]
+- if params[:get_product_type_id]
   - if @current_group.admin_flag
-    = render 'users/admin_form'
-    %br
     %h2 Редактирование элементов склада
-    %i=link_to "Назад", :back
-    %br
-    #price_editor
-      =render "price_editor"
+    #count_editor
+      =render "count_editor"
 - else
   %h2 Поиск товара
   = form_tag '/product_sizes', method: :get do

@@ -9,6 +9,10 @@ class ProductTypesController < ApplicationController
   def show
     @product_type = ProductType.find(params[:id])
     @product_colors = ProductColor.find_all_by_product_type_id(@product_type.id)
+    @white_prices = Price.find_by_id(@product_type.white_price_id)
+    @color_prices = Price.find_by_id(@product_type.white_price_id)
+    @white_prices_old = Price.find_by_id(@product_type.white_price_id)
+    @color_prices_old = Price.find_by_id(@product_type.white_price_id)
     if params[:get_product_color_id]  # form for sizes to cart, if color selected (reload by ajax)
       @product_color = ProductColor.find_by_id(params[:get_product_color_id])
       @product_sizes = ProductSize.where("product_color_id = ?", @product_color.id)
