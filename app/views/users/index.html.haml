@@ -1,11 +1,11 @@
-﻿= render 'users/admin_form'
+﻿%h1 Пользователи
 %br
-%h1 Пользователи
-%br
-= form_tag '/users', method: :get do
-  = select_tag :temp_id, options_for_select([['Зарегестрированные пользователи', 1], ['Ожидают регистрации', 2]], params[:temp_id])
-Поиск:
-= search_field_tag "search"
+.row-fluid
+  .span4
+    = form_tag '/users', method: :get do
+      = select_tag :temp_id, options_for_select([['Зарегестрированные пользователи', 1], ['Ожидают регистрации', 2]], params[:temp_id])
+  .span4
+    = search_field_tag "search", "", placeholder: "Поиск..."
 %table
   - @users.each do |user|
     %tr.company_name
