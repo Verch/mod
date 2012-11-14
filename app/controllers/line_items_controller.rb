@@ -11,7 +11,7 @@ class LineItemsController < ApplicationController
     end
 
     respond_to do |format|
-        format.html { redirect_to product_sizes_path, notice: 'Line item was successfully created.' }
+        format.html { redirect_to product_sizes_path}
         format.js #{@current_item = @line_item}
     end
   end

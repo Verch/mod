@@ -31,7 +31,7 @@ class UserGroupsController < ApplicationController
 
     respond_to do |format|
       if @user_group.save
-        format.html { redirect_to @user_group, notice: 'User group was successfully created.' }
+        format.html { redirect_to @user_group, notice: 'Группа пользователей успешно создана.' }
       else
         format.html { render action: "new" }
       end
@@ -44,7 +44,7 @@ class UserGroupsController < ApplicationController
 
     respond_to do |format|
       if @user_group.update_attributes(params[:user_group])
-        format.html { redirect_to @user_group, notice: 'User group was successfully updated.' }
+        format.html { redirect_to @user_group, notice: 'Группа пользователейбыла успешно изменена.' }
       else
         format.html { render action: "edit" }
       end
