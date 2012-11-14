@@ -1,18 +1,17 @@
-%p#notice= notice
-
 %p
-  %b Name:
+  %b Заказчик:
   = @order.name
 %p
-  %b Email:
+  %b Адрес электронной почты:
   = @order.email
 %p
-  %b Details:
-  = @order.details
+  %b Дополнительная информация:
+.span12
+  %p= @order.details
 %p
   - if @order.reserv_flag
     %i Резерв
 
 = render "show_form"
 
-= link_to 'На главную', orders_path
+= link_to 'К списку заказов', orders_path

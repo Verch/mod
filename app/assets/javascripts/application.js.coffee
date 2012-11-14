@@ -73,7 +73,7 @@ $ ->
 # order sort & etc.
 $ ->
 	$("#temp_order_id").change(()->
-    $("table").find("form").submit()
+    $("form").submit()
 	)
 
 $ ->
@@ -90,3 +90,28 @@ $ ->
     .keyup(()->
         $(this).change();
     );
+
+#orders search and orders filter
+$ ->
+  $("#temp_order_id").change(()->
+    $("table").find("form").submit()
+  )
+
+$ ->
+  $("input")
+      .change(()-> 
+        filter = $(this).val();
+        if(filter)
+          $("tr.order_name td:nth-child(2):not(:Contains(" + filter + "))").parent().slideUp();
+          $("tr.order_name td:nth-child(2):Contains(" + filter + ")").parent().slideDown();
+        else
+          $("tr.order_name").slideDown();
+        return false;
+      )
+    .keyup(()->
+        $(this).change();
+    );
+#in order go to link when clicked a row !!!!!! finish me !!!!!!
+$ ->
+  $("table").delegate("tr", "click", ()->
+    console.log($(this).val()))

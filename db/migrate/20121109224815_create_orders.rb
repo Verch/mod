@@ -4,8 +4,8 @@ class CreateOrders < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.text :details
-      t.boolean :reserv_flag
-      t.boolean :archive_flag
+      t.boolean :reserv_flag, default: false
+      t.boolean :archive_flag, default: false
       t.references :user, default: 0
 
       t.timestamps

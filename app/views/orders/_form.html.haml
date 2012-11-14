@@ -13,6 +13,8 @@
       %p Организация:
       = @current_user.company_name
     .field
+      = f.text_area :details, placeholder: "Дополнительная информация", class: "span12", rows: 6
+    .field
       = f.label "Резерв"
       = f.check_box :reserv_flag
     .actions
@@ -30,9 +32,9 @@
     .field
       = f.hidden_field :user_id
     .field
-      = f.text_field :name, placeholder: "Имя", class: "span12"
+      = f.text_field :name, placeholder: "Имя", class: "span12", rows: 6
     .field
-      = f.email_field :email, placeholder: "e-mail", class: "span12"
+      = f.email_field :email, placeholder: "e-mail", class: "span12", rows: 6
     .field
       = f.text_area :details, placeholder: "Детали (можете указать здесь контактный телефон и прочую информацию)", class: "span12", rows: 6
     .actions

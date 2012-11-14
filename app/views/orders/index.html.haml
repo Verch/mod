@@ -1,39 +1,35 @@
-- if @current_group && @current_group.admin_flag
-  = render 'users/admin_form'
-- else 
-  = render 'users/userform'
-%br
-%h1 Listing orders
+%h1 Управление заказами (резервами)
 
-%table
-  %tr
-    %th Name
-    %th Email
-    %th Details
-    %th
-    %th
-    %th
-  - if @current_group && @current_group.admin_flag
-    = form_tag '/orders', method: :get do
-      = select_tag :temp_order_id, options_for_select([['Заказы', 1], ['Резервы', 2]], params[:temp_order_id])
-    Поиск:
-    = search_field_tag "search"
+- if @current_group && @current_group.admin_flag
+  = form_tag '/orders', method: :get do
+    .row-fluid
+      .span4
+        = select_tag :temp_order_id, options_for_select([['Заказы (сорт. А-Я)', 1], ['Заказы (сорт. Дата)', 2], ['Резервы (сорт. А-Я)', 3], ['Резервы (сорт. Дата)', 4]], params[:temp_order_id])
+      .span4
+        = search_field_tag "search", "", placeholder: "Поиск..."
+  %table.table.table-hover
+    %tr
+      %th.span2 №
+      %th.span5 Наименование организации
+      %th.span5 Дата создания заказа
+
     - @orders.each do |order|
-      %tr.order_name
-        %td= link_to order.name, order
-        %td= order.email
-        %td= order.details
-        %td= link_to 'Show', order
-        %td= link_to 'Edit', edit_order_path(order)
-        %td
-          Поместить в архив 
-          = check_box_tag :check_to_archive, true, checked: true
-        %td= link_to 'Завершить заказ', order, :confirm => 'Are you sure?', :method => :delete
-  - else
+      %tr.order_name.info
+        %td.span2
+        %td.span5=link_to order.name, order
+        %td.span5= order.created_at.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")
+        
+- else
+  %table.table.table-hover
+    %tr
+      %th.span2 №
+      %th.span3 Дата создания заказа
+      %th.span3 Состояние
+      %th.span4 Дополнительная информация
+
     - @orders.each do |order|
-      %tr
-        %td= order.name
-        %td= order.email
-        %td= order.details
-        %td= link_to 'Show', order
-%br
+      %tr.info
+        %td.span2
+        %td.span3=link_to order.created_at.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)"), order
+        %td.span3
+        %td.span4= order.details

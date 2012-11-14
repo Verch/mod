@@ -47,6 +47,8 @@
 							#cart
 								= render @cart
 					.span9
+						-if notice
+							.alert.alert-success=notice
 						.well
 							= yield
 			#push

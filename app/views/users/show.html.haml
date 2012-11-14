@@ -1,18 +1,23 @@
-- if UserGroup.find_by_id(@user.user_group_id).admin_flag
-  = render 'admin_form'
-- else
-  = render 'userform'
 %p#notice= notice
-%h4
-  Личный кабинет пользователя
-%h6= link_to 'Редактировать', edit_user_path(@user)
-%hr{color: "green"}
-%table
-  %tr
-    %td email:
-    %td= mail_to @user.email
-  %tr
-    %td Последний раз на сайте:
-    %td= @user.last_in.in_time_zone('Minsk').strftime("%d.%m.%Y %H:%M")
-%hr{color: "green"}
-= render "form"
+.row-fluid
+  .span6
+    %h4 Личный кабинет пользователя
+  .span3.offset3
+    %h6= link_to 'Редактировать профиль', edit_user_path(@user)
+.row-fluid
+  .span5
+    Последний раз на сайте:
+    = @user.last_in.in_time_zone('Minsk').strftime("%d.%m.%Y %H:%M")
+  .span3.offset4
+    email:
+    = mail_to @user.email  
+  
+.row-fluid
+  .span4
+    - if @current_group and @current_group.admin_flag
+      = render "admin_form"
+    - else 
+      = render "user_form"
+  .span6.offset1
+    .well
+      = render 'form'

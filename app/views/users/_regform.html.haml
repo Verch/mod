@@ -5,55 +5,60 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-
   - if @current_group && @current_group.admin_flag
-    .control-group
-      = f.select "user_group_id", options_from_collection_for_select(@user_groups, "id", "name", @current_user_group.id)
-    .control-group
-      = f.label "Подтверждение регистрации:"
-      .controls
+    .row-fluid
+      .span1
+        Группа:
+      .span4
+        = f.select "user_group_id",  options_from_collection_for_select(@user_groups, "id", "name", @current_user_group.id)
+      .span3
+        = f.label "Подтвердить регистрацию:"
+      .span1
         = f.check_box :reg_confirm_admin
+  %hr
   .control-group
     = f.label "Имя:", class: "control-label"
     .controls
-      = f.text_field :name
+      = f.text_field :name, class: "input-xlarge"
   .control-group
     = f.label "Адрес электронной почты:", class: "control-label"
     .controls  
-      = f.email_field :email
+      = f.email_field :email, class: "input-xlarge"
   .control-group
     = f.label "Пароль:", class: "control-label"
     .controls
-      = f.password_field :password
+      = f.password_field :password, class: "input-xlarge"
   .control-group
     = f.label "Подтверждение пароля:", class: "control-label"
     .controls
-      = f.password_field :password_confirmation
+      = f.password_field :password_confirmation, class: "input-xlarge"
   .control-group
     = f.label "Форма собственности: ", class: "control-label"
     .controls
-      = f.text_field :type_of_ownership
+      = f.text_field :type_of_ownership, class: "input-xlarge"
   - if @user.edit_data_flag  
     .control-group
       = f.label "Название организации: ", class: "control-label"
       .controls
-        = f.text_field :company_name
-      - if @current_group && @current_group.admin_flag
-        = f.label "Разрешить редактирование: ", class: "control-label"
-        = f.check_box :edit_data_flag
+        = f.text_field :company_name, class: "input-xlarge"
   - else
     .control-group
       = f.label "Название организации: ", class: "control-label"
       .controls
-        = f.label @user.company_name, class: "control-label"
+        = f.text_field :company_name, readonly: "readonly", class: "input-xlarge"
+  - if @current_group && @current_group.admin_flag
+    .control-group
+      = f.label "Разрешить редактирование: ", class: "control-label"
+      .controls
+        = f.check_box :edit_data_flag, class: "input-xlarge"
   .control-group
     = f.label "УНП: ", class: "control-label"
     .controls
-      = f.text_field :unp
+      = f.text_field :unp, class: "input-xlarge"
   .control-group
     = f.label "Юридический адрес: ", class: "control-label"
     .controls
-      = f.text_field :juridical_address
+      = f.text_field :juridical_address, class: "input-xlarge"
     .controls
     = f.label "Совподает с почтовым: ", class: "control-label"
     .controls
@@ -61,41 +66,42 @@
   .control-group
     = f.label "Почтовый адрес: ", class: "control-label"
     .controls
-      = f.text_field :mailing_address
+      = f.text_field :mailing_address, class: "input-xlarge"
   .control-group
     = f.label "Контактное лицо: ", class: "control-label"
     .controls
-      = f.text_field :contact_name
+      = f.text_field :contact_name, class: "input-xlarge"
   %div#phones
     .control-group
       = f.label "Номер телефона: ", class: "control-label"
       .controls
-        = f.text_field :phone_number_0
+        = f.text_field :phone_number_0, class: "input-xlarge"
     .control-group
       = f.label "Номер телефона: ", class: "control-label"
       .controls
-        = f.text_field :phone_number_1
+        = f.text_field :phone_number_1, class: "input-xlarge"
     .control-group
       = f.label "Номер телефона: ", class: "control-label"
       .controls
-        = f.text_field :phone_number_2
+        = f.text_field :phone_number_2, class: "input-xlarge"
     .control-group
       = f.label "Номер телефона: ", class: "control-label"
       .controls
-        = f.text_field :phone_number_3
+        = f.text_field :phone_number_3, class: "input-xlarge"
     .control-group
       .controls
-        =link_to "Добавить телефонный номер", "#",{class: "btn", id: "my_button", remote: true}
+        =link_to "Добавить телефонный номер", "#",{class: "btn btn-inverse", id: "my_button", remote: true}
   .control-group
     = f.label "Skype: ", class: "control-label"
     .controls
-      = f.text_field :skype
+      = f.text_field :skype, class: "input-xlarge"
   .control-group
     = f.label "Время работы: ", class: "control-label"
     .controls
-      = f.text_field :work_time
-  -if (params[:action] == "edit")
-    = f.submit 'Сохранить', class: "btn btn-primary"
-    =link_to "Отмена", user_path, {class: "btn"}
-  -else
-    = f.submit 'Зарегистрироваться', class: "btn"
+      = f.text_field :work_time, class: "input-xlarge"
+  .center  
+    -if (params[:action] == "edit")
+      = f.submit 'Сохранить', class: "btn btn-success"
+      =link_to "Отмена", user_path, {class: "btn btn-danger"}
+    -else
+      = f.submit 'Зарегистрироваться', class: "btn"

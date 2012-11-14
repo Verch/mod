@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   				  :mailing_address, :name, :password_digest, 
   				  :phone_number_0, :phone_number_1, :phone_number_2, 
   				  :phone_number_3, :reg_confirm_admin, :skype, :unp, 
-  				  :work_time, :password, :password_confirmation
+  				  :work_time, :password, :password_confirmation,
+  				  :user_group_id, :type_of_ownership
   belongs_to :user_groups
   has_many :orders
 end
