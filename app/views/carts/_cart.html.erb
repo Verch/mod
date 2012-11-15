@@ -2,9 +2,10 @@
 	<div class="well">
 		<div class="nav-header">Ваша корзина</div>
 		<ul class= "nav nav-list"><li class="divider"></li></ul>
-		<table>
+		<table class="table table-bordered">
 			<%= render(@cart.line_items) %>
 		</table>
+		<br>
 		<%= button_to 'Заказать', new_order_path, method: :get, class: "btn btn-success btn-block" %>
 		<%= button_to 'Очистить', cart, method: :delete, class: "btn btn-danger btn-block", confirm: 'Вы уверены?' %>
 	</div>

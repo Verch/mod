@@ -13,6 +13,12 @@ $ ->
 	$('#link_out_order_menu').click(()->
 		$('#order_menu').slideToggle(500)
 		$('#link_to_order_menu').slideToggle(500))
+#$ ->
+#  $('.link_to_color').click(()->
+#    new_src = this.id
+#    console.log(new_src)
+#    $('.click_image_color').attr('src',new_src)
+#    )
 
 # product_sizes#index (search product)
 $ ->

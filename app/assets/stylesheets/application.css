@@ -20,7 +20,6 @@
 html, body {
 	height: 100%;
 }
-
 /* Wrapper for page content to push down footer */
 #wrap {
 	min-height: 100%;
@@ -29,7 +28,6 @@ html, body {
 	/* Negative indent footer by it's height */
 	margin: 0 auto -60px;
 }
-
 /* Set the fixed height of the footer here */
 #push, #footer {
 	height: 60px;
@@ -40,7 +38,6 @@ html, body {
 #p_footer {
 	margin: 7px;
 }
-
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
 	#footer {
@@ -50,11 +47,9 @@ html, body {
 		padding-right: 20px;
 	}
 }
-
 #home {
 	font-size: 12px;
 }
-
 #temp_params_info {
 	float: left;
 	z-index: 10;
@@ -67,7 +62,6 @@ html, body {
 .clear {
 	clear: both;
 }
-
 .hide {
 	display: none;
 }
@@ -76,20 +70,21 @@ html, body {
 #order_menu {
 	display: none;
 }
-.link_to_order_menu_color
-{
-	color: black;
-	font-weight: bold;
-	padding: 5px 10px;
-	width: 90px;
-	border: 2px solid grey;
+.link_to_color {
+	font-size: 10px;
+	line-height: 6px;
+	text-align: center;
+	width: 80px;
+	height: 23px;
+	padding-top: 17px;
+	border: 2px solid #1c1c1c;
 	border-radius: 2px;
-	text-decoration: none;
-	text-align: center;	
 	float: left;
+	margin-right: 2px;
+	margin-bottom: 2px;
 }
-.table_to_cart
-{
+
+.table_to_cart {
 	margin: 20px auto;
 	text-align: center
 }
