@@ -1,4 +1,4 @@
-class UserGroupsController < ApplicationController
+﻿class UserGroupsController < ApplicationController
   # GET /user_groups
   def index
     @user_groups = UserGroup.all
