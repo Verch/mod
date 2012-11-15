@@ -1,11 +1,16 @@
 .container-fluid
   .row-fluid
     .span4
-      = image_tag @product_type.big_image_url,{width: "300px", class: "img-rounded", align: "left", hspace: "10px", vspace: "10px"}
+      #click_image_color
+        = render "image_color"
     .span7.offset1
       %b= @product_type.name
       %p
         = @product_type.description.html_safe
+      %br
+      - @product_colors.each do |product_color|
+        =link_to product_color.name, product_type_path(get_product_color_id: product_color.id), remote: true, class: "link_to_color", style:"background-color: #{product_color.rgb};", id: product_color.big_image_url
+  .clear
 .clear
 %h5 Старая цена:
 %table.table.table-hover
@@ -73,7 +78,6 @@
     Закрыть
   %br
   - @product_colors.each do |product_color|
-    .link_to_order_menu_color{:style => "background-color: #{product_color.rgb}"}
-      =link_to product_color.name, product_type_path(get_product_color_id: product_color.id), remote: true 
+    =link_to product_color.name, product_type_path(get_product_color_id: product_color.id), remote: true, class: "link_to_color", style:"background-color: #{product_color.rgb};", id: product_color.big_image_url
   .clear
   #list_to_cart  

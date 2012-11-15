@@ -16,6 +16,8 @@ class ProductTypesController < ApplicationController
     if params[:get_product_color_id]  # form for sizes to cart, if color selected (reload by ajax)
       @product_color = ProductColor.find_by_id(params[:get_product_color_id])
       @product_sizes = ProductSize.where("product_color_id = ?", @product_color.id)
+    else
+      @product_color = @product_colors.first
     end
 
     respond_to :html, :js # show.html.erb
