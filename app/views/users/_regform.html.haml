@@ -59,7 +59,7 @@
     = f.label "Юридический адрес: ", class: "control-label"
     .controls
       = f.text_field :juridical_address, class: "input-xlarge"
-    .controls
+  .control-group
     = f.label "Совподает с почтовым: ", class: "control-label"
     .controls
       = check_box_tag :mail_duplicate, "false"
@@ -104,4 +104,4 @@
       = f.submit 'Сохранить', class: "btn btn-success"
       =link_to "Отмена", user_path, {class: "btn btn-danger"}
     -else
-      = f.submit 'Зарегистрироваться', class: "btn"
+      = f.submit 'Зарегистрироваться', class: "btn btn-large btn-primary"

@@ -1,5 +1,6 @@
 ﻿class UsersController < ApplicationController
   # GET /users
+  before_filter :authorize, :admin_check, only: [:index, :show, :edit, :update, :destroy]
   def index
     if params[:temp_id] == "1"
       @users = User.where("reg_confirm_admin = ?", true)
@@ -15,9 +16,12 @@
 
   # GET /users/1
   def show
-    @user = User.find(params[:id])
-
-    respond_to :html # show.html.erb
+    #if @current_user != params[:id]
+      #redirect_to root_path, notice: "Нет прав доступа"
+    #else  
+      @user = User.find(params[:id])
+      respond_to :html # show.html.erb
+    #end
   end
 
   # GET /users/new

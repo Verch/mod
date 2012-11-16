@@ -7,8 +7,16 @@
 		= csrf_meta_tags
 	%body
 		#wrap
-			#temp_params_info.hide
+			#temp_params_info
 				=params
+				%br
+				- if session[:user_id] == nil
+					nil
+				- else
+					=session[:user_id]
+					=@current_user.name
+					=@current_user.id
+				%br
 			=image_tag "Hat.png",{width: "100%" }
 			.navbar
 				.navbar-inner

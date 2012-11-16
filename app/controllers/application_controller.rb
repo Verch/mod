@@ -20,8 +20,10 @@
 		end
 
 		def admin_check
-			unless @current_group.admin_flag
-				redirect_to root_path
+			unless @current_user.id == params[:id].to_i
+				unless @current_group.admin_flag
+					redirect_to root_path, notice: "Нет прав доступа"
+				end
 			end
 		end
 

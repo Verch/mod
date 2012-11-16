@@ -1,8 +1,10 @@
 %h1 Группы пользователей
 = link_to 'Создать новую группу', new_user_group_path
-%table
+%table.table.table-hover.table-bordered
   - @user_groups.each do |user_group|
-    %tr
-      %td= user_group.name
-      %td= link_to 'Редактировать', edit_user_group_path(user_group)
-      %td= link_to 'Удалить', user_group, :confirm => 'Вы уверены?', :method => :delete
+    %tr.info
+      %td
+        %b= user_group.name
+        .button-group.pull-right
+          = link_to 'Редактировать', edit_user_group_path(user_group), class: "btn btn-info"
+          = link_to 'Удалить', user_group, :confirm => 'Вы уверены?', :method => :delete, class: "btn btn-danger"

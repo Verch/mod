@@ -6,12 +6,12 @@
       = select_tag :temp_id, options_for_select([['Зарегестрированные пользователи', 1], ['Ожидают регистрации', 2]], params[:temp_id])
   .span4
     = search_field_tag "search", "", placeholder: "Поиск..."
-%table
+%table.table.table-hover.table-bordered
   - @users.each do |user|
     %tr.company_name
       %td= user.company_name
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Показать', user, class: "btn btn-info"
+      %td= link_to 'Редактировать', edit_user_path(user), class: "btn btn-info"
+      %td= link_to 'Удалить', user, :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger"
       %td= "Последний раз на сайте:"
       %td= user.last_in.in_time_zone('Minsk').strftime("%d.%m.%Y %H:%M")

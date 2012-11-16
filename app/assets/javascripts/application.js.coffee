@@ -117,7 +117,9 @@ $ ->
     .keyup(()->
         $(this).change();
     );
-#in order go to link when clicked a row !!!!!! finish me !!!!!!
+
+# products
 $ ->
-  $("table").delegate("tr", "click", ()->
-    console.log($(this).val()))
+  $("#count_price_slider").click(()->
+    $('#count_slider').fadeToggle(500)
+    $('#price_slider').fadeToggle(500))
