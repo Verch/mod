@@ -16,12 +16,9 @@
 
   # GET /users/1
   def show
-    #if @current_user != params[:id]
-      #redirect_to root_path, notice: "Нет прав доступа"
-    #else  
-      @user = User.find(params[:id])
-      respond_to :html # show.html.erb
-    #end
+    @user = User.find(params[:id])
+    
+    respond_to :html # show.html.erb
   end
 
   # GET /users/new

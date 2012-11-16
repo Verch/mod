@@ -1,10 +1,10 @@
-%h1 Управление заказами (резервами)
+%h2 Управление заказами (резервами , архивами)
 
 - if @current_group && @current_group.admin_flag
   = form_tag '/orders', method: :get do
     .row-fluid
       .span4
-        = select_tag :temp_order_id, options_for_select([['Заказы (сорт. А-Я)', 1], ['Заказы (сорт. Дата)', 2], ['Резервы (сорт. А-Я)', 3], ['Резервы (сорт. Дата)', 4]], params[:temp_order_id])
+        = select_tag :temp_order_id, options_for_select([['Заказы (сорт. А-Я)', 1], ['Заказы (сорт. Дата)', 2], ['Резервы (сорт. А-Я)', 3], ['Резервы (сорт. Дата)', 4], ['Архив (сорт. А-Я)', 5], ['Архив (сорт. Дата)', 6]], params[:temp_order_id])
       .span4
         = search_field_tag "search", "", placeholder: "Поиск..."
   %table.table.table-hover
