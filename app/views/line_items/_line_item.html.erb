@@ -13,4 +13,5 @@
 <% else %>
 	<td><%= line_item.quantity%></td>
 <% end %>
+	<td><%= link_to "<i class='icon-remove'></i>".html_safe, line_item, method: :delete, remote: true %></td>
 </tr>

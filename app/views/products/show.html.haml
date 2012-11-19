@@ -1,7 +1,7 @@
 = @product.description_top.html_safe
-.thumbnails
+%ul.thumbnails
 	- @product_types.each do |product_type|
-		%li.span3
+		%li.span2
 			.thumbnail
 				= image_tag product_type.big_image_url,{width: "100%", class: "img-rounded"}
 				= link_to product_type.name, product_type

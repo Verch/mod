@@ -1,6 +1,14 @@
 ﻿class OrdersController < ApplicationController
   # GET /orders
   def index
+    #cost
+    @orders = Order.all
+    @orders.each do |order|
+      if order.line_items.empty?
+        order.destroy
+      end
+    end
+
     respond_to do |format|
       if @current_group && @current_group.admin_flag  
         case params[:temp_order_id]
@@ -93,6 +101,15 @@
       @order.email = @current_user.email
     end
     @order.add_line_items_from_cart(current_cart)
+
+    #cost
+    @orders = Order.all
+    @orders.each do |order|
+      if order.line_items.empty?
+        order.destroy
+      end
+    end
+
 
     respond_to do |format|
       if @order.save

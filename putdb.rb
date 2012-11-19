@@ -29,7 +29,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Футболки кор. рук. Круглый ворот 155 гр. Хлопок 100%"
 product_type.description = "Состав: хлопок 100%. Яркие цвета. Изделия не деформируются после многочисленных стирок. Воротник с добавлением лайкры. Мягкий компенсатор горловины. Усиленные плечевые швы. Везде двойная строчка. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Для производства футболок используется суперчесанный хлопок высшего качества. Плотная вязка - идеально подходят для нанесения сложных цветных изображений. <b><br>Плотность: 155 гр/м2<br>Размеры: S-3XL<br>Количество цветов: 24<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 1
 product_type.color_price_id = 2
@@ -78,7 +78,7 @@ price.price_6 = 50352
 price.price_7 = 49656
 price.save
 colors = ["Белый", "Бежевый", "Бирюзовый", "Океан", "Бордовый", "Голубой", "Желтый", "Зеленый", "Красный", "Лимонный", "Небесный", "Оливковый", "Оранжевый", "Песочный", "Салатовый", "Светло-голубой", "Светло-желтый", "Серебристый", "Слоновая кость", "Темно-зеленый", "Темно-синий", "Фиолетовый", "Черный", "Шоколад", "Ярко-синий"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["white.jpg", "bezh.jpg", "biru.jpg", "okean.jpg", "bord.jpg", "golub.jpg", "yellow.jpg", "green.jpg", "red.jpg", "lime.jpg", "sky.jpg", "olive.jpg", "orange.jpg", "sand.jpg", "salat.jpg", "sky.jpg", "syellow.jpg", "sereb.jpg", "slon.jpg", "tgreen.jpg", "tblue.jpg", "fiol.jpg", "black.jpg", "choc.jpg", "yablue.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -105,7 +105,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Футболки жен. кор. рук. Круглый ворот 155 гр. Хлопок 100%"
 product_type.description = "<b><br>Плотность: 155 гр/м2<br>Размеры: S-2XL<br>Количество цветов: 9<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 5
 product_type.color_price_id = 6
@@ -154,7 +154,7 @@ price.price_6 = 48336
 price.price_7 = 47676
 price.save
 colors = ["Белый", "Светло-голубой", "Желтый", "Зеленый", "Красный", "Оранжевый", "Черный", "Ярко-синий", "Темно-синий"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -181,7 +181,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Футболки дет. кор. рук. Круглый ворот 155 гр. Хлопок 100%"
 product_type.description = "Состав: хлопок 100%. Яркие цвета. Изделия не деформируются после многочисленных стирок. Воротник с добавлением лайкры. Мягкий компенсатор горловины. Усиленные плечевые швы. Везде двойная строчка. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Для производства футболок используется суперчесанный хлопок высшего качества. Плотная вязка - идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 155 гр/м2<br>Размеры: 5XS-S<br>Количество цветов: 14<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 9
 product_type.color_price_id = 10
@@ -230,7 +230,7 @@ price.price_6 = 33968
 price.price_7 = 33506
 price.save
 colors = ["Белый", "Голубой", "Ярко-синий", "Слоновая кость", "Лимонный", "Желтый", "Зеленый", "Небесный", "Красный", "Оранжевый", "Черный", "Фиолетовый", "Бордовый", "Салатовый"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["white.jpg", "golub.jpg", "blue.jpg", "slon.jpg", "lime.jpg", "yellow.jpg", "green.jpg", "sky.jpg", "red.jpg", "orange.jpg", "black.jpg", "fiol.jpg", "bord.jpg", "salat.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -257,7 +257,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Футболки дл. рук. Круглый-ворот 155 гр. Хлопок 100%"
 product_type.description = "Состав: хлопок 100%. Яркие цвета. Изделия не деформируются после многочисленных стирок. Воротник с добавлением лайкры. Мягкий компенсатор горловины. Усиленные плечевые швы. Везде двойная строчка. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Для производства футболок используется суперчесанный хлопок высшего качества. Плотная вязка - идеально подходят для нанесения сложных цветных изображений. <b><br>Плотность: 155 гр/м2<br>Размеры: S-3XL<br>Количество цветов: 7<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 13
 product_type.color_price_id = 14
@@ -306,7 +306,7 @@ price.price_6 = 71688
 price.price_7 = 70716
 price.save
 colors = ["Белый", "Ярко-синий", "Красный", "Оранжевый", "Черный", "Слоновая кость", "Серебристый"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["white.jpg", "yablue.jpg", "red.jpg", "orange.jpg", "black.jpg", "slon.jpg", "sereb.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -333,7 +333,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Стрейчевые футболки муж. кор. рук. Круглый ворот 180 гр. хлопок 92% + эластан 8%"
 product_type.description = "Состав: хлопок 92%+лайкра 8%. Для производства мужских футболок используется суперчесанный хлопок высшего качества. Подчеркивают фигуру. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 180 гр/м2<br>Размеры: M-2XL<br>Количество цветов: 7<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 17
 product_type.color_price_id = 18
@@ -382,7 +382,7 @@ price.price_6 = 87000
 price.price_7 = 85812
 price.save
 colors = ["Белый", "Ярко-синий", "Темно-синий", "Красный", "Оранжевый", "Черный", "Серебристый", "Фиолетовый"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["white.jpg", "yablue.jpg", "tblue.jpg", "red.jpg", "orange.jpg", "black.jpg", "sereb.jpg", "fiol.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -409,7 +409,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Стрейчевые футболки жен. кор. рук. Круглый ворот 200 гр. хлопок 92% + эластан 8%"
 product_type.description = "Состав: хлопок 92%+лайкра 8%. Для производства женских футболок используется суперчесанный хлопок высшего качества. Зауженные двойные строчки и модельный ворот придают элегантность и подчеркивают женственность. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Футболки идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 200 гр/м2<br>Размеры: XS-XL<br>Количество цветов: 19<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 21
 product_type.color_price_id = 22
@@ -458,7 +458,7 @@ price.price_6 = 62436
 price.price_7 = 61584
 price.save
 colors = ["Белый", "Бежевый", "Бирюзовый", "Голубой", "Желтый", "Зеленый", "Красный", "Лимонный", "Оранжевый", "Песочный", "Салатовый", "Серебристый", "Слоновая кость", "Темно-синий", "Фиолетовый", "Черный", "Ярко-синий", "Розовый", "Кремовый"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["white.jpg", "bezh.jpg", "biru.jpg", "golub.jpg", "yellow.jpg", "green.jpg", "red.jpg", "lime.jpg", "orange.jpg", "sand.jpg", "salat.jpg", "sereb.jpg", "slon.jpg", "tblue.jpg", "fiol.jpg", "black.jpg", "yablue.jpg", "pink.jpg", "cream.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -485,7 +485,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Стрейчевые футболки муж. дл. рук. Круглый ворот 180 гр. хлопок 92% + эластан 8%"
 product_type.description = "Состав: хлопок 92%+лайкра 8%. Для производства мужских футболок используется суперчесанный хлопок высшего качества. Подчеркивают фигуру. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 180 гр/м2<br>Размеры: M-2XL<br>Количество цветов: 7<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 25
 product_type.color_price_id = 26
@@ -534,7 +534,7 @@ price.price_6 = 92640
 price.price_7 = 91368
 price.save
 colors = ["Белый", "Ярко-синий", "Темно-синий", "Красный", "Оранжевый", "Черный", "Серебристый"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["white.jpg", "yablue.jpg", "tblue.jpg", "red.jpg", "orange.jpg", "black.jpg", "sereb.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -561,7 +561,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Стрейчевые футболки жен. дл. рук. Круглый ворот 180 гр. хлопок 92% + эластан 8%"
 product_type.description = "Состав: хлопок 92%+лайкра 8%. Для производства женских футболок используется суперчесанный хлопок высшего качества. Зауженные двойные строчки и модельный ворот придают элегантность и подчеркивают женственность. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Футболки идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 180 гр/м2<br>Размеры: S-XL<br>Количество цветов: 8<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 29
 product_type.color_price_id = 30
@@ -610,7 +610,7 @@ price.price_6 = 0
 price.price_7 = 0
 price.save
 colors = ["Белый", "Голубой", "Лимонный", "Оранжевый", "Салатовый", "Черный", "Ярко-синий", "Кремовый"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["white.jpg", "golub.jpg", "lime.jpg", "orange.jpg", "salat.jpg", "black.jpg", "yablue.jpg", "cream.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -1111,7 +1111,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Бейсболки Классика 100 гр."
 product_type.description = "Состав: хлопок 100%. Пятиклинка. Яркие цвета. Металлическая застежка. Плотный козырек с пластиковой вставкой.<b><br>Плотность: 100 гр/м2<br>Количество цветов: 20<br></b>"
-product_type.big_image_url = path_bone+"black.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 57
 product_type.color_price_id = 58
@@ -1160,7 +1160,7 @@ price.price_6 = 31416
 price.price_7 = 30996
 price.save
 colors = ["Белый", "Хаки", "Бирюзовый", "Голубой", "Желтый", "Зеленый", "Красный", "Светло-желтый", "Оранжевый", "Песочный", "Салатовый", "Серебристый", "Слоновая кость", "Темно-синий", "Черный", "Ярко-синий", "Темно-красный", "Бордовый", "Небесный", "Темно-зеленый"]
-big_image_urls = ["white.jpg", "haki.jpg", "biru.jpg", "golub.jpg", "yellow.jpg", "green.jpg", "red.jpg", "syellow.jpg", "example.png", "sand.jpg", "salat.jpg", "sereb.jpg", "example.png", "tblue.jpg", "black.jpg", "yablue.jpg", "tred.jpg", "bord.jpg", "sky.jpg", "tgreen.jpg"]
+big_image_urls = ["white.png", "haki.png", "biru.png", "golub.png", "yellow.png", "green.png", "red.png", "syellow.png", "cream.png", "sand.png", "salat.png", "sereb.png", "cream.png", "tblue.png", "black.png", "yablue.png", "tred.png", "bord.png", "sky.png", "tgreen.png"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -1187,7 +1187,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Бейсболки Комфорт 200 гр."
 product_type.description = "Состав: хлопок 100%. Пятиклинка. Велюровая джинса. Яркие цвета. Металлическая застежка. Плотный козырек с пластиковой вставкой.<b><br>Плотность: 200 гр/м2<br>Количество цветов: 14<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 61
 product_type.color_price_id = 62
@@ -1236,7 +1236,7 @@ price.price_6 = 36252
 price.price_7 = 35760
 price.save
 colors = ["Белый", "Серый", "Бирюзовый", "Желтый", "Зеленый", "Красный", "Оранжевый", "Серебристый", "Слоновая кость", "Темно-синий", "Черный", "Ярко-синий", "Бордовый", "Небесный"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["white.jpg", "grey.jpg", "biru.jpg", "yellow.jpg", "green.jpg", "red.jpg", "orange.jpg", "sereb.jpg", "slon.jpg", "tblue.jpg", "black.jpg", "yablue.jpg", "bord.jpg", "sky.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -1263,7 +1263,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Бейсболки Люкс 200 гр/м2"
 product_type.description = "Состав: хлопок 100%. Пятиклинка. Велюровая джинса. Яркие цвета. Металлическая застежка. Плотный козырек со вставкой другого цвета. <b><br>Плотность: 200 гр/м2<br>Количество цветов: 18<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 65
 product_type.color_price_id = 66
@@ -1312,7 +1312,7 @@ price.price_6 = 42288
 price.price_7 = 41712
 price.save
 colors = ["Белый", "Голубой", "Желтый", "Зеленый", "Красный", "Оранжевый", "Песочный", "Салатовый", "Серебристый", "Слоновая кость", "Серый", "Темно-синий", "Черный", "Ярко-синий", "Темно-красный", "Бордовый"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["white.jpg", "sky.jpg", "yellow.jpg", "green.jpg", "black_red.jpg", "orange.jpg", "sand_black.jpg", "salat.jpg", "sereb_black.jpg", "slon_red.jpg", "grey_black.jpg", "tblue.jpg", "black.jpg", "yablue.jpg", "tred.jpg", "bord.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -1339,7 +1339,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Бейсболки Люкс-Экстра 200гр/м2"
 product_type.description = "Состав: хлопок 100%. Шестиклинка. Велюровая джинса. Яркие цвета. Металлическая застежка. Трехслойный комбинированный плотный козырек. Декоративные канты и вставка козырька другого цвета.<b><br>Плотность: 200 гр/м2<br>Количество цветов: 10<br></b>"
-product_type.big_image_url = path_bone+"example.png"
+product_type.big_image_url = path_bone+"black_red.jpg"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 69
 product_type.color_price_id = 70
@@ -1388,7 +1388,7 @@ price.price_6 = 43500
 price.price_7 = 42912
 price.save
 colors = ["Белый", "Желтый", "Красный", "Оранжевый", "Серебристый", "Слоновая кость", "Темно-синий", "Черный", "Ярко-синий"]
-big_image_urls = ["example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png", "example.png"]
+big_image_urls = ["black_white.jpg", "yellow_red.jpg", "red_white.jpg", "orange_black.jpg", "sereb_black.jpg", "slon_red.jpg", "tblue_white.jpg", "black_red.jpg", "yablue_white.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
@@ -1430,11 +1430,9 @@ user_group.save
 temp_user = User.new
 temp_user.name = "admin"
 temp_user.company_name = "admin_company"
-temp_user.email = "admin@admin.com"
-temp_user.juridical_address = "admin's_street"
-temp_user.type_of_ownership = "ooo"
-temp_user.password = "adminadmin"
-temp_user.password_confirmation = "adminadmin"
+temp_user.email = "admin@admin"
+temp_user.password = "admin"
+temp_user.password_confirmation = "admin"
 temp_user.reg_confirm_admin = true
 temp_user.user_group_id = 1
 temp_user.last_in = DateTime.now
@@ -1443,11 +1441,9 @@ temp_user.save
 temp_user = User.new
 temp_user.name = "user"
 temp_user.company_name = "user_company"
-temp_user.email = "user@user.com"
-temp_user.juridical_address = "user's_street"
-temp_user.type_of_ownership = "ooo"
-temp_user.password = "useruser"
-temp_user.password_confirmation = "useruser"
+temp_user.email = "user@user"
+temp_user.password = "user"
+temp_user.password_confirmation = "user"
 temp_user.reg_confirm_admin = true
 temp_user.last_in = DateTime.now
 temp_user.save

@@ -15,4 +15,13 @@ class LineItemsController < ApplicationController
         format.js #{@current_item = @line_item}
     end
   end
+
+  def destroy
+    @line_item = LineItem.find(params[:id])
+    @line_item.destroy
+
+    respond_to do |format|
+      format.js
+    end
+  end
 end

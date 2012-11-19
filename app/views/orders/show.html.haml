@@ -13,5 +13,6 @@
     %i Резерв
 
 = render "show_form"
-
+= link_to 'Редактировать', carts_path(order_id: @order.id), method: :post
+%p * Ваш заказ будет перемещен в корзину для редактирования
 = link_to 'К списку заказов', orders_path

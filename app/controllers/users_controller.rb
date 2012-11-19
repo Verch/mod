@@ -2,14 +2,13 @@
   # GET /users
   before_filter :authorize, :admin_check, only: [:index, :show, :edit, :update, :destroy]
   def index
-    if params[:temp_id] == "1"
-      @users = User.where("reg_confirm_admin = ?", true)
-    else
-      if params[:temp_id] == "2"
+    case params[:temp_id]
+      when "1"
+        @users = User.where("reg_confirm_admin = ?", true)
+      when "2"
         @users = User.where("reg_confirm_admin = ?", false)
       else
         @users = User.where("reg_confirm_admin = ?", true)
-      end
     end    
     respond_to :html # index.html.erb
   end
@@ -44,7 +43,13 @@
     end
     respond_to do |format|
       if @user.save
-        unless Unp.find_by_unp(@user.unp)
+        if unp = Unp.find_by_unp(@user.unp)
+          if @specs = Spec.find_all_by_unp_id(unp.id)
+            @specs.each do |spec|
+              spec.user_id = @user.id
+            end
+          end
+        else
           @unp = Unp.new
           @unp.unp = @user.unp
           @unp.save
@@ -74,6 +79,10 @@
   # DELETE /users/1
   def destroy
     @user = User.find(params[:id])
+    @specs = Spec.find_all_by_user_id(@user.id)
+    @specs.each do |spec|
+      @spec.user_id = nil
+    end
     @user.destroy
 
     respond_to do |format|
