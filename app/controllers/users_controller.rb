@@ -49,7 +49,7 @@
           @unp.unp = @user.unp
           @unp.save
         end
-        format.html { redirect_to login_path, alert: 'Свяжитесь с администратором для подтверждения регистрации.' }
+        format.html { redirect_to login_path, notice: 'Свяжитесь с администратором для подтверждения регистрации.' }
       else
         format.html { render action: "new" }
       end

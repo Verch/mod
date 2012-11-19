@@ -1,7 +1,11 @@
 ﻿class ApplicationController < ActionController::Base
 	protect_from_forgery
 	before_filter :curr
+	before_filter :test
 	protected
+		def test
+			@test = params[:action]
+		end
 		def authorize
 			unless User.find_by_id(session[:user_id])
 				redirect_to login_path, alert: "Для просмотра страницы необходимо авторизоваться"

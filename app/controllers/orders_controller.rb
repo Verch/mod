@@ -5,19 +5,19 @@
       if @current_group && @current_group.admin_flag  
         case params[:temp_order_id]
           when "1"
-            @orders = Order.where("reserv_flag = ?, archive_flag = ?", false, false).order("name ASC")
+            @orders = Order.where("reserv_flag = ? AND archive_flag = ?", false, false).order("name ASC")
           when "2"
-            @orders = Order.where("reserv_flag = ?, archive_flag = ?", false, false).order("updated_at DESC")
+            @orders = Order.where("reserv_flag = ? AND archive_flag = ?", false, false).order("updated_at DESC")
           when "3"
-            @orders = Order.where("reserv_flag = ?, archive_flag = ?", true, false).order("name ASC")
+            @orders = Order.where("reserv_flag = ? AND archive_flag = ?", true, false).order("name ASC")
           when "4"
-            @orders = Order.where("reserv_flag = ?, archive_flag = ?", true, false).order("updated_at DESC")
+            @orders = Order.where("reserv_flag = ? AND archive_flag = ?", true, false).order("updated_at DESC")
           when "5"
             @orders = Order.where("archive_flag = ?", true).order("name ASC")
           when "6"
             @orders = Order.where("archive_flag = ?", true).order("updated_at DESC")
           else
-            @orders = Order.where("reserv_flag = ?", false).order("name ASC")  
+            @orders = Order.where("reserv_flag = ? AND archive_flag = ?", false, false).order("name ASC")  
         end
       else
         if @current_user
