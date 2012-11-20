@@ -1,0 +1,23 @@
+%h2 Спецификации
+
+= form_tag '/spec', method: :get do
+  .row-fluid
+    .span4
+      = search_field_tag "search", "", placeholder: "Поиск..."
+%table.table.table-hover
+  %tr
+    %th.span1 №
+    %th.span3 Наименование организации
+    %th.span2 Номер спецификации
+    %th.span2 Дата создания заказа
+    %th.span2 Сумма
+    %th.span2 Способ оплаты
+
+  - @specs.each do |spec|
+    %tr.order_name.info
+      %td.span1= spec.number
+      %td.span3= link_to spec.company_name, spec
+      %td.span2= spec.spec_num
+      %td.span2= spec.date.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")
+      %td.span2= spec.summa
+      %td.span2= spec.pay_type

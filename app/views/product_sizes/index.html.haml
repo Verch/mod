@@ -37,4 +37,4 @@
               = number_field_tag "product_sizes[#{product_size_to_cart.id}]", "", class: "input-mini"
         %tr 
           %td{colspan: @product_sizes.count} 
-            = submit_tag "Добавить в корзину", class: "btn btn-inverse"
+            = submit_tag "Добавить в корзину", class: "btn btn-inverse", id: "button_to_cart", disable_with: "Добавлено"

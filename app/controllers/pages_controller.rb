@@ -1,6 +1,6 @@
 ﻿class PagesController < ApplicationController
   def home
-    @notice = "<b>Сайт работает в тестовом режиме</b>"
+    @news = Tool.first.news
   end
 
   def convertsizes

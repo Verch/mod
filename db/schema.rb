@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109230151) do
+ActiveRecord::Schema.define(:version => 20121120135502) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -136,6 +136,15 @@ ActiveRecord::Schema.define(:version => 20121109230151) do
 
   add_index "specs", ["unp_id"], :name => "index_specs_on_unp_id"
   add_index "specs", ["user_id"], :name => "index_specs_on_user_id"
+
+  create_table "tools", :force => true do |t|
+    t.text     "news"
+    t.integer  "user_wait_count",      :default => 0
+    t.integer  "order_wait_count",     :default => 0
+    t.datetime "last_time_sklad_edit"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
 
   create_table "unps", :force => true do |t|
     t.string   "unp"

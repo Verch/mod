@@ -3,7 +3,6 @@
   %ul.nav.nav-tabs.nav-stacked
     - @products.each do |product|
       %li=link_to product.name, product_types_path(get_product_id: product.id)
-- else
-  %h2 Просмотр склада
-  #price_list
-    = render "price_list"
+%h2 Просмотр склада
+#price_list
+  = render "price_list"

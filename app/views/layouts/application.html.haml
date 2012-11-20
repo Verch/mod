@@ -6,8 +6,8 @@
 		= javascript_include_tag "application"
 		= csrf_meta_tags
 	%body
-		#wrap
-			#temp_params_info.hide
+		#wrap.gradient
+			#temp_params_info
 				=params
 			=image_tag "Hat.png",{width: "100%" }
 			.navbar
@@ -48,10 +48,13 @@
 								= render @cart
 					.span9
 						-if notice
-							.alert.alert-success=notice
+							.alert.alert-success=notice.html_safe
 						.well
 							= yield
 			#push
 		%footer#footer
 			.container.center
 				%p#p_footer &copy; Модерн Импорт 2012
+				%p#p_footer 
+					Powered by
+					=link_to "Verch", "http://www.verch.pro/web", target: :blank

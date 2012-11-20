@@ -12,6 +12,19 @@
  *= require_tree .
  */
 
+.gradient {
+	background: #ade1f8; /* Для старых браузров */
+	background: -moz-linear-gradient(top, #ade1f8, #ffffff); /* Firefox 3.6+ */
+	/* Chrome 1-9, Safari 4-5 */
+	background: -webkit-gradient(linear, left top, left bottom, 
+	color-stop(100%,#ade1f8), color-stop(0%,#ffffff));
+	/* Chrome 10+, Safari 5.1+ */
+	background: -webkit-linear-gradient(top, #ade1f8, #ffffff);
+	background: -o-linear-gradient(top, #ade1f8, #ffffff); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ade1f8, #ffffff); /* IE10 */
+	background: linear-gradient(top, #ade1f8, #ffffff); /* CSS3 */ 
+}
+
 .center {
 	text-align: center;
 }

@@ -1,0 +1,22 @@
+= form_for @spec do |f|
+  = f.hidden_field :user_id
+  = f.hidden_field :unp_id
+  %table.table.table-bordered
+    %tr
+      %th.span1 №
+      %th.span3 Название компании
+      %th.span2 Номер
+      %th.span2 Дата
+      %th.span2 Сумма
+      %th.span2 Способ оплаты
+    %tr
+      %td.span1= f.text_field :number, :placeholder => @spec.number, class: "span12"
+      %td.span3= f.text_field :company_name, class: "span12"
+      %td.span2= f.text_field :spec_num, class: "span12"
+      %td.span2= f.text_field :date, class: "span12", :placeholder => @spec.date, class: "span12"
+      %td.span2= f.text_field :summa, class: "span12"
+      %td.span2= f.text_field :pay_type, class: "span12"
+  .center
+    .btn-group  
+      = f.submit "Создать", class: "btn btn-info"
+      = link_to "Отмена", :back, class: "btn btn-danger"

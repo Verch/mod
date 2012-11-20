@@ -10,15 +10,15 @@
   %table.table.table-hover
     %tr
       %th.span2 №
-      %th.span5 Наименование организации
-      %th.span5 Дата создания заказа
+      %th.span4 Наименование организации
+      %th.span4 Дата создания заказа
+      %th.span2
 
     - @orders.each do |order|
       %tr.order_name.info
         %td.span2
-        %td.span5=link_to order.name, order
-        %td.span5= order.created_at.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")
-        
+        %td.span4=link_to order.name, order
+        %td.span4= order.created_at.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")        
 - else
   %table.table.table-hover
     %tr

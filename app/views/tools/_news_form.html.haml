@@ -1,0 +1,6 @@
+= form_for @tool do |f|
+	= f.text_area :news, class: "span12", rows: "10"
+	.center
+		.btn-group
+			= f.submit "Сохранить", class: "btn btn-info"
+			= link_to "Отмена", user_path, class: "btn btn-danger"

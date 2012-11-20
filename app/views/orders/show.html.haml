@@ -1,18 +1,37 @@
-%p
-  %b Заказчик:
-  = @order.name
-%p
-  %b Адрес электронной почты:
-  = @order.email
-%p
-  %b Дополнительная информация:
-.span12
-  %p= @order.details
-%p
-  - if @order.reserv_flag
-    %i Резерв
+.well
+  %p
+    %b Заказчик:
+    = @order.name
+  %p
+    %b Адрес электронной почты:
+    = @order.email
+  %p
+    %b Дополнительная информация:
+  .span12
+    %p= @order.details
+  %p
+    - if @order.reserv_flag
+      %i Резерв
+  %br
+
 
 = render "show_form"
-= link_to 'Редактировать', carts_path(order_id: @order.id), method: :post
-%p * Ваш заказ будет перемещен в корзину для редактирования
+
+%p
+  %b
+    Приблизительная стоимость: 
+    = number_to_currency @cost, :precision => 0, :unit => "руб.", :delimiter => ".", :format => "%n %u"
+
+-if !@order.archive_flag
+  = link_to 'Редактировать', carts_path(order_id: @order.id), method: :post
+  %p * Ваш заказ будет перемещен в корзину для редактирования
+  -if @order.reserv_flag
+    = link_to 'Перевести в заказ', order_path(order: @order), method: :put
+  -else
+    .center
+      .btn-group
+        = link_to 'Отправить в архив', order_path(order: @order), method: :put, class: "btn btn-info"
+        = link_to 'Создать спецификацию', new_spec_path(temp_user_id: @user.id), class: "btn btn-info"
+        = link_to 'Удалить', @order, :confirm => 'Вы уверены?', :method => :delete, class: "btn btn-danger"
+%br
 = link_to 'К списку заказов', orders_path

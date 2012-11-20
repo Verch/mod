@@ -66,9 +66,22 @@
     @user = User.find(params[:id])
     @user_groups = UserGroup.all
     @current_user_group = UserGroup.find_by_id(@user.user_group_id) 
-
+    unp = @user.unp
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        unless @user.unp == unp
+          if unp = Unp.find_by_unp(@user.unp)
+            if @specs = Spec.find_all_by_unp_id(unp.id)
+              @specs.each do |spec|
+                spec.user_id = @user.id
+              end
+            end
+          else
+            @unp = Unp.new
+            @unp.unp = @user.unp
+            @unp.save
+          end
+        end
         format.html { redirect_to @user, notice: 'Данные пользователе успешно изменены.' }
       else
         format.html { render action: "edit" }

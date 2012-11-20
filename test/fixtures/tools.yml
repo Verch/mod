@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  news: MyText
+  user_wait_count: 1
+  order_wait_count: 1
+
+two:
+  news: MyText
+  user_wait_count: 1
+  order_wait_count: 1

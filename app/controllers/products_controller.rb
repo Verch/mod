@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :authorize, only: :index
   # GET /products
   def index
     @products = Product.all

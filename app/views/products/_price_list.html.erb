@@ -1,48 +1,117 @@
-<% @products.each do |product| %>
-  <h4><%= product.name %></h4>
-  <div class="hide"><%= @product_types = ProductType.find_all_by_product_id(product.id) %></div>
-  <table class="table-bordered table-considered">
-  <% @product_types.each do |product_type| %>
-    <tr><td class="span4"><h5><%= product_type.name %></h5>
-    <div class="hide"><%= @product_colors = ProductColor.find_all_by_product_type_id(product_type.id) %></div>
-    </td><td class="span8">
-    <table class="table_product_type">
-    <% @product_colors.each do |product_color| %>
-      <tr><td class="span2"><%= product_color.name %><br>
-      <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(product_color.id) %></div>
-      </td><td class="span10">
-      <table class="table_product_size">
-      <tr>
-      <% @product_sizes.each do |product_size| %>
-        <td class="span1"><%= product_size.name %></td>
-      <% end %>
-        <td class="span1">Сумма</td>
-      </tr>
-      <tr>
-      <div class="hide"><%= @sum = 0 %></div>
-      <% @product_sizes.each do |product_size| %>
-        <td class="td_product_count span1">
-          <div class="static_product_count"><%= product_size.count %></div>
-          <div class="hide"><%= @sum += product_size.count %></div>
-        </td>
-      <% end %>
-        <td class="td_product_count"><div class="static_product_count"><%= @sum %></div></td>
-      </tr>
-      <% if @current_group && @current_group.view_reserv_flag %>
+<%=link_to "Количество/Цены", "#", id: "count_price_slider", class: "pull-right" %>
+<div id="count_slider">
+  <h3>Количество:</h3>
+  <% @products.each do |product| %>
+    <h4><%= product.name %></h4>
+    <div class="hide"><%= @product_types = ProductType.find_all_by_product_id(product.id) %></div>
+    <table class="table-bordered table-considered">
+      <% @product_types.each do |product_type| %>
         <tr>
-        <% @product_sizes.each do |product_size| %>
-          <td class="td_product_reserv"><%= product_size.reserv %></td>
-        <% end %>
+          <td class="span4">
+            <h5><%= product_type.name %></h5>
+            <div class="hide"><%= @product_colors = ProductColor.find_all_by_product_type_id(product_type.id) %></div>
+          </td>
+          <td class="span8">
+            <table class="table table-bordered table-considered">
+              <tr>
+                <td class="span2">
+                  <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(@product_colors.first.id) %></div>
+                </td>
+                <% @product_sizes.each do |product_size| %>
+                  <td class="span1"><%= product_size.name %></td>
+                <% end %>
+                <td class="span1">Сумма</td>
+              </tr>
+              <% @product_colors.each do |product_color| %>
+                <tr class="info">
+                  <td class="span4">
+                    <%= product_color.name %>
+                      <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(product_color.id) %></div>
+                      <div class="hide"><%= @sum = 0 %></div>
+                  </td>
+                  <% @product_sizes.each do |product_size| %>
+                    <td class="span1">
+                      <%= product_size.count %>
+                      <div class="hide"><%= @sum += product_size.count %></div>
+                    </td>
+                  <% end %>
+                  <td class="span1">
+                    <b><%= @sum %>
+                  </td>
+                </tr>
+                <% if @current_group && @current_group.view_reserv_flag %>
+                  <tr class="warning">
+                    <td class="span4"></td>
+                    <% @product_sizes.each do |product_size| %>
+                      <td class="span1"><%= product_size.reserv %></td>
+                    <% end %>
+                    <td class="span2"></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
         </tr>
       <% end %>
-      </table>
-      </td>
-      </tr>
-    <% end %>
     </table>
-    </td>
-    </tr>
   <% end %>
-  </table>
-  <br>
-<% end %>
+</div>
+
+<div id="price_slider" class="hide">
+  <h3>Цены:</h3>
+  <% @products.each do |product| %>
+    <h4><%= product.name %></h4>
+    <div class="hide"><%= @product_types = ProductType.find_all_by_product_id(product.id) %></div>
+    <table class="table-bordered table-considered">
+      <% @product_types.each do |product_type| %>
+        <tr>
+          <td class="span4">
+            <h5><%= product_type.name %></h5>
+          </td>
+          <td class="span8">
+            <table class="table table-bordered table-considered">
+              <tr>
+                <th class="span2"> </th>
+                <th class="span1"> <10 </th>
+                <th class="span1"> >10 </th>
+                <th class="span1"> >50 </th>
+                <th class="span1"> >100 </th>
+                <th class="span1"> >250 </th>
+                <th class="span1"> >500 </th>
+                <th class="span1"> >1000 </th>
+              </tr>
+              <tr class="info">
+                <td class="span2">Белые</td>
+                <div class="hide"><%= price = Price.find_by_id(product_type.white_price_id) %></div>
+                <td class="span1"><%= price.price_1 %></td>
+                <td class="span1"><%= price.price_2 %></td>
+                <td class="span1"><%= price.price_3 %></td>
+                <td class="span1"><%= price.price_4 %></td>
+                <td class="span1"><%= price.price_5 %></td>
+                <td class="span1"><%= price.price_6 %></td>
+                <td class="span1"><%= price.price_7 %></td>
+              </tr>
+              <tr class="success">
+                <td class="span2">Цветные</td>
+                <div class="hide"><%= price = Price.find_by_id(product_type.color_price_id) %></div>
+                <td class="span1"><%= price.price_1 %></td>
+                <td class="span1"><%= price.price_2 %></td>
+                <td class="span1"><%= price.price_3 %></td>
+                <td class="span1"><%= price.price_4 %></td>
+                <td class="span1"><%= price.price_5 %></td>
+                <td class="span1"><%= price.price_6 %></td>
+                <td class="span1"><%= price.price_7 %></td>
+              </tr>            
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

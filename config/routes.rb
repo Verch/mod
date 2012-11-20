@@ -11,6 +11,8 @@ Modernimport::Application.routes.draw do
   resources :users
   resources :user_groups
   resources :prices
+  resources :specs
+  resources :tools
 
   match "/convertsizes" => "pages#convertsizes"
   match "/scheme" => "pages#scheme"

@@ -1,22 +1,23 @@
 - @products_in_order.each do |product_in_order|
-  = Product.find_by_id(product_in_order).name
-  %table.well
+  %h4= Product.find_by_id(product_in_order).name
+  %table.table.table-considered
     - @types_in_order.each do |type_in_order|
       - if ProductType.find_by_id(type_in_order).product_id == product_in_order
         %tr
-          %td.span3= ProductType.find_by_id(type_in_order).name
+          %td.span3
+            %b= ProductType.find_by_id(type_in_order).name
           %td.span9
-            %table
+            %table.table.table-bordered.table-considered
               - @colors_in_order.each do |color_in_order|
                 - if ProductColor.find_by_id(color_in_order).product_type_id == type_in_order
                   %tr
                     %td.span2= ProductColor.find_by_id(color_in_order).name
                     %td.span10
-                      %table.table
+                      %table.table.table-bordered.table-considered
                         %tr
                           - ProductSize.find_all_by_product_color_id(color_in_order).each do |size|
                             %th= size.name
-                        %tr
+                        %tr.info
                           - ProductSize.find_all_by_product_color_id(color_in_order).each do |size|
                             - @line_items.each do |line_item|
                               - if ProductSize.find_by_id(line_item.product_size_id).id == size.id
