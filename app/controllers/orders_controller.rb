@@ -207,11 +207,13 @@
         product_size.reserv = product_size.reserv - line_item.quantity
         product_size.save
       end
+      @order.save
+      redirect_to orders_path, notice: "Заказ сохранен"
     else
       @order.archive_flag = true
+      @order.save
+      redirect_to orders_path, notice: "Заказ отправлен в архив"
     end
-    @order.save
-    redirect_to orders_path, notice: "Заказ отправлен в архив"
   end
 
   # DELETE /orders/1
