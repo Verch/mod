@@ -13,23 +13,35 @@
  */
 
 .gradient {
-	background: #ade1f8; /* Для старых браузров */
-	background: -moz-linear-gradient(top, #ade1f8, #ffffff); /* Firefox 3.6+ */
-	/* Chrome 1-9, Safari 4-5 */
-	background: -webkit-gradient(linear, left top, left bottom, 
-	color-stop(100%,#ade1f8), color-stop(0%,#ffffff));
-	/* Chrome 10+, Safari 5.1+ */
-	background: -webkit-linear-gradient(top, #ade1f8, #ffffff);
-	background: -o-linear-gradient(top, #ade1f8, #ffffff); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #ade1f8, #ffffff); /* IE10 */
-	background: linear-gradient(top, #ade1f8, #ffffff); /* CSS3 */ 
+	width: 70%;
+	margin: 0 auto;
+    background: #ade1f8; /* Для старых браузров */
+    background: -moz-linear-gradient(top, #ade1f8, #ffffff); /* Firefox 3.6+ */
+    /* Chrome 1-9, Safari 4-5 */
+    background: -webkit-gradient(linear, left top, left bottom, 
+                color-stop(100%,#ade1f8), color-stop(0%,#ffffff));
+    /* Chrome 10+, Safari 5.1+ */
+    background: -webkit-linear-gradient(top, #ade1f8, #ffffff);
+    background: -o-linear-gradient(top, #ade1f8, #ffffff); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ade1f8, #ffffff); /* IE10 */
+    background: linear-gradient(top, #ade1f8, #ffffff); /* CSS3 */ 
+}
+
+.my-nav {
+	background-color: #f5f5f5;
+	padding: 0px 5px;
 }
 
 .center {
 	text-align: center;
 }
 
+.padd {
+	padding: 1px;
+}
+
 /* The html and body elements cannot have any padding or margin. */
+
 html, body {
 	height: 100%;
 }
@@ -47,6 +59,10 @@ html, body {
 }
 #footer {
 	background-color: #f5f5f5;
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 5px;
 }
 #p_footer {
 	margin: 7px;
@@ -84,13 +100,13 @@ html, body {
 	display: none;
 }
 .link_to_color {
-	font-size: 10px;
+	font-size: 8px;
 	line-height: 6px;
 	text-align: center;
-	width: 80px;
-	height: 23px;
-	padding-top: 17px;
-	border: 2px solid #1c1c1c;
+	width: 50px;
+	height: 15px;
+	padding-top: 9px;
+	border: 1px solid #ffffff;
 	border-radius: 2px;
 	float: left;
 	margin-right: 2px;
