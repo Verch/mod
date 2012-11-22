@@ -1,74 +1,75 @@
+%b= @product_type.name
+%p
+  = @product_type.description.html_safe
 .container-fluid
   .row-fluid
     .span4
-      #click_image_color
+      #click_image_color.span12
         = render "image_color"
-    .span7.offset1
-      %b= @product_type.name
-      %p
-        = @product_type.description.html_safe
-      %br
+    .span8
       - @product_colors.each do |product_color|
         =link_to "", product_type_path(get_product_color_id: product_color.id), remote: true, class: "link_to_color", style:"background-color: #{product_color.rgb};", id: product_color.big_image_url
       .clear
-      %h5 Старая цена:
-      %table.table.table-hover
-        %tr
-          %th
-          %th <10
-          %th 10-50
-          %th 50-100
-          %th 100-250
-          %th 250-500
-          %th 500-1000
-          %th >1000
-        %tr.error
-          %td Белые
-          %td=@white_prices.price_1
-          %td=@white_prices.price_2
-          %td=@white_prices.price_3
-          %td=@white_prices.price_4
-          %td=@white_prices.price_5
-          %td=@white_prices.price_6
-          %td=@white_prices.price_7
-        %tr.error
-          %td Цветные
-          %td=@color_prices.price_1
-          %td=@color_prices.price_2
-          %td=@color_prices.price_3
-          %td=@color_prices.price_4
-          %td=@color_prices.price_5
-          %td=@color_prices.price_6
-          %td=@color_prices.price_7
-      %h5 Новая цена:
-      %table.table.table-hover
-        %tr
-          %th
-          %th <10
-          %th 10-50
-          %th 50-100
-          %th 100-250
-          %th 250-500
-          %th 500-1000
-          %th >1000
-        %tr.success
-          %td Белые
-          %td=@white_prices.price_1
-          %td=@white_prices.price_2
-          %td=@white_prices.price_3
-          %td=@white_prices.price_4
-          %td=@white_prices.price_5
-          %td=@white_prices.price_6
-          %td=@white_prices.price_7
-        %tr.success
-          %td Цветные
-          %td=@color_prices.price_1
-          %td=@color_prices.price_2
-          %td=@color_prices.price_3
-          %td=@color_prices.price_4
-          %td=@color_prices.price_5
-          %td=@color_prices.price_6
-          %td=@color_prices.price_7
+      %br
+      .span10.offset1
+        %h5 Старая цена:
+        %table.table.table-hover
+          %tr
+            %th
+            %th <10
+            %th 10-50
+            %th 50-100
+            %th 100-250
+            %th 250-500
+            %th 500-1000
+            %th >1000
+          %tr.error
+            %td Белые
+            %td=@white_prices.price_1
+            %td=@white_prices.price_2
+            %td=@white_prices.price_3
+            %td=@white_prices.price_4
+            %td=@white_prices.price_5
+            %td=@white_prices.price_6
+            %td=@white_prices.price_7
+          %tr.error
+            %td Цветные
+            %td=@color_prices.price_1
+            %td=@color_prices.price_2
+            %td=@color_prices.price_3
+            %td=@color_prices.price_4
+            %td=@color_prices.price_5
+            %td=@color_prices.price_6
+            %td=@color_prices.price_7
+        %h5 Новая цена:
+        %table.table.table-hover
+          %tr
+            %th
+            %th <10
+            %th 10-50
+            %th 50-100
+            %th 100-250
+            %th 250-500
+            %th 500-1000
+            %th >1000
+          %tr.success
+            %td Белые
+            %td=@white_prices.price_1
+            %td=@white_prices.price_2
+            %td=@white_prices.price_3
+            %td=@white_prices.price_4
+            %td=@white_prices.price_5
+            %td=@white_prices.price_6
+            %td=@white_prices.price_7
+          %tr.success
+            %td Цветные
+            %td=@color_prices.price_1
+            %td=@color_prices.price_2
+            %td=@color_prices.price_3
+            %td=@color_prices.price_4
+            %td=@color_prices.price_5
+            %td=@color_prices.price_6
+            %td=@color_prices.price_7
       %br
       %button#link_to_order_menu.btn.btn-success.span6.offset4
         Заказать
