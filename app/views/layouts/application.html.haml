@@ -10,81 +10,158 @@
 			#temp_params_info.hide
 				=params
 			=image_tag "Hat.png",{width: "100%" }
-			.navbar
-				.navbar-inner
-					.btn-toolbar.pull-left
-						= link_to "Модерн Импорт", root_path, class: "brand"
-					.btn-toolbar.pull-left
-						.btn-group
-							- if ((params[:controller] == "products") || (params[:controller] == "product_types") || params[:get_product_type_id]) && (params[:action] == "index")
-								= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", class: "btn btn-primary active"
+			.my-nav
+				.btn-toolbar.pull-left
+					.btn-group
+						= link_to "<i class='icon-home'></i> Главная".html_safe, root_path, class: "btn btn-primary"
+						- if ((params[:controller] == "products") || (params[:controller] == "product_types") || params[:get_product_type_id]) && (params[:action] == "index")
+							= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", class: "btn btn-primary active"
+						- else
+							= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", class: "btn btn-primary"
+						- if (params[:action] == "convertsizes")
+							= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes", class: "btn btn-primary active"
+						- else
+							= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes", class: "btn btn-primary"
+						- if (params[:action] == "scheme")
+							= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", class: "btn btn-primary active"
+						- else
+							= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", class: "btn btn-primary"
+						- if (params[:action] == "about")
+							= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about", class: "btn btn-primary active"
+						- else
+							= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about", class: "btn btn-primary"
+						- if (params[:action] == "contact")
+							= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", class: "btn btn-primary active"
+						- else
+							= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", class: "btn btn-primary"
+						//%li{class: "active"}
+				.btn-toolbar.pull-right
+					.btn-group
+						- if @current_user
+							- if (params[:controller] == "users") 
+								= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, class: "btn btn-primary active"
 							- else
-								= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", class: "btn btn-primary"
-							- if (params[:action] == "convertsizes")
-								= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes", class: "btn btn-primary active"
+								= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, class: "btn btn-primary"
+							- if (params[:controller] == "sessions") 
+								= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, class: "btn btn-primary active"
 							- else
-								= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes", class: "btn btn-primary"
-							- if (params[:action] == "scheme")
-								= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", class: "btn btn-primary active"
+								= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, class: "btn btn-primary"
+						- else
+							- if (params[:controller] == "users")
+								= link_to "Регистрация", "/register", class: "btn btn-primary active"
 							- else
-								= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", class: "btn btn-primary"
-							- if (params[:action] == "about")
-								= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about", class: "btn btn-primary active"
+								= link_to "Регистрация", "/register", class: "btn btn-primary"
+							- if (params[:controller] == "sessions")
+								= link_to "Вход", login_path, class: "btn btn-primary active"
 							- else
-								= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about", class: "btn btn-primary"
-							- if (params[:action] == "contact")
-								= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", class: "btn btn-primary active"
-							- else
-								= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", class: "btn btn-primary"
-							//%li{class: "active"}
-					.btn-toolbar.pull-right
-						.btn-group
-							- if @current_user
-								- if (params[:controller] == "users") 
-									= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, class: "btn btn-primary active"
-								- else
-									= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, class: "btn btn-primary"
-								- if (params[:controller] == "sessions") 
-									= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, class: "btn btn-primary active"
-								- else
-									= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, class: "btn btn-primary"
-							- else
-								- if (params[:controller] == "users")
-									= link_to "Регистрация", "/register", class: "btn btn-primary active"
-								- else
-									= link_to "Регистрация", "/register", class: "btn btn-primary"
-								- if (params[:controller] == "sessions")
-									= link_to "Вход", login_path, class: "btn btn-primary active"
-								- else
-									= link_to "Вход", login_path, class: "btn btn-primary"
-					.clear
+								= link_to "Вход", login_path, class: "btn btn-primary"
+				.clear
 			.container-fluid
 				.row-fluid
 					.span3
 						.well
-							.nav-header Наша продукция
-							//%li{class:"active"}= link_to "Футболки", "/products/1"
-							- if (((params[:controller] == "products")&&(params[:id].to_i == 1)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 0)&&(params[:id].to_i < 11))) && (params[:action] == "show")
-								= link_to "Футболки", "/products/1", class: "btn btn-info btn-block active"
-							- else
-								= link_to "Футболки", "/products/1", class: "btn btn-info btn-block"
-							- if (((params[:controller] == "products")&&(params[:id].to_i == 2)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 10)&&(params[:id].to_i < 13))) && (params[:action] == "show")
-								= link_to "Рубашки поло", "/products/2", class: "btn btn-info btn-block active"
-							- else
-								= link_to "Рубашки поло", "/products/2", class: "btn btn-info btn-block"
-							- if (((params[:controller] == "products")&&(params[:id].to_i == 3)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 12)&&(params[:id].to_i < 15))) && (params[:action] == "show")
-								= link_to "Толстовки", "/products/3", class: "btn btn-info btn-block active"
-							- else
-								= link_to "Толстовки", "/products/3", class: "btn btn-info btn-block"
-							- if (((params[:controller] == "products")&&(params[:id].to_i == 4)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 14)&&(params[:id].to_i < 19))) && (params[:action] == "show")
-								= link_to "Бейсболки", "/products/4", class: "btn btn-info btn-block active"
-							- else
-								= link_to "Бейсболки", "/products/4", class: "btn btn-info btn-block"
-						.well
-							- if (params[:controller] == "product_sizes") && (!params[:get_product_type_id]) && (params[:action] == "index")
-								= link_to "<i class='icon-search'></i> Поиск товара".html_safe, product_sizes_path, class: "btn btn-inverse btn-block active"
-							-else
-								= link_to "<i class='icon-search'></i> Поиск товара".html_safe, product_sizes_path, class: "btn btn-inverse btn-block"
+							%ul.nav.nav-list
+								.nav-header
+									Наша продукция
+									= link_to "<i class='icon-search'></i>".html_safe, product_sizes_path
+								//%li{class:"active"}= link_to "Футболки", "/products/1"
+								- if (((params[:controller] == "products")&&(params[:id].to_i == 1)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 0)&&(params[:id].to_i < 11))) && (params[:action] == "show")
+									%li{class:"active"}
+										= link_to "Футболки", "/products/1"
+										%ul.nav.nav-list
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 1)
+												%li{class:"active"}= link_to "Короткий рукав муж.".html_safe, "/product_types/1"
+											-else
+												%li= link_to "Короткий рукав муж.".html_safe, "/product_types/1"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 2)
+												%li{class:"active"}= link_to "Короткий рукав жен.".html_safe, "/product_types/2"
+											-else
+												%li= link_to "Короткий рукав жен.".html_safe, "/product_types/2"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 3)
+												%li{class:"active"}= link_to "Детские".html_safe, "/product_types/3"
+											-else
+												%li= link_to "Детские".html_safe, "/product_types/3"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 4)
+												%li{class:"active"}= link_to "Длинный рукав муж.".html_safe, "/product_types/4"
+											-else
+												%li= link_to "Длинный рукав муж.".html_safe, "/product_types/4"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 5)
+												%li{class:"active"}= link_to "Короткий рукав муж. стрейч".html_safe, "/product_types/5"
+											-else
+												%li= link_to "Короткий рукав муж. стрейч".html_safe, "/product_types/5"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 6)
+												%li{class:"active"}= link_to "Короткий рукав жен стрейч".html_safe, "/product_types/6"
+											-else
+												%li= link_to "Короткий рукав жен стрейч".html_safe, "/product_types/6"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 7)
+												%li{class:"active"}= link_to "Длинный рукав муж. стрейч".html_safe, "/product_types/7"
+											-else
+												%li= link_to "Длинный рукав муж. стрейч".html_safe, "/product_types/7"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 8)
+												%li{class:"active"}= link_to "Длинный рукав жен. стрейч".html_safe, "/product_types/8"
+											-else
+												%li= link_to "Длинный рукав жен. стрейч".html_safe, "/product_types/8"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 9)
+												%li{class:"active"}= link_to "Короткий рукав бюдж.".html_safe, "/product_types/9"
+											-else
+												%li= link_to "Короткий рукав бюдж.".html_safe, "/product_types/9"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 10)
+												%li{class:"active"}= link_to "Длинный рукав бюдж.".html_safe, "/product_types/10"
+											-else
+												%li= link_to "Длинный рукав бюдж.".html_safe, "/product_types/10"
+								- else
+									%li= link_to "Футболки", "/products/1", class: ""
+								- if (((params[:controller] == "products")&&(params[:id].to_i == 2)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 10)&&(params[:id].to_i < 13))) && (params[:action] == "show")
+									%li{class:"active"}
+										= link_to "Рубашки поло", "/products/2"
+										%ul.nav.nav-list
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 11)
+												%li{class:"active"}= link_to "Мужские".html_safe, "/product_types/11"
+											-else
+												%li= link_to "Мужские".html_safe, "/product_types/11"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 12)
+												%li{class:"active"}= link_to "Женские".html_safe, "/product_types/12"
+											-else
+												%li= link_to "Женские".html_safe, "/product_types/12"
+								- else
+									%li= link_to "Рубашки поло", "/products/2", class: ""
+								- if (((params[:controller] == "products")&&(params[:id].to_i == 3)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 12)&&(params[:id].to_i < 15))) && (params[:action] == "show")
+									%li{class:"active"}
+										= link_to "Толстовки", "/products/3"
+										%ul.nav.nav-list
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 13)
+												%li{class:"active"}= link_to "Мужские".html_safe, "/product_types/13"
+											-else
+												%li= link_to "Мужские".html_safe, "/product_types/13"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 14)
+												%li{class:"active"}= link_to "Женские".html_safe, "/product_types/14"
+											-else
+												%li= link_to "Женские".html_safe, "/product_types/14"
+								- else
+									%li= link_to "Толстовки", "/products/3", class: ""
+								- if (((params[:controller] == "products")&&(params[:id].to_i == 4)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 14)&&(params[:id].to_i < 19))) && (params[:action] == "show")
+									%li{class:"active"}
+										= link_to "Бейсболки", "/products/4"
+										%ul.nav.nav-list
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 15)
+												%li{class:"active"}= link_to "Классика".html_safe, "/product_types/15"
+											-else
+												%li= link_to "Классика".html_safe, "/product_types/15"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 16)
+												%li{class:"active"}= link_to "Комфорт".html_safe, "/product_types/16"
+											-else
+												%li= link_to "Комфорт".html_safe, "/product_types/16"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 17)
+												%li{class:"active"}= link_to "Люкс".html_safe, "/product_types/17"
+											-else
+												%li= link_to "Люкс".html_safe, "/product_types/17"
+											- if (params[:controller] == "product_types")&&(params[:id].to_i == 18)
+												%li{class:"active"}= link_to "Люкс Экстра".html_safe, "/product_types/18"
+											-else
+												%li= link_to "Люкс Экстра".html_safe, "/product_types/18"
+								- else
+									%li= link_to "Бейсболки", "/products/4", class: ""
+							.clear
 						- if @cart
 							#cart
 								= render @cart
@@ -95,8 +172,7 @@
 							= yield
 			#push
 		%footer#footer
-			.container.center
-				%p#p_footer &copy; Модерн Импорт 2012
-				%p#p_footer
-					Powered by
-					=link_to "Verch", "http://www.verch.pro/web", target: :blank
+			%p#p_footer &copy; Модерн Импорт 2012
+			%p#p_footer
+				Powered by
+				=link_to "Verch", "http://www.verch.pro/web", target: :blank
