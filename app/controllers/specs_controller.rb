@@ -21,7 +21,7 @@
     @spec = Spec.new
     @spec.user_id = params[:temp_user_id]
     @spec_user = User.find_by_id(params[:temp_user_id])
-    if spec_nums = Spec.where("user_id = ?", @spec_user.id).order("created_at DESC")
+    if (spec_nums = Spec.where("user_id = ?", @spec_user.id).order("created_at DESC")).size != 0
       @spec.number = spec_nums.first.number + 1
     else
       @spec.number = 1
