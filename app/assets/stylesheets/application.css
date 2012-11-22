@@ -13,7 +13,7 @@
  */
 
 .gradient {
-	width: 70%;
+	width: 85%;
 	margin: 0 auto;
     background: #ade1f8; /* Для старых браузров */
     background: -moz-linear-gradient(top, #ade1f8, #ffffff); /* Firefox 3.6+ */
@@ -40,6 +40,17 @@
 	padding: 1px;
 }
 
+.side_link {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.navbar-inner {
+	font-size: 13px;
+	line-height: 16px;
+}
+
+
 /* The html and body elements cannot have any padding or margin. */
 
 html, body {
@@ -59,7 +70,7 @@ html, body {
 }
 #footer {
 	background-color: #f5f5f5;
-	width: 70%;
+	width: 85%;
 	margin: 0 auto;
 	text-align: center;
 	padding-top: 5px;
