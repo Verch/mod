@@ -41,7 +41,10 @@
   # GET /orders/1
   def show
     @order = Order.find_by_id(params[:id])
-    @user = User.find_by_id(@order.user.id)
+    if @order.user_id != 0
+      @user = User.find_by_id(@order.user.id)
+    end
+    
 
     respond_to do |format|
       unless (@current_user) && (@current_group.admin_flag || @current_user.id == @user.id)

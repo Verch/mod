@@ -10,10 +10,10 @@
       %th.span2 Сумма
       %th.span2 Способ оплаты
     %tr
-      %td.span1= f.text_field :number, :placeholder => @spec.number, class: "span12"
+      %td.span1= f.text_field :number, placeholder: @spec.number, class: "span12"
       %td.span3= f.text_field :company_name, class: "span12"
       %td.span2= f.text_field :spec_num, class: "span12"
-      %td.span2= f.text_field :date, class: "span12", :placeholder => @spec.date, class: "span12"
+      %td.span2= f.text_field :date, class: "span12", placeholder: @spec.date, class: "span12"
       %td.span2= f.text_field :summa, class: "span12"
       %td.span2= f.text_field :pay_type, class: "span12"
   .center

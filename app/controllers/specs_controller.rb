@@ -19,16 +19,23 @@
 
   def new
     @spec = Spec.new
-    @spec.user_id = params[:temp_user_id]
-    @spec_user = User.find_by_id(params[:temp_user_id])
-    if (spec_nums = Spec.where("user_id = ?", @spec_user.id).order("created_at DESC")).size != 0
-      @spec.number = spec_nums.first.number + 1
+    @order = Order.find_by_id(params[:order_id])
+    if @order.user_id == 0
+      @spec.number = 0
+      @spec.company_name = @order.name
+      @spec.unp_id = 0
     else
-      @spec.number = 1
+      @spec_user = User.find_by_id(@order.user_id) 
+      if (spec_nums = Spec.where("user_id = ?", @spec_user.id).order("created_at DESC")).size != 0
+        @spec.number = spec_nums.first.number + 1
+      else
+        @spec.number = 1
+      end
+      @spec.company_name = @spec_user.company_name
+      @spec.unp_id = Unp.find_by_unp(@spec_user.unp).id
     end
-    @spec.company_name = @spec_user.company_name
-    @spec.unp_id = Unp.find_by_unp(@spec_user.unp).id
     @spec.date = Time.now.in_time_zone('Minsk').strftime("%d.%m.%Y")
+    @spec.pay_type = "Оплачено в кассу"
     respond_to :html
   end
 
