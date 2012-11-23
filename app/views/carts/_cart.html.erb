@@ -1,5 +1,5 @@
 <% unless @cart.line_items.empty? %>
-	<div class="well">
+	<div id="well">
 		<div class="nav-header">Ваша корзина <i class='icon-shopping-cart'></i></div>
 		<table class="table table-bordered">
 			<%= render(@cart.line_items) %>

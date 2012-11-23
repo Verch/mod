@@ -27,9 +27,9 @@
     background: linear-gradient(top, #ade1f8, #ffffff); /* CSS3 */ 
 }
 
-.my-nav {
-	background-color: #f5f5f5;
-	padding: 0px 5px;
+#well {
+	background-color: rgba(256,256,256,0.6);
+	padding: 1px 3px;
 }
 
 .center {
@@ -43,6 +43,14 @@
 .side_link {
 	font-size: 16px;
 	line-height: 24px;
+}
+
+.activeMy > a {
+	background-color: #f5f5f5;
+}
+
+.up15 {
+	margin-top: -15px;
 }
 
 .navbar-inner {
@@ -69,7 +77,7 @@ html, body {
 	height: 60px;
 }
 #footer {
-	background-color: #f5f5f5;
+	background-color: #eeeeee;
 	width: 85%;
 	margin: 0 auto;
 	text-align: center;
@@ -125,6 +133,6 @@ html, body {
 }
 
 .table_to_cart {
-	margin: 20px auto;
+	padding-top: 20px;
 	text-align: center
 }
