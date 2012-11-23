@@ -128,3 +128,7 @@ html, body {
 	margin: 20px auto;
 	text-align: center
 }
+
+.well {
+	background-color: rgba(10, 10, 10, 0.95);
+}

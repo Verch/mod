@@ -1,8 +1,10 @@
 .row-fluid
   .span6
-    %h4 Личный кабинет пользователя
+    %h4 Личный кабинет
   .span3.offset3
-    %h6= link_to 'Редактировать профиль', edit_user_path(@user)
+    - if @current_group and @current_group.admin_flag
+      - unless @current_user.id == params[:id].to_i
+        %h6= link_to 'Редактировать профиль', edit_user_path(@user)
 .row-fluid
   .span5
     Последний раз на сайте:
@@ -12,14 +14,19 @@
     = mail_to @user.email  
   
 .row-fluid
-  .span4
-    - if @current_group and @current_group.admin_flag
-      - if @current_user.id == params[:id].to_i
+  - if @current_group and @current_group.admin_flag
+    - if @current_user.id == params[:id].to_i
+      .span5
         = render "admin_form"
-      - else
+    - else
+      .span5
         = render "user_form"
-    - else 
+      .span7
+        .well
+          = render 'form' 
+  - else
+    .span5
       = render "user_form"
-  .span6.offset1
-    .well
-      = render 'form'
+    .span7
+      .well
+        = render 'form'
