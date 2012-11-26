@@ -1,3 +1,4 @@
 $('#list_to_cart').html("<%=j render 'list_to_cart' %>");
+$('#list_to_cart').fadeIn(500);
 $('#click_image_color').html("<%=j render 'image_color' %>");
 $('#click_image_color').css({'box-shadow': '0px 0px 10px <%= @product_color.rgb %>'}).animate({'background-color': '#ffffff'}, 1500);
