@@ -153,7 +153,28 @@
       return
     end
 
+    @line_items = LineItem.find_all_by_cart_id(@cart.id)
+
+        @products_in_order = Array.new #include all products that consist in order
+        @types_in_order = Array.new
+        @colors_in_order = Array.new
+
+        @line_items.each do |line_item| 
+          unless @products_in_order.include?(Product.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_id).id)
+            @products_in_order << Product.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_id).id
+          end
+
+          unless @types_in_order.include?(ProductType.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_type_id).id)
+            @types_in_order << ProductType.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_type_id).id
+          end
+
+          unless @colors_in_order.include?(ProductColor.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_color_id).id)
+            @colors_in_order << ProductColor.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_color_id).id 
+          end  
+        end
+
     @order = Order.new
+    @user = @current_user
     respond_to :html # new.html.erb
   end
 

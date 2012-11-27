@@ -18,5 +18,7 @@
       %td.span3= link_to spec.company_name, spec
       %td.span2= spec.spec_num
       %td.span2= spec.date.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")
-      %td.span2= spec.summa
+      %td.span2= number_to_currency spec.summa, :precision => 0, :unit => "руб.", :delimiter => ".", :format => "%n %u" 
       %td.span2= spec.pay_type
+
+= link_to "К заказам", orders_path

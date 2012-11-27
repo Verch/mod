@@ -3,21 +3,20 @@
 - if @current_group && @current_group.admin_flag
   = form_tag '/orders', method: :get do
     .row-fluid
-      .span4
-        = select_tag :temp_order_id, options_for_select([['Заказы (сорт. А-Я)', 1], ['Заказы (сорт. Дата)', 2], ['Резервы (сорт. А-Я)', 3], ['Резервы (сорт. Дата)', 4], ['Архив (сорт. А-Я)', 5], ['Архив (сорт. Дата)', 6]], params[:temp_order_id])
-      .span4
+      .span5
+        = select_tag :temp_order_id, options_for_select([['Заказы (сорт. А-Я)', 1], ['Заказы (сорт. Дата)', 2], ['Резервы (сорт. А-Я)', 3], ['Резервы (сорт. Дата)', 4], ['Архив (сорт. А-Я)', 5], ['Архив (сорт. Дата)', 6]], params[:temp_order_id]), class: "span12"
+      .span5
         = search_field_tag "search", "", placeholder: "Поиск..."
   %table.table.table-hover
     %tr
       %th.span2 №
       %th.span4 Наименование организации
       %th.span4 Дата создания заказа
-      %th.span2
 
     - @orders.each do |order|
       %tr.order_name.info
-        %td.span2
-        %td.span4=link_to order.name, order
+        %td.span2= order.id
+        %td.span4= link_to order.name, order
         %td.span4= order.created_at.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")        
 - else
   %table.table.table-hover
@@ -31,5 +30,6 @@
       %tr.info
         %td.span2
         %td.span3=link_to order.created_at.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)"), order
-        %td.span3
+        %td.span3= order.status
         %td.span4= order.details
+= link_to "Назад", user_path(@current_user)

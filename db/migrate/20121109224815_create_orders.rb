@@ -1,9 +1,10 @@
-class CreateOrders < ActiveRecord::Migration
+﻿class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
       t.string :name
       t.string :email
       t.text :details
+      t.string :status, default: "Ожидает"
       t.boolean :reserv_flag, default: false
       t.boolean :archive_flag, default: false
       t.references :user, default: 0

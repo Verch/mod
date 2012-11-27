@@ -1,32 +1,46 @@
 - if @current_user
-  = form_for @order do |f|
-    .field
-      = f.hidden_field :user_id
-    .field.span2
-      %p Организация:
-    .field.span3
-      %b= @current_user.company_name
-    .field
-      = f.text_area :details, placeholder: "Дополнительная информация", class: "span12", rows: 6
-    .field.span4
-      .pull-left
-        = f.label "Поставить в резерв"
-      .span1
-      = f.check_box :reserv_flag, class: "checkbox"
-    .field
-      = f.submit 'Разместить заказ', class: "btn btn-primary"
-      = link_to 'Отмена', root_path, class: "btn btn-danger"
-
+  .row-fluid
+    .well
+      .span7
+        = render 'show_form'
+        = form_for @order do |f|
+          .field
+            = f.hidden_field :user_id
+          .field
+            = f.text_area :details, placeholder: "Дополнительная информация", class: "span12", rows: 6
+          .row-fluid  
+            .span5
+              = f.label "Поставить в резерв"
+            .span1  
+              = f.check_box :reserv_flag
+          %br
+          .center
+            .field
+              = f.submit 'Разместить заказ', class: "btn btn-primary"
+              = link_to 'Отмена', root_path, class: "btn btn-danger"
+      .span5
+        .well
+          = render 'users/form'
+      .clear
 -else
-  = form_for @order do |f|
-    .field
-      = f.hidden_field :user_id
-    .field
-      = f.text_field :name, placeholder: "Имя", class: "span12", rows: 6
-    .field
-      = f.email_field :email, placeholder: "e-mail", class: "span12", rows: 6
-    .field
-      = f.text_area :details, placeholder: "Детали (можете указать здесь контактный телефон и прочую информацию)", class: "span12", rows: 6
-    .center
-      = f.submit 'Разместить заказ', class: "btn btn-primary"
-      = link_to 'Отмена', root_path, class: "btn btn-danger"
+  %h4 Разместите заказ или войдите под своей учетной записью
+  .row-fluid
+    .well
+      .span6
+        = form_for @order do |f|
+          .field
+            = f.hidden_field :user_id
+          .field
+            = f.text_field :name, placeholder: "Имя", class: "span12", rows: 6
+          .field
+            = f.email_field :email, placeholder: "e-mail", class: "span12", rows: 6
+          .field
+            = f.text_area :details, placeholder: "Детали (можете указать здесь контактный телефон и прочую информацию)", class: "span12", rows: 6
+          .center
+            = f.submit 'Разместить заказ', class: "btn btn-primary"
+            = link_to 'Отмена', root_path, class: "btn btn-danger"
+      .span6
+        = render template: 'sessions/new'
+      .clear
+%script
+  $("#cart").addClass("hide");
