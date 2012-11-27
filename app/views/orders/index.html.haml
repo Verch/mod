@@ -12,12 +12,11 @@
       %th.span2 №
       %th.span4 Наименование организации
       %th.span4 Дата создания заказа
-      %th.span2
 
     - @orders.each do |order|
       %tr.order_name.info
-        %td.span2
-        %td.span4=link_to order.name, order
+        %td.span2= order.id
+        %td.span4= link_to order.name, order
         %td.span4= order.created_at.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")        
 - else
   %table.table.table-hover
@@ -31,5 +30,6 @@
       %tr.info
         %td.span2
         %td.span3=link_to order.created_at.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)"), order
-        %td.span3
+        %td.span3= order.status
         %td.span4= order.details
+= link_to "Назад", user_path(@current_user)

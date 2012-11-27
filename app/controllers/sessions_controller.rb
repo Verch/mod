@@ -16,7 +16,7 @@
           user.last_in = DateTime.now 
           user.save
           session[:user_id] = user.id
-          redirect_to user, notice: "Добро пожаловать!"
+          redirect_to :back, notice: "Добро пожаловать!"
         else
           redirect_to "/login", notice: "Регистрация не подтверждена Администратором"	
         end

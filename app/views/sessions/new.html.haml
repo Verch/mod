@@ -1,5 +1,5 @@
-.form-signin
-	= form_tag do
+﻿.form-signin
+	= form_tag "/login" do
 		%h2.form-signin-heading Авторизация
 		%h5.form-signin-heading Введите адрес электронной почты и пароль
 		= text_field_tag :email, params[:email], :placeholder => "email", class: "span12"

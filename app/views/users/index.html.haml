@@ -1,10 +1,10 @@
 ﻿%h1 Пользователи
 %br
 .row-fluid
-  .span4
+  .span5
     = form_tag '/users', method: :get do
-      = select_tag :temp_id, options_for_select([['Зарегестрированные пользователи', 1], ['Ожидают регистрации', 2]], params[:temp_id])
-  .span4
+      = select_tag :temp_id, options_for_select([['Зарегестрированные пользователи', 1], ['Ожидают регистрации', 2]], params[:temp_id]), class: "span12"
+  .span5
     = search_field_tag "search", "", placeholder: "Поиск..."
 %table.table.table-hover.table-bordered
   - @users.each do |user|

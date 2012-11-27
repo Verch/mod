@@ -26,13 +26,14 @@
       @spec.unp_id = 0
     else
       @spec_user = User.find_by_id(@order.user_id) 
-      if (spec_nums = Spec.where("user_id = ?", @spec_user.id).order("created_at DESC")).size != 0
+      if (spec_nums = Spec.where("user_id = ?", @spec_user.id).order("created_at ASC")).size != 0
         @spec.number = spec_nums.last.number + 1
       else
         @spec.number = 1
       end
       @spec.company_name = @spec_user.company_name
       @spec.unp_id = Unp.find_by_unp(@spec_user.unp).id
+      @spec.user_id = @order.user_id
     end
     @spec.date = Time.now.in_time_zone('Minsk').strftime("%d.%m.%Y")
     @spec.pay_type = "Оплачено в кассу"
@@ -49,7 +50,7 @@
       end
     end
   end
-
+  #прикрутить или нет ?
   def update
     @spec = Spec.find(params[:id])
     respond_to do |format|
