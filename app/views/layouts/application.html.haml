@@ -10,68 +10,48 @@
 			#temp_params_info.hide
 				=params
 			=image_tag "Hat.png",{width: "100%" }
-			.navbar
-				.navbar-inner
-					.container
-						%ul.nav
-							="<a class='btn btn-navbar' data-toggle='collapse' data-target='.nav-collapse'>".html_safe
-							%span{class: "icon-bar"}
-							%span{class: "icon-bar"}
-							%span{class: "icon-bar"}
-							="</a>".html_safe
-						.nav-collapse.collapse
-							%ul.nav
-								%li= link_to "<i class='icon-home'></i> Главная".html_safe, root_path, class: "navbar_padd"
-								%li{class: "divider-vertical"}
-								- if ((params[:controller] == "products") || (params[:controller] == "product_types") || params[:get_product_type_id]) && (params[:action] == "index")
-									%li{class: "active"}= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products"
-								- else
-									%li= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products"
-								%li{class: "divider-vertical"}
-								- if (params[:action] == "convertsizes")
-									%li{class: "active"}= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes"
-								- else
-									%li= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes"
-								%li{class: "divider-vertical"}
-								- if (params[:action] == "scheme")
-									%li{class: "active"}= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme"
-								- else
-									%li= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme"
-								%li{class: "divider-vertical"}
-								- if (params[:action] == "about")
-									%li{class: "active"}= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about"
-								- else
-									%li= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about"
-								%li{class: "divider-vertical"}
-								- if (params[:action] == "contact")
-									%li{class: "active"}= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact"
-								- else
-									%li= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact"
-								//%li{class: "active"}
-								%li{class: "divider-vertical"}
-							%ul.nav.pull-right
-								%li{class: "divider-vertical"}
-								- if @current_user
-									- if (params[:controller] == "users") 
-										%li{class: "active"}= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user
-									- else
-										%li= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user
-									%li{class: "divider-vertical"}
-									- if (params[:controller] == "sessions") 
-										%li{class: "active"}= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete
-									- else
-										%li= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete
-								- else
-									- if (params[:controller] == "users")
-										%li{class: "active"}= link_to "Регистрация", "/register"
-									- else
-										%li= link_to "Регистрация", "/register"
-									%li{class: "divider-vertical"}
-									- if (params[:controller] == "sessions")
-										%li{class: "active"}= link_to "Вход", login_path
-									- else
-										%li= link_to "Вход", login_path
-							.clear
+			%div{style: "background: url(#{asset_path '0border.png' }); background-size: cover;"}
+				.main_nav
+					= link_to "<i class='icon-home'></i> Главная".html_safe, root_path, style: " width: 12.5%;"
+					- if ((params[:controller] == "products") || (params[:controller] == "product_types") || params[:get_product_type_id]) && (params[:action] == "index")
+						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", style: " width: 12.5%;", class: "active"
+					- else
+						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", style: " width: 12.5%;"
+					- if (params[:action] == "convertsizes")
+						= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes", style: " width: 12.5%;", class: "active"
+					- else
+						= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes", style: " width: 12.5%;"
+					- if (params[:action] == "scheme")
+						= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", style: " width: 12.5%;", class: "active"
+					- else
+						= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", style: " width: 12.5%;"
+					- if (params[:action] == "about")
+						= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about", style: " width: 12.5%;", class: "active"
+					- else
+						= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about", style: " width: 12.5%;"
+					- if (params[:action] == "contact")
+						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;", class: "active"
+					- else
+						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;"
+					- if @current_user
+						- if (params[:controller] == "sessions") 
+							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, style: " width: 12.5%;", class: "active"
+						- else
+							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, style: " width: 12.5%;"
+						- if (params[:controller] == "users") 
+							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, style: " width: 12.5%;", class: "active"
+						- else
+							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, style: " width: 12.5%;"
+					- else
+						- if (params[:controller] == "sessions")
+							= link_to "Вход", login_path, style: " width: 12.5%;", class: "active"
+						- else
+							= link_to "Вход", login_path, style: " width: 12.5%;"
+						- if (params[:controller] == "users")
+							= link_to "Регистрация", "/register", style: " width: 12.5%;", class: "active"
+						- else
+							= link_to "Регистрация", "/register", style: " width: 12.5%;"
+					.clear
 			.container-fluid.up15
 				.row-fluid
 					.span3

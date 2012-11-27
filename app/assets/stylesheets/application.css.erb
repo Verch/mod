@@ -28,8 +28,39 @@
 }
 
 #well {
-	background-color: rgba(256,256,256,0.6);
+	background-color: #e7f5fc;
 	padding: 1px 3px;
+}
+
+.main_nav {
+	padding: 0px;
+	margin: 0px;
+}
+
+.main_nav > a {
+	float: left;
+	text-align: center;
+	margin: 0px; 
+	line-height: 35px;
+	font-size: 12px;
+	padding-top: 6px;
+	display: block;
+	color: white;
+	height: 35px;
+	background: url(<%= asset_path '1border.png' %>);
+	background-size: cover;
+}
+
+.main_nav > a:hover {
+	background: url(<%= asset_path '1border-hover.png' %>);
+	background-size: cover;
+	color: white;
+}
+
+.main_nav > a.active {
+	background: url(<%= asset_path '1border-hover.png' %>);
+	background-size: cover;
+	color: white;
 }
 
 .center {
@@ -47,10 +78,6 @@
 
 .activeMy > a {
 	background-color: #f5f5f5;
-}
-
-.up15 {
-	margin-top: -15px;
 }
 
 .navbar-inner {
@@ -77,7 +104,7 @@ html, body {
 	height: 60px;
 }
 #footer {
-	background-color: #eeeeee;
+	background-color: #dddddd;
 	width: 85%;
 	margin: 0 auto;
 	text-align: center;
