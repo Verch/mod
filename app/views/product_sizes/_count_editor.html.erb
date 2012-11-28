@@ -1,101 +1,30 @@
-<table class="table table-bordered table-condensed">
+<table class="table table-bordered">
+  <tr>
+    <th class="span2"></th>
+    <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(@product_colors.first.id) %></div>
+    <% @product_sizes.each do |product_size| %>
+      <th class="span1">
+        <%= product_size.name %>
+      </th>
+    <% end %>
+  </tr>
   <% @product_colors.each do |product_color| %>
     <tr>
       <td class="span2">
         <b><%= product_color.name %></b>
         <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(product_color.id) %></div>
       </td>
-    <td class="span10">
-      <table class="table table-condensed">
-        <tr>
-          <% @product_sizes.each do |product_size| %>
-            <% if @current_product_size_id && @current_product_size_id == product_size.id %>
-              <th id="current_product_size" class="span1"> 
-            <% else %>
-              <th class="span1"> 
-            <% end %>
-            <%= product_size.name %></th>
+      <% @product_sizes.each do |product_size| %>
+        <% if @current_product_size_id && @current_product_size_id == product_size.id %>
+          <td id="current_product_size" class="span1"> 
+        <% else %>
+          <td class="span1"> 
+        <% end %>
+          <%= form_for product_size, class: "count_editor_form", remote: true do |f| %>
+            <%= f.text_field :count, class: "span12" %>
           <% end %>
-        </tr>
-        <tr>
-          <% @product_sizes.each do |product_size| %>
-            <td class="span1">
-              <%= form_for product_size, remote: true do |f| %>
-                <%= f.text_field :count, class: "span12" %>
-              <% end %>
-            </td>
-          <% end %>
-        </tr>
-      </table>
-    </td>
+        </td>
+      <% end %>
+    </tr>
   <% end %>
 </table>
-<% if false %> <!--
-<table class="table_product_type">
-  <tr><td><%= @product_color.name %><br>
-  </td><td>
-  <table class="table_product_size">
-  <tr>
-  <td></td>
-  <% @product_sizes.each do |product_size| %>
-    <% if @current_product_size_id && @current_product_size_id == product_size.id %>
-      <td id="current_product_size"> 
-    <% else %>
-      <td> 
-    <% end %>
-    <%= product_size.name %></td>
-  <% end %>
-  <td>Все размеры</td>
-  </tr>
-
-  <tr>
-  <td class="td_product_count">Количество</td>
-  <% @product_sizes.each do |product_size| %>
-    <td class="td_product_count">
-      <div class="static_product_count"><%= product_size.count %></div>
-    </td>
-  <% end %>
-  <td></td>
-  </tr>
-  <tr>
-  <td></td>
-  <% @product_sizes.each do |product_size| %>
-    <td class="td_product_count">
-      <div class="edit_product_count">
-        <%= form_for product_size, remote: true do |f| %>
-          <%= f.hidden_field :product_color_id %>
-          <%= f.submit '+' %>
-          <%= f.text_field :count, value: "0", size: "1" %>
-        <% end %>
-      </div>
-    </td>
-  <% end %>
-  <td></td>
-  </tr>
-  <tr>
-  <td class="td_product_reserv">Резерв</td>
-  <% @product_sizes.each do |product_size| %>
-    <td class="td_product_reserv"><%= product_size.reserv %></td>
-  <% end %>
-  <td></td>
-  </tr>
-  <tr>
-  <td class="td_product_price_color">Все цвета</td>
-  <% @product_sizes.each do |product_size| %>
-    <td class="td_product_price_color"> 
-      <div class="edit_product_price_color"> 
-        <%= form_for product_size, remote: true do |f| %>
-          <%= f.hidden_field :product_color_id %>
-          <%= hidden_field_tag "common_color"%>
-          <%= f.text_field :price, size: "6" %>
-          <div class="hide"> <%= f.submit '  Save   ' %> </div>
-        <% end %>
-      </div>
-    </td>
-  <% end %>
-  </tr>
-  </table>
-  </td>
-  </tr>
-</table>
---><% end %>

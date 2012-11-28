@@ -1,0 +1,16 @@
+<%= @product.description_top.html_safe %>
+<table class="product_table">
+	<tr>
+	<% @product_types.each do |product_type| %>
+		<% if (product_type.id == 5) || (product_type.id == 9) %>
+			</tr><tr>
+		<% end %>
+		<td>
+			<%= link_to image_tag(product_type.big_image_url,{width: "100%", class: "product_show_imgs"}), product_type %>
+			<%= link_to product_type.name, product_type %>
+		</td>
+	<% end %>
+	</tr>
+	<tr><td></td><td></td><td></td><td></td></tr>
+</table>
+<%= @product.description_bottom.html_safe %>
