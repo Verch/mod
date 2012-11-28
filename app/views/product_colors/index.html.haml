@@ -5,6 +5,7 @@
     =link_to "Редактирование количества", product_sizes_path(get_product_type_id: params[:get_product_type_id])
     #price_editor
       =render "price_editor"
+    =link_to "Назад", product_types_path(get_product_id: @product_type.product_id)
   - else
     %h1 Просмотр склада
     #price_list

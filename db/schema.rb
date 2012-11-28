@@ -61,8 +61,9 @@ ActiveRecord::Schema.define(:version => 20121120135502) do
     t.integer  "price_5"
     t.integer  "price_6"
     t.integer  "price_7"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.boolean  "show_old_flag",   :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "prices", ["product_type_id"], :name => "index_prices_on_product_type_id"

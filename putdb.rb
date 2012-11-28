@@ -27,7 +27,7 @@ product.save
 path_bone = "wear/fff/f_m_kor/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Футболки кор. рук. Круглый ворот 155 гр. Хлопок 100%"
+product_type.name = "Футболки мужские кор. рук. 155 гр хлопок 100%"
 product_type.description = "Состав: хлопок 100%. Яркие цвета. Изделия не деформируются после многочисленных стирок. Воротник с добавлением лайкры. Мягкий компенсатор горловины. Усиленные плечевые швы. Везде двойная строчка. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Для производства футболок используется суперчесанный хлопок высшего качества. Плотная вязка - идеально подходят для нанесения сложных цветных изображений. <b><br>Плотность: 155 гр/м2<br>Размеры: S-3XL<br>Количество цветов: 24<br></b>"
 product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
@@ -103,7 +103,7 @@ end
 path_bone = "wear/fff/f_f_kor/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Футболки жен. кор. рук. Круглый ворот 155 гр. Хлопок 100%"
+product_type.name = "Футболки женские кор. рук. 155 гр хлопок 100%"
 product_type.description = "<b><br>Плотность: 155 гр/м2<br>Размеры: S-2XL<br>Количество цветов: 9<br></b>"
 product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
@@ -179,7 +179,7 @@ end
 path_bone = "wear/fff/f_k_kor/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Футболки дет. кор. рук. Круглый ворот 155 гр. Хлопок 100%"
+product_type.name = "Футболки детские кор. рук. 155 гр хлопок 100%"
 product_type.description = "Состав: хлопок 100%. Яркие цвета. Изделия не деформируются после многочисленных стирок. Воротник с добавлением лайкры. Мягкий компенсатор горловины. Усиленные плечевые швы. Везде двойная строчка. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Для производства футболок используется суперчесанный хлопок высшего качества. Плотная вязка - идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 155 гр/м2<br>Размеры: 5XS-S<br>Количество цветов: 14<br></b>"
 product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
@@ -255,7 +255,7 @@ end
 path_bone = "wear/fff/f_m_dl/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Футболки дл. рук. Круглый-ворот 155 гр. Хлопок 100%"
+product_type.name = "Футболки мужские дл. рук. 155 гр хлопок 100%"
 product_type.description = "Состав: хлопок 100%. Яркие цвета. Изделия не деформируются после многочисленных стирок. Воротник с добавлением лайкры. Мягкий компенсатор горловины. Усиленные плечевые швы. Везде двойная строчка. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Для производства футболок используется суперчесанный хлопок высшего качества. Плотная вязка - идеально подходят для нанесения сложных цветных изображений. <b><br>Плотность: 155 гр/м2<br>Размеры: S-3XL<br>Количество цветов: 7<br></b>"
 product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
@@ -331,7 +331,7 @@ end
 path_bone = "wear/fff/f_m_kor_s/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Стрейчевые футболки муж. кор. рук. Круглый ворот 180 гр. хлопок 92% + эластан 8%"
+product_type.name = "Футболки мужские кор. рук. 180 гр хлопок 92% лайкра 8%"
 product_type.description = "Состав: хлопок 92%+лайкра 8%. Для производства мужских футболок используется суперчесанный хлопок высшего качества. Подчеркивают фигуру. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 180 гр/м2<br>Размеры: M-2XL<br>Количество цветов: 7<br></b>"
 product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
@@ -407,7 +407,7 @@ end
 path_bone = "wear/fff/f_f_kor_s/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Стрейчевые футболки жен. кор. рук. Круглый ворот 200 гр. хлопок 92% + эластан 8%"
+product_type.name = "Футболки женские кор. рук. 180 гр хлопок 92% лайкра 8%"
 product_type.description = "Состав: хлопок 92%+лайкра 8%. Для производства женских футболок используется суперчесанный хлопок высшего качества. Зауженные двойные строчки и модельный ворот придают элегантность и подчеркивают женственность. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Футболки идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 200 гр/м2<br>Размеры: XS-XL<br>Количество цветов: 19<br></b>"
 product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
@@ -483,7 +483,7 @@ end
 path_bone = "wear/fff/f_m_dl_s/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Стрейчевые футболки муж. дл. рук. Круглый ворот 180 гр. хлопок 92% + эластан 8%"
+product_type.name = "Футболки мужские дл. рук. 180 гр хлопок 92% лайкра 8%"
 product_type.description = "Состав: хлопок 92%+лайкра 8%. Для производства мужских футболок используется суперчесанный хлопок высшего качества. Подчеркивают фигуру. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 180 гр/м2<br>Размеры: M-2XL<br>Количество цветов: 7<br></b>"
 product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
@@ -559,7 +559,7 @@ end
 path_bone = "wear/fff/f_f_dl_s/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Стрейчевые футболки жен. дл. рук. Круглый ворот 180 гр. хлопок 92% + эластан 8%"
+product_type.name = "Футболки женские дл. рук. 180 гр хлопок 92% лайкра 8%"
 product_type.description = "Состав: хлопок 92%+лайкра 8%. Для производства женских футболок используется суперчесанный хлопок высшего качества. Зауженные двойные строчки и модельный ворот придают элегантность и подчеркивают женственность. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Футболки идеально подходят для нанесения сложных цветных изображений.<b><br>Плотность: 180 гр/м2<br>Размеры: S-XL<br>Количество цветов: 8<br></b>"
 product_type.big_image_url = path_bone+"black.jpg"
 product_type.small_image_url = "F1_small.png"
@@ -635,7 +635,7 @@ end
 path_bone = "wear/fff/f_b_kor/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Футболки Topic кор. рук. хлопок 100% 125гр."
+product_type.name = "Футболки кор. рук. 125 гр хлопок 100%"
 product_type.description = "Состав: хлопок 100%. Яркие цвета. Воротник с добавлением лайкры. Мягкий компенсатор горловины. Усиленные плечевые швы. Везде двойная строчка. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Для производства футболок используется суперчесанный хлопок высшего качества.<b><br>Плотность: 125 гр/м2<br>Размеры: S-3XL<br>Количество цветов: 15<br></b>"
 product_type.big_image_url = path_bone+"example.png"
 product_type.small_image_url = "F1_small.png"
@@ -711,7 +711,7 @@ end
 path_bone = "wear/fff/f_b_bez/"
 product_type = ProductType.new
 product_type.product_id = product.id
-product_type.name = "Футболки Topic без рук. хлопок 100% 125гр."
+product_type.name = "Футболки без рук. 125 гр хлопок 100%"
 product_type.description = "Состав: хлопок 100%. Яркие цвета. Воротник с добавлением лайкры. Мягкий компенсатор горловины. Усиленные плечевые швы. Везде двойная строчка. Суперстойкое активное крашение цветных и дополнительное отбеливание белых изделий. Для производства футболок используется суперчесанный хлопок высшего качества.<b><br>Плотность: 125 гр/м2<br>Размеры: S-3XL<br>Количество цветов: 12<br></b>"
 product_type.big_image_url = path_bone+"example.png"
 product_type.small_image_url = "F1_small.png"
@@ -1160,7 +1160,7 @@ price.price_6 = 31416
 price.price_7 = 30996
 price.save
 colors = ["Белый", "Хаки", "Бирюзовый", "Голубой", "Желтый", "Зеленый", "Красный", "Светло-желтый", "Оранжевый", "Песочный", "Салатовый", "Серебристый", "Слоновая кость", "Темно-синий", "Черный", "Ярко-синий", "Темно-красный", "Бордовый", "Небесный", "Темно-зеленый"]
-big_image_urls = ["white.png", "haki.png", "biru.png", "golub.png", "yellow.png", "green.png", "red.png", "syellow.png", "cream.png", "sand.png", "salat.png", "sereb.png", "cream.png", "tblue.png", "black.png", "yablue.png", "tred.png", "bord.png", "sky.png", "tgreen.png"]
+big_image_urls = ["white.jpg", "haki.jpg", "biru.jpg", "golub.jpg", "yellow.jpg", "green.jpg", "red.jpg", "syellow.jpg", "cream.jpg", "sand.jpg", "salat.jpg", "sereb.jpg", "cream.jpg", "tblue.jpg", "black.jpg", "yablue.jpg", "tred.jpg", "bord.jpg", "sky.jpg", "tgreen.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id

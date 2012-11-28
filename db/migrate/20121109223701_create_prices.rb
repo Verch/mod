@@ -9,6 +9,7 @@ class CreatePrices < ActiveRecord::Migration
       t.integer :price_5
       t.integer :price_6
       t.integer :price_7
+      t.boolean :show_old_flag, default: false
 
       t.timestamps
     end
