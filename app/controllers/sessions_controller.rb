@@ -16,7 +16,11 @@
           user.last_in = DateTime.now 
           user.save
           session[:user_id] = user.id
-          redirect_to :back, notice: "Добро пожаловать!"
+          if params[:controller] == "sessions"
+            redirect_to user, notice: "Добро пожаловать!"
+          else
+            redirect_to :back, notice: "Добро пожаловать!"
+          end
         else
           redirect_to "/login", notice: "Регистрация не подтверждена Администратором"	
         end

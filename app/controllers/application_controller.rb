@@ -8,7 +8,7 @@
 		end
 		def authorize
 			unless User.find_by_id(session[:user_id])
-				redirect_to login_path, notice: "Для просмотра страницы необходимо авторизоваться"
+				render template: 'sessions/new'
 			end
 		end
 

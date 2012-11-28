@@ -66,10 +66,10 @@
     @user = User.find(params[:id])
     @user_groups = UserGroup.all
     @current_user_group = UserGroup.find_by_id(@user.user_group_id) 
-    unp = @user.unp
+    temp_user = @user
     respond_to do |format|
-      if @user.update_attributes(params[:user])
-        unless @user.unp == unp
+      if @user.update_attributes(params[:user]) 
+        unless @user.unp == temp_user.unp
           if unp = Unp.find_by_unp(@user.unp)
             if @specs = Spec.find_all_by_unp_id(unp.id)
               @specs.each do |spec|
