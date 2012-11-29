@@ -6,11 +6,14 @@
       = select_tag :temp_id, options_for_select([['Зарегестрированные пользователи', 1], ['Ожидают регистрации', 2]], params[:temp_id]), class: "span12"
   .span5
     = search_field_tag "search", "", placeholder: "Поиск..."
-%table.table-hover{cellpadding: "5px", border: "2"}
+%table.table.table-hover
   %tr
-    %th.span6 Наименование организации
-    %th.span4 Последний раз на сайте
-    %th.span2 Действия
+    %td.span6 
+      %b Наименование организации
+    %td.span4
+      %b Последний раз на сайте
+    %td.span2
+      %b Действия
   - @users.each do |user|
     %tr.company_name
       %td.span6

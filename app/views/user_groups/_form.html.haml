@@ -20,5 +20,7 @@
     .controls
       = f.check_box :view_sklad_flag
   .center
-    = f.submit 'Сохранить', class: "btn btn-success"
+    .btn-group
+      = f.submit 'Сохранить', title: "Сохранить", class: "btn btn-success"
+      = link_to 'Отмена', user_groups_path, title: "К списку групп", class: "btn btn-danger"
 

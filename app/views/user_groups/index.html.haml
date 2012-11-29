@@ -1,10 +1,43 @@
 %h1 Группы пользователей
 = link_to 'Создать новую группу', new_user_group_path
 %table.table.table-hover.table-bordered
+  %tr
+    %td
+      %b Название группы
+    %td
+      %b Доступ
+    %td
+      %b Резерв
+    %td
+      %b Склад
+    %td
+      %b Мин. заказ
+    %td
+      %b Действия
   - @user_groups.each do |user_group|
-    %tr.info
-      %td
+    %tr
+      %td.span3
         %b= user_group.name
-        .button-group.pull-right
-          = link_to 'Редактировать', edit_user_group_path(user_group), class: "btn btn-info"
-          = link_to 'Удалить', user_group, :confirm => 'Вы уверены?', :method => :delete, class: "btn btn-danger"
+      %td.span2
+        -if user_group.admin_flag
+          .icon-ok
+        - else
+          .icon-remove
+      %td.span2
+        -if user_group.view_reserv_flag
+          .icon-ok
+        - else
+          .icon-remove
+      %td.span2
+        -if user_group.view_sklad_flag
+          .icon-ok
+        - else
+          .icon-remove
+      %td.span2
+        = user_group.least_order
+        ед.
+      %td.span1
+        .btn-group.pull-right
+          = link_to '', edit_user_group_path(user_group), title: "Редактировать", class: "btn icon-pencil"
+          = link_to '', user_group, :confirm => 'Вы уверены?', :method => :delete, title: "Удалить", class: "btn btn-danger icon-trash"
+= link_to "Назад", @current_user

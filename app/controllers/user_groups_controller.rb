@@ -6,13 +6,6 @@
     respond_to :html # index.html.erb
   end
 
-  # GET /user_groups/1
-  def show
-    @user_group = UserGroup.find(params[:id])
-
-    respond_to :html # show.html.erb
-  end
-
   # GET /user_groups/new
   def new
     @user_group = UserGroup.new
@@ -44,7 +37,7 @@
 
     respond_to do |format|
       if @user_group.update_attributes(params[:user_group])
-        format.html { redirect_to @user_group, notice: 'Группа пользователейбыла успешно изменена.' }
+        format.html { redirect_to user_groups_path, notice: 'Группа пользователейбыла успешно изменена.' }
       else
         format.html { render action: "edit" }
       end
