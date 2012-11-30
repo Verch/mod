@@ -105,7 +105,7 @@ product_type = ProductType.new
 product_type.product_id = product.id
 product_type.name = "Футболки женские кор. рук. 155 гр хлопок 100%"
 product_type.description = "<b><br>Плотность: 155 гр/м2<br>Размеры: S-2XL<br>Количество цветов: 9<br></b>"
-product_type.big_image_url = path_bone+"black.jpg"
+product_type.big_image_url = path_bone+"example.png"
 product_type.small_image_url = "F1_small.png"
 product_type.white_price_id = 5
 product_type.color_price_id = 6
@@ -458,7 +458,7 @@ price.price_6 = 62436
 price.price_7 = 61584
 price.save
 colors = ["Белый", "Бежевый", "Бирюзовый", "Голубой", "Желтый", "Зеленый", "Красный", "Лимонный", "Оранжевый", "Песочный", "Салатовый", "Серебристый", "Слоновая кость", "Темно-синий", "Фиолетовый", "Черный", "Ярко-синий", "Розовый", "Кремовый"]
-big_image_urls = ["white.jpg", "bezh.jpg", "biru.jpg", "golub.jpg", "yellow.jpg", "green.jpg", "red.jpg", "lime.jpg", "orange.jpg", "sand.jpg", "salat.jpg", "sereb.jpg", "slon.jpg", "tblue.jpg", "fiol.jpg", "black.jpg", "yablue.jpg", "pink.jpg", "cream.jpg"]
+big_image_urls = ["white.jpg", "bezh.jpg", "biru.jpg", "golub.jpg", "yellow.jpg", "green.jpg", "red.jpg", "lime.jpg", "orange.jpg", "sand.jpg", "salat.jpg", "sereb.jpg", "slon.jpg", "tblue.jpg", "fiol.jpg", "black.jpg", "example.png", "pink.jpg", "cream.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
