@@ -146,7 +146,6 @@ html, body {
 #order_menu {
 	display: none;
 }
-
 .link_to_color {
 	float: left;
 	font-size: 8px;
@@ -160,10 +159,16 @@ html, body {
 	margin-right: 2px;
 	margin-bottom: 2px;
 }
-
 .table_to_cart {
 	padding-top: 20px;
 	text-align: center
+}
+.old_price_cross {
+	background: url(<%= asset_path 'cross.png' %>) no-repeat;
+	background-size: 100% 100%;
+}
+.old_price_cross_inner{
+	z-index: -1;
 }
 
 .well {
