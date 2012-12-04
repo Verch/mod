@@ -2,8 +2,8 @@
 
 one:
   count: 1
-  value: 1
+  value: MyString
 
 two:
   count: 1
-  value: 1
+  value: MyString

@@ -13,6 +13,7 @@ Modernimport::Application.routes.draw do
   resources :prices
   resources :specs
   resources :tools
+  resources :discounts
 
   match "/convertsizes" => "pages#convertsizes"
   match "/scheme" => "pages#scheme"

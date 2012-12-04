@@ -1,0 +1,21 @@
+%h1 Настройка таблицы скидок
+
+%table
+  %tr
+    %th Количество
+    %th Скидка
+    %th
+    %th
+    %th
+
+  - @discounts.each do |discount|
+    %tr
+      %td= discount.count
+      %td= discount.value
+      %td= link_to "<i class='icon-pencil'></i>".html_safe, edit_discount_path(discount)
+      %td= link_to "<i class='icon-remove'></i>".html_safe, discount, method: :delete, data: { confirm: 'Вы уверены?' }
+
+%br
+= link_to 'Добавить скидку', new_discount_path, class: "btn-glass btn-glass-light"
+%br
+= link_to 'Назад', @current_user

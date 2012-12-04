@@ -1,0 +1,9 @@
+= form_for @discount do |f|
+  .field
+    = f.label "Количество"
+    = f.number_field :count
+  .field
+    = f.label "Скидка, %"
+    = f.text_field :value
+  .actions
+    = f.submit 'Сохранить', class: "btn-glass btn-glass-green"
