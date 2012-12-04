@@ -6,9 +6,8 @@
 		<table class="table table-bordered">
 			<%= render(@cart.line_items) %>
 		</table>
-		<div class="btn-group">
-			<%= link_to 'Заказать', new_order_path, method: :get, class: "btn btn-success" %>
-			<%= link_to 'Очистить', cart, method: :delete, class: "btn btn-danger", confirm: 'Вы уверены?' %>
-		</div>
+		<%= link_to 'Заказать', new_order_path, method: :get, class: "btn-glass btn-glass-green" %>
+		<%= link_to 'Очистить', cart, method: :delete, class: "btn-glass btn-glass-red", confirm: 'Вы уверены?' %>
+		<div class="clear"></div>
 	</div>
 <% end %>

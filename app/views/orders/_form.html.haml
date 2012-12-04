@@ -38,9 +38,9 @@
           .field
             = f.text_area :details, placeholder: "Детали (можете указать здесь контактный телефон и прочую информацию)", class: "span12", rows: 6
           .center
-            = f.submit 'Разместить заказ', class: "btn btn-primary"
-            = link_to 'Отмена', root_path, class: "btn btn-danger"
-      .span5
+            = f.submit 'Разместить заказ', class: "btn-glass btn-glass-green"
+      .span5.center
+        %br
         = render template: 'sessions/new'
       .clear
 %script

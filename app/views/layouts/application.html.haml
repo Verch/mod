@@ -34,23 +34,23 @@
 					- else
 						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;"
 					- if @current_user
-						- if (params[:controller] == "sessions") 
-							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, style: " width: 12.5%;", class: "active"
-						- else
-							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, style: " width: 12.5%;"
 						- if (params[:controller] == "users") 
 							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, style: " width: 12.5%;", class: "active"
 						- else
 							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, style: " width: 12.5%;"
-					- else
-						- if (params[:controller] == "sessions")
-							= link_to "Вход", login_path, style: " width: 12.5%;", class: "active"
+						- if (params[:controller] == "sessions") 
+							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, style: " width: 12.5%;", class: "active"
 						- else
-							= link_to "Вход", login_path, style: " width: 12.5%;"
+							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, style: " width: 12.5%;"
+					- else
 						- if (params[:controller] == "users")
 							= link_to "Регистрация", "/register", style: " width: 12.5%;", class: "active"
 						- else
 							= link_to "Регистрация", "/register", style: " width: 12.5%;"
+						- if (params[:controller] == "sessions")
+							= link_to "Вход", login_path, style: " width: 12.5%;", class: "active"
+						- else
+							= link_to "Вход", login_path, style: " width: 12.5%;"
 					.clear
 			.container-fluid.up15
 				.row-fluid
