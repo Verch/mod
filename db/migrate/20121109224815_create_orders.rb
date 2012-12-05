@@ -4,7 +4,7 @@
       t.string :name
       t.string :email
       t.text :details
-      t.string :status, default: "Ожидает"
+      t.string :status
       t.boolean :reserv_flag, default: false
       t.boolean :archive_flag, default: false
       t.references :user, default: 0
