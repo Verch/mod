@@ -3,9 +3,6 @@
     %table
       %tr 
         %td{colspan: @product_sizes.count, class: "span12"}
-          %b 
-            Цвет:
-            =@product_color.name
           %br &nbsp;
       %tr
         - @product_sizes.each do |product_size_to_cart|
