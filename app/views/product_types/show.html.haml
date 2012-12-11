@@ -9,7 +9,8 @@
     .span8
       - @product_colors.each do |product_color|
         .overlink_to_color  
-          =link_to "<div style='background:#fff;color:#333;margin:auto;'>#{product_color.name}</div>".html_safe, product_type_path(get_product_color_id: product_color.id), remote: true, class: "link_to_color", style:"background-color: #{product_color.rgb};", id: product_color.big_image_url, title: product_color.name
+          =link_to "", product_type_path(get_product_color_id: product_color.id), remote: true, class: "link_to_color", style:"background-color: #{product_color.rgb};", id: product_color.big_image_url, title: product_color.name
+          = product_color.name
       .clear
       %br
       .span10.offset1

@@ -1,9 +1,13 @@
-class ProductsController < ApplicationController
+﻿class ProductsController < ApplicationController
   before_filter :authorize, only: :index
   # GET /products
   def index
-    @products = Product.all
-    respond_to :html # index.html.erb
+    if !@current_group.view_sklad_flag
+      redirect_to root_path, notice: "У вас нет прав доступа"
+    else
+      @products = Product.all
+      respond_to :html # index.html.erb
+    end
   end
 
   # GET /products/1

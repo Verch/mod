@@ -16,8 +16,8 @@ group :development, :test do
 	gem 'sqlite3'
 end
 group :production do
-	gem 'mysql2'
-	gem 'activerecord-mysql-adapter'
+	#gem 'mysql2'
+	#gem 'activerecord-mysql-adapter'
 end
 
 gem "therubyracer"
