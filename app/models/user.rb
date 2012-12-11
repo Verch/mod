@@ -10,18 +10,18 @@ class User < ActiveRecord::Base
   				  :user_group_id, :type_of_ownership
   belongs_to :user_groups
   has_many :orders
-  #validates :name, :company_name, :email, :juridical_address,
-  #          :type_of_ownership,
-  #          presence: true, #валидация наличия
-  #          length: { maximum: 100 } #валидация длинны
+  validates :name, :company_name, :email, :juridical_address,
+            :type_of_ownership,
+            presence: true, #валидация наличия
+            length: { maximum: 100 } #валидация длинны
   #validates :email, 
-  #          format: { with: email_regex }, 
+  #          format: { with: :email_regex }, 
   #          uniqueness: { case_sensitive: false } #валидация уникальности
-  #validates :unp,
-  #          length: { minimum: 9 }
+  validates :unp,
+            length: { minimum: 9, maximum: 9 }
   if @test == "new"
     self.validates :password, :password_confirmation, presence: true
   end
-  #validates :password, 
-  #          length: { minimum: 6 }
+  validates :password, 
+            length: { minimum: 6 }
 end

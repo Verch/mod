@@ -37,7 +37,7 @@
 
     respond_to do |format|
       if @user_group.update_attributes(params[:user_group])
-        format.html { redirect_to user_groups_path, notice: 'Группа пользователейбыла успешно изменена.' }
+        format.html { redirect_to user_groups_path, notice: 'Группа пользователей была успешно изменена.' }
       else
         format.html { render action: "edit" }
       end

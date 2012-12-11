@@ -37,27 +37,29 @@
   # POST /users
   def create
     @user = User.new(params[:user])
-    @user.last_in = DateTime.now
-    if params[:mail_duplicate]
-      @user.mailing_address = @user.juridical_address
-    end
-    respond_to do |format|
-      if @user.save
-        if unp = Unp.find_by_unp(@user.unp)
-          if @specs = Spec.find_all_by_unp_id(unp.id)
-            @specs.each do |spec|
-              spec.user_id = @user.id
-            end
-          end
-        else
-          @unp = Unp.new
-          @unp.unp = @user.unp
-          @unp.save
-        end
-        format.html { redirect_to login_path, notice: 'Свяжитесь с администратором для подтверждения регистрации.' }
-      else
-        format.html { render action: "new" }
+    
+      @user.last_in = DateTime.now
+      if params[:mail_duplicate]
+        @user.mailing_address = @user.juridical_address
       end
+      respond_to do |format|
+        if @user.save
+          if unp = Unp.find_by_unp(@user.unp)
+            if @specs = Spec.find_all_by_unp_id(unp.id)
+              @specs.each do |spec|
+                spec.user_id = @user.id
+              end
+            end
+          else
+            @unp = Unp.new
+            @unp.unp = @user.unp
+            @unp.save
+          end
+          format.html { redirect_to login_path, notice: 'Свяжитесь с администратором для подтверждения регистрации.' }
+        else
+          format.html { render action: "new" }
+        end
+    
     end
   end
 

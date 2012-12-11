@@ -1,10 +1,9 @@
-﻿= form_for @user, html: {class: "form-horizontal"} do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
+﻿.alert.alert-success
+  %ul
+    %li Все поля должны быть заполнены
+    %li Пароль не менее 6 символов
+    %li Номер УНП - 9 цифр
+= form_for @user, html: {class: "form-horizontal"} do |f|
   - if @current_group && @current_group.admin_flag
     .row-fluid
       .span1
