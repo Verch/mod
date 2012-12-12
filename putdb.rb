@@ -458,7 +458,7 @@ price.price_6 = 62436
 price.price_7 = 61584
 price.save
 colors = ["Белый", "Бежевый", "Бирюзовый", "Голубой", "Желтый", "Зеленый", "Красный", "Лимонный", "Оранжевый", "Песочный", "Салатовый", "Серебристый", "Слоновая кость", "Темно-синий", "Фиолетовый", "Черный", "Ярко-синий", "Розовый", "Кремовый"]
-big_image_urls = ["white.jpg", "bezh.jpg", "biru.jpg", "golub.jpg", "yellow.jpg", "green.jpg", "red.jpg", "lime.jpg", "orange.jpg", "sand.jpg", "salat.jpg", "sereb.jpg", "slon.jpg", "tblue.jpg", "fiol.jpg", "black.jpg", "example.png", "pink.jpg", "cream.jpg"]
+big_image_urls = ["white.jpg", "bezh.jpg", "biru.jpg", "golub.jpg", "yellow.jpg", "green.jpg", "red.jpg", "lime.jpg", "orange.jpg", "sand.jpg", "salat.jpg", "sereb.jpg", "slon.jpg", "tblue.jpg", "fiol.jpg", "black.jpg", "yablue.jpg", "pink.jpg", "cream.jpg"]
 colors.each_index do |i|
 product_color = ProductColor.new
 product_color.product_id = product.id
