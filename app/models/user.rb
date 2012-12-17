@@ -19,9 +19,6 @@ class User < ActiveRecord::Base
   #          uniqueness: { case_sensitive: false } #валидация уникальности
   validates :unp,
             length: { minimum: 9, maximum: 9 }
-  if @test == "new"
-    self.validates :password, :password_confirmation, presence: true
-  end
-  validates :password, 
-            length: { minimum: 6 }
+  #validates :password, 
+  #         length: { minimum: 6 }
 end

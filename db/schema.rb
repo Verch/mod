@@ -132,10 +132,12 @@ ActiveRecord::Schema.define(:version => 20121204125052) do
     t.string   "pay_type"
     t.integer  "unp_id"
     t.integer  "user_id"
+    t.integer  "order_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "specs", ["order_id"], :name => "index_specs_on_order_id"
   add_index "specs", ["unp_id"], :name => "index_specs_on_unp_id"
   add_index "specs", ["user_id"], :name => "index_specs_on_user_id"
 

@@ -9,10 +9,12 @@ class CreateSpecs < ActiveRecord::Migration
       t.string :pay_type
       t.references :unp
       t.references :user
+      t.references :order
 
       t.timestamps
     end
     add_index :specs, :unp_id
     add_index :specs, :user_id
+    add_index :specs, :order_id
   end
 end

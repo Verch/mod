@@ -33,5 +33,7 @@
           = link_to 'Отправить в архив', order_path(order: @order), method: :put, class: "btn btn-info"
           = link_to 'Создать спецификацию', new_spec_path(order_id: @order.id), class: "btn btn-info"
         = link_to 'Удалить', @order, :confirm => 'Вы уверены?', :method => :delete, class: "btn btn-danger"
+- if @order.archive_flag and @current_group.admin_flag
+  = link_to 'Восстановить', order_path(order: @order), method: :put, class: "btn btn-info"
 %br
 = link_to 'К списку заказов', orders_path

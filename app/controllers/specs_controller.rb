@@ -34,6 +34,7 @@
       @spec.company_name = @spec_user.company_name
       @spec.unp_id = Unp.find_by_unp(@spec_user.unp).id
       @spec.user_id = @order.user_id
+      @spec.order_id = @order.id
     end
     @spec.date = Time.now.in_time_zone('Minsk').strftime("%d.%m.%Y")
     @spec.pay_type = "Оплачено в кассу"
@@ -44,6 +45,9 @@
     @spec = Spec.new(params[:spec])
     respond_to do |format|
       if @spec.save
+        @order = Order.find_by_id(@spec.order_id)
+        @order.status = "Обработан"
+        @order.save
         format.html { redirect_to specs_path, notice: "Спецификация сохранена" }
       else
         format.html { render action: "new" }

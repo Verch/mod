@@ -182,11 +182,13 @@
   def create
     if @current_user == nil
       @order = Order.new(params[:order])
+      @order.status = "Ожидает"
     else 
       @order = Order.new(params[:order])
       @order.user_id = @current_user.id
       @order.name = @current_user.company_name
       @order.email = @current_user.email
+      @order.status = "Ожидает"
     end
     @order.add_line_items_from_cart(current_cart)
 
@@ -234,9 +236,18 @@
       @order.save
       redirect_to orders_path, notice: "Заказ сохранен"
     else
-      @order.archive_flag = true
+      @order.toggle(:archive_flag)
+      if @order.archive_flag
+        @order.status = "Завершен (перемещен в архив)"
+      else
+        @order.status = "Ожидает (восстановлен из архива)"
+      end
       @order.save
-      redirect_to orders_path, notice: "Заказ отправлен в архив"
+      if @order.archive_flag
+        redirect_to orders_path, notice: "Заказ отправлен в архив"
+      else
+        redirect_to orders_path, notice: "Заказ восстановлен из архива"
+      end
     end
   end
 

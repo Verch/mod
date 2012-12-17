@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '1.9.3'
 gem 'rails', '3.2.9'
+gem 'rb-readline'
 
 gem 'bundler', '~> 1.2.0.rc.2'
 gem 'thin'

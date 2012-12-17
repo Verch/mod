@@ -70,7 +70,13 @@
     @current_user_group = UserGroup.find_by_id(@user.user_group_id) 
     temp_user = @user
     respond_to do |format|
-      if @user.update_attributes(params[:user]) 
+      if @user.update_attributes(params[:user])
+        if params[:mail_duplicate]
+          @user.mailing_address = @user.juridical_address
+          unless @user.save
+            format.html { render action: "edit", notice: 'Ошибка сохранения данных пользователя.' }
+          end
+        end
         unless @user.unp == temp_user.unp
           if unp = Unp.find_by_unp(@user.unp)
             if @specs = Spec.find_all_by_unp_id(unp.id)
@@ -84,9 +90,9 @@
             @unp.save
           end
         end
-        format.html { redirect_to @user, notice: 'Данные пользователе успешно изменены.' }
+        format.html { redirect_to @user, notice: 'Данные пользователя успешно изменены.' }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "edit", notice: 'Ошибка сохранения данных пользователя.' }
       end
     end
   end

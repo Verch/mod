@@ -1429,11 +1429,13 @@ user_group.save
 
 temp_user = User.new
 temp_user.name = "admin"
+temp_user.type_of_ownership = "some"
 temp_user.company_name = "admin_company"
-temp_user.unp = "00000000"
+temp_user.unp = "000000000"
+temp_user.juridical_address = "some address"
 temp_user.email = "admin@admin"
-temp_user.password = "admin"
-temp_user.password_confirmation = "admin"
+temp_user.password = "admin@admin"
+temp_user.password_confirmation = "admin@admin"
 temp_user.reg_confirm_admin = true
 temp_user.user_group_id = 1
 temp_user.last_in = DateTime.now
@@ -1441,11 +1443,13 @@ temp_user.save
 
 temp_user = User.new
 temp_user.name = "user"
+temp_user.type_of_ownership = "some"
 temp_user.company_name = "user_company"
-temp_user.unp = "00000001"
+temp_user.unp = "000000001"
+temp_user.juridical_address = "some address"
 temp_user.email = "user@user"
-temp_user.password = "user"
-temp_user.password_confirmation = "user"
+temp_user.password = "user@user"
+temp_user.password_confirmation = "user@user"
 temp_user.reg_confirm_admin = true
 temp_user.last_in = DateTime.now
 temp_user.save
