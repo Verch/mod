@@ -13,21 +13,21 @@
           = product_color.name
       .clear
       %br
-      .span10.offset1
+      .span12
         #to_order_menu
           - if @white_prices_old.show_old_flag
             %h5 Старая цена:
             .old_price_cross
-              %table.table.old_price_cross_inner
+              %table.table.old_price_cross_inner.table-bordered
                 %tr
                   %th
-                  %th <10
-                  %th 10-50
-                  %th 50-100
-                  %th 100-250
-                  %th 250-500
-                  %th 500-1000
-                  %th >1000
+                  %th 1-9
+                  %th 10-59
+                  %th 60-109
+                  %th 110-259
+                  %th 260-509
+                  %th 510-1009
+                  %th 1010+
                 %tr
                   %td Белые
                   %td=@white_prices_old.price_1
@@ -47,16 +47,16 @@
                   %td=@color_prices_old.price_6
                   %td=@color_prices_old.price_7
             %h5 Новая цена:
-            %table.table.table-hover
+            %table.table.table-hover.table-bordered
               %tr
                 %th
-                %th <10
-                %th 10-50
-                %th 50-100
-                %th 100-250
-                %th 250-500
-                %th 500-1000
-                %th >1000
+                %th 1-9
+                %th 10-59
+                %th 60-109
+                %th 110-259
+                %th 260-509
+                %th 510-1009
+                %th 1010+
               %tr.success
                 %td Белые
                 %td=@white_prices.price_1
@@ -77,16 +77,16 @@
                 %td=@color_prices.price_7
           - else
             %h5 Цена:
-            %table.table.table-hover
+            %table.table.table-hover.table-bordered
               %tr
                 %th
-                %th <10
-                %th 10-50
-                %th 50-100
-                %th 100-250
-                %th 250-500
-                %th 500-1000
-                %th >1000
+                %th 1-9
+                %th 10-59
+                %th 60-109
+                %th 110-259
+                %th 260-509
+                %th 510-1009
+                %th 1010+
               %tr.success
                 %td Белые
                 %td=@white_prices.price_1
@@ -114,5 +114,5 @@
             Закрыть
           .clear
           * Выберите цвет
-          #list_to_cart
+          #list_to_cart.span8
 .clear

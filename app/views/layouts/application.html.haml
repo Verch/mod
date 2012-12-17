@@ -17,10 +17,6 @@
 						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", style: " width: 12.5%;", class: "active"
 					- else
 						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", style: " width: 12.5%;"
-					- if (params[:action] == "convertsizes")
-						= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes", style: " width: 12.5%;", class: "active"
-					- else
-						= link_to "<i class='icon-calendar'></i> Перевод размеров".html_safe, "/convertsizes", style: " width: 12.5%;"
 					- if (params[:action] == "scheme")
 						= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", style: " width: 12.5%;", class: "active"
 					- else
@@ -33,6 +29,7 @@
 						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;", class: "active"
 					- else
 						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;"
+					= link_to "".html_safe, "/contact", style: " width: 12.5%;"
 					- if @current_user
 						- if (params[:controller] == "users") 
 							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, style: " width: 12.5%;", class: "active"
@@ -159,6 +156,8 @@
 												%li= link_to "Люкс Экстра".html_safe, "/product_types/18"
 								- else
 									%li= link_to "<i class='icon-chevron-right'></i>Бейсболки".html_safe, "/products/4", class: "side_link"
+								%li{class:"divider"}
+								%li= link_to "<i class='icon-chevron-right'></i>Личный кабинет".html_safe, "/products/4", class: "side_link"
 							.clear	
 						%br
 						- if @cart
