@@ -34,4 +34,7 @@ Modernimport::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Path to "ImageMagick" for resize images
+  Paperclip.options[:command_path] = "/usr/bin/convert"
 end

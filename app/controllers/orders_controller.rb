@@ -200,6 +200,10 @@
       end
     end
 
+    unless @order.img.presence
+      @order.img = nil
+    end
+
 
     respond_to do |format|
       if @order.save
