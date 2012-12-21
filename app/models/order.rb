@@ -1,7 +1,15 @@
 class Order < ActiveRecord::Base
-  attr_accessible :archive_flag, :details, :email, :name, :reserv_flag, :user_id
+  attr_accessible :archive_flag, :details, :email, :name, :reserv_flag, :user_id, :img
   has_many :line_items, dependent: :destroy
   belongs_to :user
+
+  has_attached_file :img, :styles => { :small => "250x250>" },
+                    :url  => "/data/user/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/data/user/:id/:style/:basename.:extension"
+
+  validates_attachment_size :img, :less_than => 5.megabytes
+  validates_attachment_content_type :img, :content_type => ['image/jpeg', 'image/png']
+
   unless @current_user
   	self.validates :name, :email, presence: true
   end

@@ -3,7 +3,7 @@
     .well
       .span7
         = render 'show_form'
-        = form_for @order do |f|
+        = form_for @order, html: { multipart: true } do |f|
           .field
             = f.hidden_field :user_id
           .field
@@ -13,6 +13,9 @@
               = f.label "Поставить в резерв"
             .span1  
               = f.check_box :reserv_flag
+          .field.well
+            = f.label "Прикрепить принт"
+            = f.file_field :img
           %br
           .center
             = f.submit 'Разместить заказ', class: "btn-glass btn-glass-green"
