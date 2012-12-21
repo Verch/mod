@@ -1,7 +1,6 @@
 //------type#show
 	1. type#show td center. table width px (prices);
 	2. same buttons, fone
-	3. your discount
 
 //------cart
 	1. jquery. color hover
@@ -25,19 +24,8 @@
 	7. nastroiki group
 	8. order -> sklad -> archive -> users -> groups
 	9. user edit/ to reg
-	10. shkala skidok - user#show
 
 //------reg
 	1. phone - 3 edit
 	2. user edit/ to reg
 	3. forma sobstv - menu list
-
-//------sklad
-	1. flag view reserv. jquery - hide
-	2. ne slivat colors
-	3. count in hat
-	4. futbolki 4 in block
-	5. price after count editor
-	6. price heads in table and compact
-	7. count editor - spaces
-	8. sklad -view pages tabs

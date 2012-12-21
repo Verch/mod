@@ -16,6 +16,14 @@
   # GET /users/1
   def show
     @user = User.find(params[:id])
+    @discounts = Discount.all
+    @unp = Unp.find_by_unp(@user.unp)
+    @user_discount = 0
+    @discounts.each do |disc|
+      if (disc.count < @unp.total_amount_product_integer.to_i)
+        @user_discount = disc.value
+      end
+    end
     
     respond_to :html # show.html.erb
   end

@@ -1,3 +1,7 @@
+<h5><%= @product_type.name %></h5>
+<%=link_to "Редактирование цен", product_colors_path(get_product_type_id: params[:get_product_type_id]), class: "span3 btn-glass btn-glass-light" %>
+<div class="clear"></div>
+<br>
 <table class="table table-bordered">
   <tr>
     <th class="span2"></th>

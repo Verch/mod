@@ -33,6 +33,7 @@ class ProductSizesController < ApplicationController
 
     if params[:get_product_type_id]
       @product_colors = ProductColor.where("product_type_id = ?", params[:get_product_type_id])
+      @product_type = ProductType.find_by_id(params[:get_product_type_id])
     end
 
     respond_to :html # index.html.erb
@@ -65,7 +66,7 @@ class ProductSizesController < ApplicationController
         end
       else
         if params[:product_size][:count]
-          @new_count = @product_size.count + params[:product_size][:count].to_i
+          @new_count = params[:product_size][:count].to_i # + @product_size.count # for +-
           params.update(:product_size=>{:count => @new_count})
         end    
         @product_size.update_attributes(params[:product_size])

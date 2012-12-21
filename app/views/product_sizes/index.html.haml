@@ -1,9 +1,9 @@
 - if params[:get_product_type_id]
   - if @current_group.admin_flag
     %h2 Редактирование элементов склада
+    =link_to "Назад", product_types_path(get_product_id: @product_type.product_id)
     #count_editor
-      =render "count_editor"
-    =link_to "Назад", product_colors_path(get_product_type_id: params[:get_product_type_id])
+      =render "count_editor"    
 - else
   %h2 Поиск товара
   = form_tag '/product_sizes', method: :get do

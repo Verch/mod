@@ -1,8 +1,3 @@
-- if @current_group && @current_group.admin_flag
-  %h2 Редактирование элементов склада
-  %ul.nav.nav-tabs.nav-stacked
-    - @products.each do |product|
-      %li=link_to product.name, product_types_path(get_product_id: product.id)
 %h2 Просмотр склада
 #price_list
   = render "price_list"

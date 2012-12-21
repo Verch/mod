@@ -1,9 +1,11 @@
 - if @current_group.admin_flag
   %h1 Редактирование элементов склада
+  =link_to "Назад", products_path
   %ul.nav.nav-tabs.nav-stacked
     - @product_types.each do |product_type|
-      %li=link_to product_type.name, product_colors_path(get_product_type_id: product_type.id)
-  =link_to "Назад", products_path
+      %li=link_to product_type.name, product_sizes_path(get_product_type_id: product_type.id)
+      -if (product_type.id == 4) || (product_type.id == 8)
+        %hr
 - else
   %h1 Просмотр склада
   #price_list
