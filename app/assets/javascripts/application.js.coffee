@@ -5,7 +5,7 @@
 #= require_tree .
 
 $ ->
-  setTimeout($.fn.snow, 20000)
+  setTimeout($.fn.snow, 30000)
 
 # product_type#show
 $ ->
@@ -16,12 +16,9 @@ $ ->
 	$('#link_out_order_menu').click(()->
 		$('#order_menu').slideToggle(500)
 		$('#to_order_menu').slideToggle(500))
-#$ ->
-#  $('.link_to_color').click(()->
-#    new_src = this.id
-#    console.log(new_src)
-#    $('.click_image_color').attr('src',new_src)
-#    )
+$ ->
+  $("#get_product_color_id").change(->
+    $(this).closest("form").submit())
 
 # product_sizes#index (search product)
 $ ->

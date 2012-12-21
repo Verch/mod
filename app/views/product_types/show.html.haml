@@ -113,6 +113,15 @@
           #link_out_order_menu.btn-glass.btn-glass-red.center.offset8
             Закрыть
           .clear
-          * Выберите цвет
-          #list_to_cart.span8
+          .container-fluid
+            .row-fluid
+              #list_to_cart.span8
+              .span4
+                %br
+                %br
+                .well
+                  %h6 * Выберите цвет:
+                  = form_tag @product_type, method: :get, remote: true do
+                    = select_tag "get_product_color_id", options_from_collection_for_select(@product_colors, "id", "name", @product_color.id), class: "span12"
+          .clear
 .clear

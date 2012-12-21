@@ -7,7 +7,7 @@
 		= csrf_meta_tags
 	%body
 		#wrap.gradient
-			#temp_params_info
+			#temp_params_info.hide
 				=params
 			=image_tag "Hat.png",{width: "100%"}
 			%div{style: "background: url(#{asset_path '0border.png' }); background-size: cover;"}
