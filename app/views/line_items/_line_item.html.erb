@@ -3,7 +3,9 @@
 <% else %>
 <tr>
 <% end %>
-<td style="width: 10px;background-color: <%= ProductColor.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_color_id).rgb %>;box-shadow: 0px 0px 5px <%= ProductColor.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_color_id).rgb %>;"></td>
+<td>
+	<a href="#" class="cart_color_tip" rel="tooltip" data-trigger="hover" data-placement="left" title="<%= ProductColor.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_color_id).name %>" style="display:inline-block;width:10px;height:100%;background-color:<%= ProductColor.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_color_id).rgb %>;box-shadow: 0px 0px 5px<%= ProductColor.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_color_id).rgb %>;"></a>
+</td>
 <td style="font-size: 10px;"><%= ProductType.find_by_id(ProductColor.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_color_id).product_type_id).name %></td>
 <% if line_item.product_size.name != "-" %>
 	<td>&nbsp;<%= line_item.product_size.name %>&nbsp;&times&nbsp;<%= line_item.quantity%>&nbsp;</td>

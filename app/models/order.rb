@@ -4,8 +4,8 @@ class Order < ActiveRecord::Base
   belongs_to :user
 
   has_attached_file :img, :styles => { :small => "250x250>" },
-                    :url  => "/data/user/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/data/user/:id/:style/:basename.:extension"
+                    :url  => "/upload/user/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/upload/user/:id/:style/:basename.:extension"
 
   validates_attachment_size :img, :less_than => 5.megabytes
   validates_attachment_content_type :img, :content_type => ['image/jpeg', 'image/png']
