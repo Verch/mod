@@ -1,28 +1,19 @@
-//------main
-+	1. head cut;
-+	2. tables - bc
-	3. snow - hey
-
 //------type#show
 	1. type#show td center. table width px (prices);
-	2. color list;
-	3. type#show;
-	4. same buttons, fone
-	5. your discount
+	2. same buttons, fone
+	3. your discount
 
 //------cart
 	1. jquery. color hover
 
 //------order
-+	1. order table color
-	2. two buttons / reserv buttons
-	3. archive back to order
-	4. phone for unreg
-	5. dop info if != ""
-	6. buttons perevod v zakaz - green, redaktir - blue
-	7. order to reserv in order show
-+	8. sostoyanie
-	9. when archive unp++ 
+	1. two buttons / reserv buttons
+	2. archive back to order
+	3. phone for unreg
+	4. dop info if != ""
+	5. buttons perevod v zakaz - green, redaktir - blue
+	6. order to reserv in order show
+	7. when archive unp++ 
 
 //------users
 	1. table td center

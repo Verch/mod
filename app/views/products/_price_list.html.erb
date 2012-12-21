@@ -1,4 +1,4 @@
-<%=link_to "Количество/Цены", "#", id: "count_price_slider", class: "pull-right" %>
+<%=link_to "Количество/Цены", "#", id: "count_price_slider", class: "pull-right span3 btn-glass btn-glass-light" %>
 <div id="count_slider">
   <% if @current_group && @current_group.view_reserv_flag %>
     <div class="pull-left" style="width:30px;height:12px;background-color:#d9edf7;margin:2px;"></div>
@@ -6,6 +6,9 @@
     <div class="clear"></div>
     <div class="pull-left" style="width:30px;height:12px;background-color:#fcf8e3;margin:2px;"></div>
     Зарезервировано
+    <div class="clear"></div>
+    <%= link_to 'Спрятать резервы', "#", remote: true, class: "span3 btn-glass btn-glass-light reserv_hide_button pull-right" %>
+    <%= link_to 'Показать резервы', "#", remote: true, class: "span3 btn-glass btn-glass-light reserv_view_button hide pull-right" %>
     <div class="clear"></div>
   <% end %>
   <h3>Количество:</h3>
@@ -48,7 +51,7 @@
                   </td>
                 </tr>
                 <% if @current_group && @current_group.view_reserv_flag %>
-                  <tr class="warning">
+                  <tr class="warning hdhd">
                     <td class="span4"></td>
                     <% @product_sizes.each do |product_size| %>
                       <td class="span1"><%= product_size.reserv %></td>

@@ -121,5 +121,16 @@ $ ->
 # products
 $ ->
   $("#count_price_slider").click(()->
-    $('#count_slider').fadeToggle(500)
-    $('#price_slider').fadeToggle(500))
+    $('#count_slider').fadeToggle(200)
+    $('#price_slider').fadeToggle(200))
+
+$ ->
+  $('.reserv_hide_button').click(()->
+    $('.warning').addClass("hide")
+    $('.reserv_hide_button').addClass("hide")
+    $('.reserv_view_button').removeClass("hide"))
+$ ->
+  $('.reserv_view_button').click(()->
+    $('.warning').removeClass("hide")
+    $('.reserv_view_button').addClass("hide")
+    $('.reserv_hide_button').removeClass("hide"))
