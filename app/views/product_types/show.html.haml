@@ -125,3 +125,14 @@
                     = select_tag "get_product_color_id", options_from_collection_for_select(@product_colors, "id", "name", @product_color.id), class: "span12"
           .clear
 .clear
+- if @current_user && @current_group.view_sklad_flag
+  %hr
+  %h4 Товар на складе
+  - if @current_group && @current_group.view_reserv_flag
+    .pull-left{style: "width:30px;height:12px;background-color:#d9edf7;margin:2px;"}
+    Остаток на складе
+    .clear
+    .pull-left{style: "width:30px;height:12px;background-color:#fcf8e3;margin:2px;"}
+    Зарезервировано
+    .clear
+  = render "color_count_list"

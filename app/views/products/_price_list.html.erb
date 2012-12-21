@@ -1,5 +1,13 @@
 <%=link_to "Количество/Цены", "#", id: "count_price_slider", class: "pull-right" %>
 <div id="count_slider">
+  <% if @current_group && @current_group.view_reserv_flag %>
+    <div class="pull-left" style="width:30px;height:12px;background-color:#d9edf7;margin:2px;"></div>
+    Остаток на складе
+    <div class="clear"></div>
+    <div class="pull-left" style="width:30px;height:12px;background-color:#fcf8e3;margin:2px;"></div>
+    Зарезервировано
+    <div class="clear"></div>
+  <% end %>
   <h3>Количество:</h3>
   <% @products.each do |product| %>
     <h4><%= product.name %></h4>
