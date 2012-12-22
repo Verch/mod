@@ -5,7 +5,7 @@
 #= require_tree .
 
 $ ->
-  setTimeout($.fn.snow, 20000)
+  setTimeout($.fn.snow, 30000)
 
 # product_type#show
 $ ->
@@ -16,12 +16,9 @@ $ ->
 	$('#link_out_order_menu').click(()->
 		$('#order_menu').slideToggle(500)
 		$('#to_order_menu').slideToggle(500))
-#$ ->
-#  $('.link_to_color').click(()->
-#    new_src = this.id
-#    console.log(new_src)
-#    $('.click_image_color').attr('src',new_src)
-#    )
+$ ->
+  $("#get_product_color_id").change(->
+    $(this).closest("form").submit())
 
 # product_sizes#index (search product)
 $ ->
@@ -124,5 +121,16 @@ $ ->
 # products
 $ ->
   $("#count_price_slider").click(()->
-    $('#count_slider').fadeToggle(500)
-    $('#price_slider').fadeToggle(500))
+    $('#count_slider').fadeToggle(200)
+    $('#price_slider').fadeToggle(200))
+
+$ ->
+  $('.reserv_hide_button').click(()->
+    $('.warning').addClass("hide")
+    $('.reserv_hide_button').addClass("hide")
+    $('.reserv_view_button').removeClass("hide"))
+$ ->
+  $('.reserv_view_button').click(()->
+    $('.warning').removeClass("hide")
+    $('.reserv_view_button').addClass("hide")
+    $('.reserv_hide_button').removeClass("hide"))

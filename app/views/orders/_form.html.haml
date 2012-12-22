@@ -3,19 +3,19 @@
     .well
       .span7
         = render 'show_form'
-        = form_for @order do |f|
+        = form_for @order, html: { multipart: true } do |f|
           .field
             = f.hidden_field :user_id
           .field
             = f.text_area :details, placeholder: "Дополнительная информация", class: "span12", rows: 6
-          .row-fluid  
-            .span5
-              = f.label "Поставить в резерв"
-            .span1  
-              = f.check_box :reserv_flag
+          .field.well
+            = f.label "Прикрепить принт"
+            = f.file_field :img
           %br
           .center
             = f.submit 'Разместить заказ', class: "btn-glass btn-glass-green"
+            = f.submit 'Поставить в резерв', reserv_flag: true, class: "btn-glass btn-glass-blue"
+
       .span5
         .well
           = render 'users/form'
@@ -34,7 +34,7 @@
           .field
             = f.email_field :email, placeholder: "e-mail", class: "span12", rows: 6
           .field
-            = f.text_area :details, placeholder: "Детали (можете указать здесь контактный телефон и прочую информацию)", class: "span12", rows: 6
+            = f.text_area :details, placeholder: "Укажите здесь номер телефона чтобы мы могли связаться с Вами", class: "span12", rows: 6
           .center
             = f.submit 'Разместить заказ', class: "btn-glass btn-glass-green"
       .span5.center

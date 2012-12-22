@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '1.9.3'
 gem 'rails', '3.2.9'
+gem 'rb-readline'
 
 gem 'bundler', '~> 1.2.0.rc.2'
 gem 'thin'
@@ -11,6 +12,8 @@ gem 'uglifier'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'coffee-rails', '~> 3.2.1'
+
+gem "paperclip", "~> 3.0" #and for resize image need install "ImageMagick"
 
 group :development, :test do
 	gem 'sqlite3'

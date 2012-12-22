@@ -1,18 +1,22 @@
 .well
-  %p
-    %b Заказчик:
-    = @order.name
-  %p
-    %b Адрес электронной почты:
-    = @order.email
-  %p
-    %b Дополнительная информация:
-  .span12
-    %p= @order.details
-  %p
-    - if @order.reserv_flag
-      %i Резерв
-  %br
+  .row-fluid
+    .span7  
+      %p
+        %b Заказчик:
+        = @order.name
+      %p
+        %b Адрес электронной почты:
+        = @order.email
+      - unless @order.details == ""
+        %p
+          %b Дополнительная информация:
+        .span12
+          %p= @order.details
+      %br
+    .span5
+      .pull-right.product_show_imgs.img-polaroid
+        - if @order.img.presence
+          = link_to image_tag(@order.img.url(:small)), @order.img.url, target: "_blank"
 
 = render "show_form"
 
@@ -33,5 +37,7 @@
           = link_to 'Отправить в архив', order_path(order: @order), method: :put, class: "btn btn-info"
           = link_to 'Создать спецификацию', new_spec_path(order_id: @order.id), class: "btn btn-info"
         = link_to 'Удалить', @order, :confirm => 'Вы уверены?', :method => :delete, class: "btn btn-danger"
+- if @order.archive_flag and @current_group.admin_flag
+  = link_to 'Восстановить', order_path(order: @order), method: :put, class: "btn btn-info"
 %br
 = link_to 'К списку заказов', orders_path

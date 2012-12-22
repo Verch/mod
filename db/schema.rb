@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204125052) do
+ActiveRecord::Schema.define(:version => 20121219185355) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -43,11 +43,15 @@ ActiveRecord::Schema.define(:version => 20121204125052) do
     t.string   "email"
     t.text     "details"
     t.string   "status"
-    t.boolean  "reserv_flag",  :default => false
-    t.boolean  "archive_flag", :default => false
-    t.integer  "user_id",      :default => 0
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.boolean  "reserv_flag",      :default => false
+    t.boolean  "archive_flag",     :default => false
+    t.integer  "user_id",          :default => 0
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
   end
 
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
@@ -132,10 +136,12 @@ ActiveRecord::Schema.define(:version => 20121204125052) do
     t.string   "pay_type"
     t.integer  "unp_id"
     t.integer  "user_id"
+    t.integer  "order_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "specs", ["order_id"], :name => "index_specs_on_order_id"
   add_index "specs", ["unp_id"], :name => "index_specs_on_unp_id"
   add_index "specs", ["user_id"], :name => "index_specs_on_user_id"
 

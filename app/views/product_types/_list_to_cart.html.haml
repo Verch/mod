@@ -1,6 +1,6 @@
 ﻿.table_to_cart
   = form_tag line_items_path, remote: true, method: :post, id: "clear_form"  do
-    %table
+    %table.table-bordered
       %tr 
         %td{colspan: @product_sizes.count, class: "span12"}
           %br &nbsp;
@@ -11,7 +11,7 @@
       %tr
         - @product_sizes.each do |product_size_to_cart|
           %td
-            = number_field_tag "product_sizes[#{product_size_to_cart.id}]", "", class: "span12"
+            = text_field_tag "product_sizes[#{product_size_to_cart.id}]", "", class: "span12"
       %tr 
         %td{colspan: @product_sizes.count} 
           = submit_tag "Добавить в корзину", class: "btn-glass btn-glass-green", id: "button_to_cart", disable_with: "Добавлено"

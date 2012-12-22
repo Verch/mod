@@ -5,6 +5,8 @@
     - if @current_group and @current_group.admin_flag
       - unless @current_user.id == params[:id].to_i
         %h6= link_to 'Редактировать профиль', edit_user_path(@user)
+    - if @current_group and !@current_group.admin_flag
+      %h6= link_to 'Редактировать профиль', edit_user_path(@user)
 .row-fluid
   .span5
     Последний раз на сайте:
@@ -35,3 +37,20 @@
     .span7
       .well
         = render 'form'
+%hr
+  %h5 Таблица скидок
+  %table.table.table-bordered
+    %tr
+      %td.span2 Количество
+      - @discounts.each do |discount|
+        %td=discount.count
+    %tr
+      %td.span2 Скидка
+      - @discounts.each do |discount|
+        %td=discount.value
+  Общее количество заказанных вами товаров:
+  =@unp.total_amount_product_integer.to_i
+  %br
+  Ваша скидка
+  =@user_discount
+  ="%".html_safe

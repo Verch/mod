@@ -1,0 +1,38 @@
+<table class="table table-bordered table-considered">
+  <tr>
+    <td class="span2">
+      <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(@product_colors.first.id) %></div>
+    </td>
+    <% @product_sizes.each do |product_size| %>
+      <td class="span1"><%= product_size.name %></td>
+    <% end %>
+    <td class="span1">Сумма</td>
+  </tr>
+  <% @product_colors.each do |product_color| %>
+    <tr class="info">
+      <td class="span4">
+        <%= product_color.name %>
+          <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(product_color.id) %></div>
+          <div class="hide"><%= @sum = 0 %></div>
+      </td>
+      <% @product_sizes.each do |product_size| %>
+        <td class="span1">
+          <%= product_size.count %>
+          <div class="hide"><%= @sum += product_size.count %></div>
+        </td>
+      <% end %>
+      <td class="span1">
+        <b><%= @sum %>
+      </td>
+    </tr>
+    <% if @current_group && @current_group.view_reserv_flag %>
+      <tr class="warning">
+        <td class="span4"></td>
+        <% @product_sizes.each do |product_size| %>
+          <td class="span1"><%= product_size.reserv %></td>
+        <% end %>
+        <td class="span2"></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
