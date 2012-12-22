@@ -7,25 +7,21 @@
 
 //------order
 	1. two buttons / reserv buttons
-	2. archive back to order
-	3. phone for unreg
-	4. dop info if != ""
-	5. buttons perevod v zakaz - green, redaktir - blue
-	6. order to reserv in order show
-	7. when archive unp++ 
+	2. phone for unreg
+	3. dop info if != ""
+	4. buttons perevod v zakaz - green, redaktir - blue
+	5. when archive unp++  and --
+	6. 5 items min for unreg
 
 //------users
 	1. table td center
 	2. borders vertical
 	3. back link on top + icon
-	4. orders/reservs menu link
-	5. 5 items min for unreg
-	6. check for robot
-	7. nastroiki group
-	8. order -> sklad -> archive -> users -> groups
-	9. user edit/ to reg
+	4. check for robot
+	5. nastroiki group
+	6. order -> sklad -> archive -> users -> groups
+	7. user edit/ to reg
 
 //------reg
 	1. phone - 3 edit
-	2. user edit/ to reg
-	3. forma sobstv - menu list
+	2. forma sobstv - menu list

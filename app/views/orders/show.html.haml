@@ -7,13 +7,11 @@
       %p
         %b Адрес электронной почты:
         = @order.email
-      %p
-        %b Дополнительная информация:
-      .span12
-        %p= @order.details
-      %p
-        - if @order.reserv_flag
-          %i Резерв
+      - unless @order.details == ""
+        %p
+          %b Дополнительная информация:
+        .span12
+          %p= @order.details
       %br
     .span5
       .pull-right.product_show_imgs.img-polaroid

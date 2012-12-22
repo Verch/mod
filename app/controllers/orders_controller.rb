@@ -180,15 +180,18 @@
 
   # POST /orders
   def create
+    @order = Order.new(params[:order])
+    @order.status = "Ожидает"
+    if params[:commit] == 'Поставить в резерв'
+      @order.reserv_flag = true
+    end
+
     if @current_user == nil
-      @order = Order.new(params[:order])
-      @order.status = "Ожидает"
-    else 
-      @order = Order.new(params[:order])
+      @order.user_id = 0
+    else
       @order.user_id = @current_user.id
       @order.name = @current_user.company_name
       @order.email = @current_user.email
-      @order.status = "Ожидает"
     end
     @order.add_line_items_from_cart(current_cart)
 
@@ -206,25 +209,24 @@
 
 
     respond_to do |format|
-      if @order.save
-        if @order.reserv_flag
-          @order.line_items.each do |line_item|
-            product_size = ProductSize.find_by_id(line_item.product_size_id)
-            product_size.reserv = product_size.reserv + line_item.quantity
-            product_size.save
+        if @order.save
+          if @order.reserv_flag
+            @order.line_items.each do |line_item|
+              product_size = ProductSize.find_by_id(line_item.product_size_id)
+              product_size.reserv = product_size.reserv + line_item.quantity
+              product_size.save
+            end
           end
+          Cart.destroy(session[:cart_id])
+          session[:cart_id] = nil
+          if @current_user == nil
+            format.html { redirect_to root_path, notice: "Ваш заказ сохранен."}
+          else  
+            format.html { redirect_to @order, notice: 'Ваш заказ сохранен.' }
+          end
+        else
+          format.html { redirect_to new_order_path, notice: 'Введите имя и email' }
         end
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil
-        if @current_user == nil
-          format.html { redirect_to root_path, notice: "Ваш заказ сохранен."}
-        else  
-          format.html { redirect_to @order, notice: 'Ваш заказ сохранен.' }
-        end
-      else
-        @cart = current_cart
-        format.html { render action: "new" }
-      end
     end
   end
 
