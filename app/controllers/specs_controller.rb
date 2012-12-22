@@ -20,6 +20,8 @@
   def new
     @spec = Spec.new
     @order = Order.find_by_id(params[:order_id])
+    @spec.order_id = @order.id
+    
     if @order.user_id == 0
       @spec.number = 0
       @spec.company_name = @order.name
@@ -34,7 +36,7 @@
       @spec.company_name = @spec_user.company_name
       @spec.unp_id = Unp.find_by_unp(@spec_user.unp).id
       @spec.user_id = @order.user_id
-      @spec.order_id = @order.id
+      
     end
     @spec.date = Time.now.in_time_zone('Minsk').strftime("%d.%m.%Y")
     @spec.pay_type = "Оплачено в кассу"
@@ -50,7 +52,7 @@
         @order.save
         format.html { redirect_to specs_path, notice: "Спецификация сохранена" }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_spec_path, notice: "Ошибка сохранения" }
       end
     end
   end

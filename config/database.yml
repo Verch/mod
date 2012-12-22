@@ -22,7 +22,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: mod_prod
+  database: moddb
   pool: 5
   username: modern
   password: m0D3Rn
