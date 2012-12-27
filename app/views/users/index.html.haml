@@ -28,3 +28,4 @@
         = link_to '', user, title: "Показать", class: "btn icon-eye-open"
         = link_to '', edit_user_path(user), title: "Редактировать", class: "btn icon-pencil"
         = link_to '', user, title: "Удалить", :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger icon-trash"
+= link_to 'Назад', user_path(@current_user)

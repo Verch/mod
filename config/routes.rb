@@ -8,11 +8,6 @@ Modernimport::Application.routes.draw do
   resources :line_items
   resources :carts
   resources :orders
-
-  controller :orders do 
-    post 'orders/:id' => :download
-  end
-  
   resources :users
   resources :user_groups
   resources :prices

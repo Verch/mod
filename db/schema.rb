@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219185355) do
+ActiveRecord::Schema.define(:version => 20121227203422) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -137,8 +137,12 @@ ActiveRecord::Schema.define(:version => 20121219185355) do
     t.integer  "unp_id"
     t.integer  "user_id"
     t.integer  "order_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "xls_tab_file_name"
+    t.string   "xls_tab_content_type"
+    t.integer  "xls_tab_file_size"
+    t.datetime "xls_tab_updated_at"
   end
 
   add_index "specs", ["order_id"], :name => "index_specs_on_order_id"

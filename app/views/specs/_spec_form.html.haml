@@ -1,4 +1,4 @@
-= form_for @spec do |f|
+= form_for @spec, html: { multipart: true } do |f|
   = f.hidden_field :user_id
   = f.hidden_field :unp_id
   = f.hidden_field :order_id
@@ -16,8 +16,7 @@
       %td.span2= f.text_field :spec_num, class: "span12"
       %td.span2= f.text_field :date, class: "span12", placeholder: @spec.date, class: "span12"
       %td.span2= f.text_field :summa, class: "span12"
-      %td.span2= f.text_field :pay_type, class: "span12"
-  .center
-    .btn-group  
-      = f.submit "Создать", class: "btn btn-info"
-      = link_to "Отмена", :back, class: "btn btn-danger"
+      %td.span2= f.file_field :xls_tab, class: "span12"
+  .center 
+    .row-fluid
+      = f.submit "Создать", class: "btn-glass btn-glass-green span3"
