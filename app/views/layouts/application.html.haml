@@ -1,13 +1,18 @@
 !!!
 %html
 	%head
-		%title Модерн Импорт
+		-if @title
+			%title=@title
+		-else
+			%title Модерн Импорт
+		-if @meta_desc
+			="<meta description='#{@meta_desc}'/>".html_safe
 		= stylesheet_link_tag    "application", :media => "all"
 		= javascript_include_tag "application"
 		= csrf_meta_tags
 	%body
 		#wrap.gradient
-			#temp_params_info
+			#temp_params_info.hide
 				=params
 			=image_tag "Hat.png",{width: "100%"}
 			%div{style: "background: url(#{asset_path '0border.png' }); background-size: cover;"}
@@ -29,7 +34,7 @@
 						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;", class: "active"
 					- else
 						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;"
-					= link_to "".html_safe, "/contact", style: " width: 12.5%;"
+					.nohover{style: " width: 12.5%;"}
 					- if @current_user
 						- if (params[:controller] == "users") 
 							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, style: " width: 12.5%;", class: "active"
@@ -57,10 +62,10 @@
 								.nav-header
 									Наша продукция
 									= link_to "<i class='icon-search'></i>".html_safe, product_sizes_path
-								//%li{class:"active"}= link_to "Футболки", "/products/1"
+								//%li{class:"active"}= link_to "Футболки", "/futbolki"
 								- if (((params[:controller] == "products")&&(params[:id].to_i == 1)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 0)&&(params[:id].to_i < 11))) && (params[:action] == "show")
 									%li{class:"activeMy"}
-										= link_to "<i class='icon-chevron-down'></i>Футболки".html_safe, "/products/1", class: "side_link"
+										= link_to "<i class='icon-chevron-down'></i>Футболки".html_safe, "/futbolki", class: "side_link"
 										%ul.nav.nav-list
 											- if (params[:controller] == "product_types")&&(params[:id].to_i == 1)
 												%li{class:"activeMy"}= link_to "Мужские кор. рук. 155 гр хлопок 100%".html_safe, "/product_types/1"
@@ -105,10 +110,10 @@
 											-else
 												%li= link_to "Без рук. 125 гр хлопок 100%".html_safe, "/product_types/10"
 								- else
-									%li= link_to "<i class='icon-chevron-right'></i>Футболки".html_safe, "/products/1", class: "side_link"
+									%li= link_to "<i class='icon-chevron-right'></i>Футболки".html_safe, "/futbolki", class: "side_link"
 								- if (((params[:controller] == "products")&&(params[:id].to_i == 2)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 10)&&(params[:id].to_i < 13))) && (params[:action] == "show")
 									%li{class:"activeMy"}
-										= link_to "<i class='icon-chevron-down'></i>Рубашки поло".html_safe, "/products/2", class: "side_link"
+										= link_to "<i class='icon-chevron-down'></i>Рубашки поло".html_safe, "/rubashki-polo", class: "side_link"
 										%ul.nav.nav-list
 											- if (params[:controller] == "product_types")&&(params[:id].to_i == 11)
 												%li{class:"activeMy"}= link_to "Мужские".html_safe, "/product_types/11"
@@ -119,10 +124,10 @@
 											-else
 												%li= link_to "Женские".html_safe, "/product_types/12"
 								- else
-									%li= link_to "<i class='icon-chevron-right'></i>Рубашки поло".html_safe, "/products/2", class: "side_link"
+									%li= link_to "<i class='icon-chevron-right'></i>Рубашки поло".html_safe, "/rubashki-polo", class: "side_link"
 								- if (((params[:controller] == "products")&&(params[:id].to_i == 3)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 12)&&(params[:id].to_i < 15))) && (params[:action] == "show")
 									%li{class:"activeMy"}
-										= link_to "<i class='icon-chevron-down'></i>Толстовки".html_safe, "/products/3", class: "side_link"
+										= link_to "<i class='icon-chevron-down'></i>Толстовки".html_safe, "/tolstovki", class: "side_link"
 										%ul.nav.nav-list
 											- if (params[:controller] == "product_types")&&(params[:id].to_i == 13)
 												%li{class:"activeMy"}= link_to "Мужские".html_safe, "/product_types/13"
@@ -133,10 +138,10 @@
 											-else
 												%li= link_to "Женские".html_safe, "/product_types/14"
 								- else
-									%li= link_to "<i class='icon-chevron-right'></i>Толстовки".html_safe, "/products/3", class: "side_link"
+									%li= link_to "<i class='icon-chevron-right'></i>Толстовки".html_safe, "/tolstovki", class: "side_link"
 								- if (((params[:controller] == "products")&&(params[:id].to_i == 4)) || ((params[:controller] == "product_types")&&(params[:id].to_i > 14)&&(params[:id].to_i < 19))) && (params[:action] == "show")
 									%li{class:"activeMy"}
-										= link_to "<i class='icon-chevron-down'></i>Бейсболки".html_safe, "/products/4", class: "side_link"
+										= link_to "<i class='icon-chevron-down'></i>Бейсболки".html_safe, "/beysbolki", class: "side_link"
 										%ul.nav.nav-list
 											- if (params[:controller] == "product_types")&&(params[:id].to_i == 15)
 												%li{class:"activeMy"}= link_to "Классика".html_safe, "/product_types/15"
@@ -155,7 +160,7 @@
 											-else
 												%li= link_to "Люкс Экстра".html_safe, "/product_types/18"
 								- else
-									%li= link_to "<i class='icon-chevron-right'></i>Бейсболки".html_safe, "/products/4", class: "side_link"
+									%li= link_to "<i class='icon-chevron-right'></i>Бейсболки".html_safe, "/beysbolki", class: "side_link"
 								- if @current_user
 									%li{class:"divider"}
 									%li= link_to "<i class='icon-user'></i>Личный кабинет".html_safe, @current_user, class: "side_link"
@@ -185,5 +190,8 @@
 		%footer#footer
 			%p#p_footer &copy; Модерн Импорт 2012
 			%p#p_footer
+				Оптимизация и продвижение сайта
+				=link_to "Qmedia", "http://www.qmedia.by", target: :blank
+				%br
 				Powered by
 				=link_to "Verch", "http://www.verch.pro/web", target: :blank

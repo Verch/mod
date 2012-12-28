@@ -1,4 +1,4 @@
-class ProductTypesController < ApplicationController
+﻿class ProductTypesController < ApplicationController
   # GET /product_types
   def index
     @product_types = ProductType.where("product_id = ?", params[:get_product_id])
@@ -19,6 +19,9 @@ class ProductTypesController < ApplicationController
     else
       @product_color = @product_colors.first
     end
+
+    @title = @product_type.name
+    @meta_desc = @product_type.name+" - Модерн Импорт - покупайте в Минске"
 
     respond_to :html, :js # show.html.erb
   end

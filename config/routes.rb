@@ -28,6 +28,11 @@ Modernimport::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
+  match "/futbolki" => "products#show", id: '1'
+  match "/rubashki-polo" => "products#show", id: '2'
+  match "/tolstovki" => "products#show", id: '3'
+  match "/beysbolki" => "products#show", id: '4'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
