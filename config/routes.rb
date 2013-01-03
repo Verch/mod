@@ -8,11 +8,6 @@ Modernimport::Application.routes.draw do
   resources :line_items
   resources :carts
   resources :orders
-
-  controller :orders do 
-    post 'orders/:id' => :download
-  end
-  
   resources :users
   resources :user_groups
   resources :prices
@@ -32,6 +27,11 @@ Modernimport::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
+
+  match "/futbolki" => "products#show", id: '1'
+  match "/rubashki-polo" => "products#show", id: '2'
+  match "/tolstovki" => "products#show", id: '3'
+  match "/beysbolki" => "products#show", id: '4'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

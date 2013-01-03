@@ -1,8 +1,11 @@
 %h2 Спецификации
-
+= link_to "К заказам", orders_path 
+\|
+= link_to "В личный кабинет", user_path(@current_user)
+%br
+%br
 .row-fluid
-  .span4
-    = search_field_tag "search", "", placeholder: "Поиск..."
+  = search_field_tag "search", "", placeholder: "Поиск...", class: "span5"
 %table.table.table-hover
   %tr
     %th.span1 №
@@ -19,6 +22,7 @@
       %td.span2= spec.spec_num
       %td.span2= spec.date.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")
       %td.span2= number_to_currency spec.summa, :precision => 0, :unit => "руб.", :delimiter => ".", :format => "%n %u" 
-      %td.span2= spec.pay_type
-
-= link_to "К заказам", orders_path
+      - if spec.xls_tab.presence
+        = link_to "Скачать спецификацию", spec.xls_tab.url
+      - else
+        %td.span2= spec.pay_type

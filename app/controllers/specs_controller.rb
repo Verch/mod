@@ -45,6 +45,13 @@
 
   def create
     @spec = Spec.new(params[:spec])
+
+    unless @spec.xls_tab.presence
+      @spec.xls_tab = nil
+    else
+      @spec.pay_type = "Выставлена спецификация"
+    end
+
     respond_to do |format|
       if @spec.save
         @order = Order.find_by_id(@spec.order_id)
@@ -52,7 +59,7 @@
         @order.save
         format.html { redirect_to specs_path, notice: "Спецификация сохранена" }
       else
-        format.html { redirect_to new_spec_path, notice: "Ошибка сохранения" }
+        format.html { redirect_to orders_path, notice: "Ошибка сохранения" }
       end
     end
   end
