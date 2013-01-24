@@ -24,7 +24,7 @@
 %hr
 
 - if @product_sizes.first
-	= form_tag line_items_path, remote: true, method: :post do
+	= form_tag line_items_path, method: :post do
 		%table.table_to_cart
 			%tr 
 				%td{colspan: @product_sizes.count}
@@ -43,6 +43,6 @@
 			%tr 
 				%td{colspan: @product_sizes.count} 
 					= hidden_field_tag "order_id", @order.id
-					= submit_tag "Добавить в заказ", class: "btn btn-inverse", id: "button_to_cart", disable_with: "Добавлено"
+					= submit_tag "Добавить в заказ", class: "btn btn-inverse", id: "button_to_cart reload", disable_with: "Добавлено"
 
 = link_to "Назад", @order
