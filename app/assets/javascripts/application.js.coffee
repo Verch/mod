@@ -76,6 +76,11 @@ $ ->
   );
 
 
+# order edit
+$ ->
+  $('.hide_order_edit').click(()->
+    $(this).parent().parent().slideUp(500))
+
 # order sort & etc.
 $ ->
 	$("#temp_order_id").change(()->

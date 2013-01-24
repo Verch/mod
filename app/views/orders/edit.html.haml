@@ -1,0 +1,48 @@
+%table.table.table-bordered{style: "width:500px;"}
+	- @order.line_items.each do |line_item|
+		%tr
+			%td= ProductType.find_by_id(ProductColor.find_by_id(ProductSize.find_by_id(line_item.product_size_id).product_color_id).product_type_id).name
+			%td
+				= line_item.product_size.name
+				&times
+				= line_item.quantity
+			%td
+				= link_to "<i class='icon-remove'></i>".html_safe, line_item, method: :delete, remote: true, class: "hide_order_edit"
+%hr
+%h5 Добавить товар
+= form_tag edit_order_path, method: :get do
+	%table
+		%tr
+			%td{class: "span4"} Товар:
+			%td{class: "span4"} Тип:
+			%td{class: "span4"} Цвет:
+		%tr
+			%td= select_tag "product_id", options_from_collection_for_select(@products, "id", "name", @current_product.id), prompt: @current_product.name, class: "span12"
+			%td= select_tag "product_type_id", options_from_collection_for_select(@product_types, "id", "name", @current_product_type.id), prompt: @current_product_type.name, class: "span12"
+			%td= select_tag "product_color_id", options_from_collection_for_select(@product_colors, "id", "name", @current_product_color.id), prompt: @current_product_color.name, class: "span12"
+
+%hr
+
+- if @product_sizes.first
+	= form_tag line_items_path, remote: true, method: :post do
+		%table.table_to_cart
+			%tr 
+				%td{colspan: @product_sizes.count}
+				%b 
+				Цвет:
+				=@current_product_color.name
+				%br &nbsp;
+			%tr
+			- @product_sizes.each do |product_size_to_cart|
+				%td
+					= label_tag product_size_to_cart.id, product_size_to_cart.name
+			%tr
+			- @product_sizes.each do |product_size_to_cart|
+				%td  
+					= number_field_tag "product_sizes[#{product_size_to_cart.id}]", "", class: "input-mini"
+			%tr 
+				%td{colspan: @product_sizes.count} 
+					= hidden_field_tag "order_id", @order.id
+					= submit_tag "Добавить в заказ", class: "btn btn-inverse", id: "button_to_cart", disable_with: "Добавлено"
+
+= link_to "Назад", @order
