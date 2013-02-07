@@ -35,6 +35,22 @@ Modernimport::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  ## action mailer switch ON
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address:  "smtp.mail.ru",
+    port:     "2525",
+    domain:   "modernimport.by",
+    authentification: "plain",
+    user_name: "info.modernimport",
+    password: "m0D3Rn",
+    enable_starttls_auto: true
+  }
+
+
+  
+
   # Path to "ImageMagick" for resize images
   Paperclip.options[:command_path] = "/usr/bin/convert"
 end

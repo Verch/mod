@@ -272,4 +272,38 @@
       format.html {redirect_to orders_url}
     end
   end
+
+  def edit
+    @order = Order.find(params[:id])
+    @products = Product.all
+    @product_types = ProductType.where("id = 0")
+    @product_colors = ProductColor.where("id = 0")
+    @product_sizes = ProductSize.where("id = 0")
+    @current_product = Product.first
+    @current_product_type = ProductType.first
+    @current_product_color = ProductColor.first
+    @current_product.name = ''
+    @current_product_type.name = ''
+    @current_product_color.name = ''
+    @current_product.id = 0
+    @current_product_type.id = 0
+    @current_product_color.id = 0
+
+    if params[:product_id] && params[:product_id] != ''
+      @product_types = ProductType.where("product_id = ?", params[:product_id])
+      @current_product = Product.find_by_id(params[:product_id])
+    end
+    if params[:product_type_id] && params[:product_type_id] != ''
+      @product_colors = ProductColor.where("product_type_id = ?", params[:product_type_id])
+      @current_product_type = ProductType.find_by_id(params[:product_type_id])
+      @current_product = Product.find_by_id(params[:product_id])
+    end
+    if params[:product_color_id] && params[:product_color_id] != ''
+      @product_sizes = ProductSize.where("product_color_id = ?", params[:product_color_id])
+      @current_product_color = ProductColor.find_by_id(params[:product_color_id])
+      @current_product_type = ProductType.find_by_id(params[:product_type_id])
+      @current_product = Product.find_by_id(params[:product_id])
+    end
+  end
+
 end

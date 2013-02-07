@@ -6,23 +6,45 @@
 %br
 .row-fluid
   = search_field_tag "search", "", placeholder: "Поиск...", class: "span5"
-%table.table.table-hover
-  %tr
-    %th.span1 №
-    %th.span3 Наименование организации
-    %th.span2 Номер спецификации
-    %th.span2 Дата создания заказа
-    %th.span2 Сумма
-    %th.span2 Способ оплаты
+- if @current_group.admin_flag
+  %table.table.table-hover
+    %tr
+      %th.span1 №
+      %th.span2 Наименование организации
+      %th.span2 Номер спецификации
+      %th.span2 Дата создания заказа
+      %th.span2 Сумма
+      %th.span2 Способ оплаты
+      %th.span1
 
-  - @specs.each do |spec|
-    %tr.order_name.info
-      %td.span1= spec.number
-      %td.span3= link_to spec.company_name, spec
-      %td.span2= spec.spec_num
-      %td.span2= spec.date.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")
-      %td.span2= number_to_currency spec.summa, :precision => 0, :unit => "руб.", :delimiter => ".", :format => "%n %u" 
-      - if spec.xls_tab.presence
-        = link_to "Скачать спецификацию", spec.xls_tab.url
-      - else
-        %td.span2= spec.pay_type
+    - @specs.each do |spec|
+      %tr.order_name.info
+        %td.span1= spec.number
+        %td.span2= spec.company_name
+        %td.span2= spec.spec_num
+        %td.span2= spec.date.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")
+        %td.span2= number_to_currency spec.summa, :precision => 0, :unit => "руб.", :delimiter => ".", :format => "%n %u" 
+        - if spec.xls_tab.presence
+          %td.span2= link_to "Скачать спецификацию", spec.xls_tab.url
+        - else
+          %td.span2= spec.pay_type
+        %td.span1= link_to '', spec, title: "Удалить", :confirm => 'Вы уверены?', :method => :delete, class: "btn btn-danger icon-trash"
+- else
+  %table.table.table-hover
+    %tr
+      %th.span3 Наименование организации
+      %th.span2 Номер спецификации
+      %th.span2 Дата создания заказа
+      %th.span2 Сумма
+      %th.span2 Способ оплаты
+
+    - @specs.each do |spec|
+      %tr.order_name.info
+        %td.span4= spec.company_name
+        %td.span2= spec.spec_num
+        %td.span2= spec.date.in_time_zone('Minsk').strftime("%d.%m.%Y (%H:%M)")
+        %td.span2= number_to_currency spec.summa, :precision => 0, :unit => "руб.", :delimiter => ".", :format => "%n %u" 
+        - if spec.xls_tab.presence
+          %td.span2= link_to "Скачать спецификацию", spec.xls_tab.url
+        - else
+          %td.span2= spec.pay_type

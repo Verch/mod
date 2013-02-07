@@ -50,6 +50,18 @@ Modernimport::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  ## action mailer switch ON
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address:  "smtp.mail.ru",
+    port:     "2525",
+    domain:   "modernimport.by",
+    authentification: "plain",
+    user_name: "info.modernimport",
+    password: "m0D3Rn",
+    enable_starttls_auto: true
+  }
 
   # Enable threaded mode
   # config.threadsafe!

@@ -28,7 +28,7 @@
       @spec.unp_id = 0
     else
       @spec_user = User.find_by_id(@order.user_id) 
-      if (spec_nums = Spec.where("user_id = ?", @spec_user.id).order("created_at ASC")).size != 0
+      if (spec_nums = Spec.where("user_id > ?", 0).order("created_at ASC")).size != 0
         @spec.number = spec_nums.last.number + 1
       else
         @spec.number = 1
@@ -48,18 +48,20 @@
 
     unless @spec.xls_tab.presence
       @spec.xls_tab = nil
+      @spec.pay_type = "Оплачено в кассу "
     else
       @spec.pay_type = "Выставлена спецификация"
     end
 
     respond_to do |format|
       if @spec.save
+        Notifier.order_processed(@spec).deliver
         @order = Order.find_by_id(@spec.order_id)
         @order.status = "Обработан"
         @order.save
-        format.html { redirect_to specs_path, notice: "Спецификация сохранена" }
+        format.html { redirect_to orders_path, notice: "Спецификация сохранена" }
       else
-        format.html { redirect_to orders_path, notice: "Ошибка сохранения" }
+        format.html { redirect_to orders_path, notice: "Ошибка сохранения! Возможно по этому заказу уже выставлена спецификация или Вы пытаетесь загрузить файл неверного формата" }
       end
     end
   end
@@ -77,10 +79,13 @@
 
   def destroy
     @spec = Spec.find(params[:id])
+    @order = Order.find_by_id(@spec.order_id)
+    @order.status = "Ожидает"
+    @order.save
     @spec.destroy
 
     respond_to do |format|
-      format.html { redirect_to specs_url }
+      format.html { redirect_to orders_url }
     end
   end
 end

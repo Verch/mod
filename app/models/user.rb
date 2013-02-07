@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
             :type_of_ownership,
             presence: true, #валидация наличия
             length: { maximum: 100 } #валидация длинны
-  #validates :email, 
-  #          format: { with: :email_regex }, 
-  #          uniqueness: { case_sensitive: false } #валидация уникальности
+  validates :email, 
+  #          format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i } 
+            uniqueness: { case_sensitive: false } #валидация уникальности
   validates :unp,
             length: { minimum: 9, maximum: 9 }
   #validates :password, 
