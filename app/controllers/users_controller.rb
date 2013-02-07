@@ -52,6 +52,7 @@
       end
       respond_to do |format|
         if @user.save
+          Notifier.registration(@user).deliver
           if unp = Unp.find_by_unp(@user.unp)
             if @specs = Spec.find_all_by_unp_id(unp.id)
               @specs.each do |spec|
