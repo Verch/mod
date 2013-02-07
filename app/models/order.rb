@@ -18,4 +18,15 @@ class Order < ActiveRecord::Base
   		line_items << item
   	end  	
   end
+
+  def add_product_size(product_size_id, count_to_cart)
+    current_item = line_items.find_by_product_size_id(product_size_id)
+    if current_item
+      current_item.quantity += count_to_cart
+    else
+      current_item = line_items.build(product_size_id: product_size_id)
+      current_item.quantity += count_to_cart
+    end
+    current_item.save
+  end
 end

@@ -26,8 +26,7 @@
     = number_to_currency @cost, :precision => 0, :unit => "руб.", :delimiter => ".", :format => "%n %u"
 
 -if !@order.archive_flag
-  = link_to 'Редактировать', carts_path(order_id: @order.id), method: :post
-  %p * Ваш заказ будет перемещен в корзину для редактирования
+  = link_to 'Редактировать', edit_order_path(@order)
   -if @order.reserv_flag
     = link_to 'Перевести в заказ', order_path(order: @order), method: :put
   -else
