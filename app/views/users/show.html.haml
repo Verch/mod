@@ -18,39 +18,34 @@
 .row-fluid
   - if @current_group and @current_group.admin_flag
     - if @current_user.id == params[:id].to_i
-      .span5
-        = render "admin_form"
       .span7
         %b
           = link_to "Новые<br>пользователи:<br><br><font size='18px'>#{User.where("reg_confirm_admin = ?", false).size}</font>".html_safe, users_path(temp_id: 2), class: "user_count_btn"
           = link_to "Новые<br>заказы:<br><br><font size='18px'>#{Order.where("reserv_flag = ? AND archive_flag = ? AND status = ?", false, false, "Ожидает").size}</font>".html_safe, orders_path(temp_order_id: 1), class: "user_count_btn"
           = link_to "Новые<br>резервы:<br><br><font size='18px'>#{Order.where("reserv_flag = ? AND archive_flag = ?", true, false).size}</font>".html_safe, orders_path(temp_order_id: 3), class: "user_count_btn"
     - else
-      .span5
-        = render "user_form"
-      .span7
+      .span12
         .well
           = render 'form' 
   - else
-    .span5
-      = render "user_form"
-    .span7
+    .span12
       .well
         = render 'form'
-%hr
-  %h5 Таблица скидок
-  %table.table.table-bordered
-    %tr
-      %td.span2 Количество
-      - @discounts.each do |discount|
-        %td=discount.count
-    %tr
-      %td.span2 Скидка
-      - @discounts.each do |discount|
-        %td=discount.value
-  Общее количество заказанных вами товаров:
-  =@unp.total_amount_product_integer.to_i
-  %br
-  Ваша скидка
-  =@user_discount
-  ="%".html_safe
+    %hr
+    %hr
+      %h5 Таблица скидок
+      %table.table.table-bordered
+        %tr
+          %td.span2 Количество
+          - @discounts.each do |discount|
+            %td=discount.count
+        %tr
+          %td.span2 Скидка
+          - @discounts.each do |discount|
+            %td=discount.value
+      Общее количество заказанных вами товаров:
+      =@unp.total_amount_product_integer.to_i
+      %br
+      Ваша скидка
+      =@user_discount
+      ="%".html_safe
