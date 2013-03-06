@@ -33,6 +33,11 @@ Modernimport::Application.routes.draw do
   match "/tolstovki" => "products#show", id: '3'
   match "/beysbolki" => "products#show", id: '4'
 
+  match "/futbolki/:id" => "product_types#show", :as => :show
+  match "/rubashki-polo/:id" => "product_types#show", :as => :show
+  match "/tolstovki/:id" => "product_types#show", :as => :show
+  match "/beysbolki/:id" => "product_types#show", :as => :show
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
