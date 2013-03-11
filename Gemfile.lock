@@ -144,7 +144,7 @@ DEPENDENCIES
   activerecord-mysql-adapter
   bcrypt-ruby (~> 3.0.0)
   bundler (~> 1.2.0.rc.2)
-  ckeditor_rails
+  ckeditor_rails (~> 4.0.2)
   coffee-rails (~> 3.2.1)
   haml-rails
   jquery-rails

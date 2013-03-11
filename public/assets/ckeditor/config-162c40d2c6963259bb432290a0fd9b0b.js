@@ -1,0 +1,1 @@
+(function(){CKEDITOR.editorConfig=function(e){return e.language="ru",e.uiColor="#AADC6E",!0}}).call(this);
