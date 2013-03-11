@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   attr_accessible :archive_flag, :details, :email, :name, :reserv_flag, :user_id, :img
   has_many :line_items, dependent: :destroy
   belongs_to :user
+  has_one :spec, dependent: :destroy
 
   validates :name, :email, presence: true
 
