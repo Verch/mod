@@ -79,7 +79,7 @@
 
   def destroy
     @spec = Spec.find(params[:id])
-    if @order = Order.find_by_id(@spec.order_id)
+    if (@order = Order.find_by_id(@spec.order_id)) != nil
       @order.status = "Ожидает"
       @order.save
     end
