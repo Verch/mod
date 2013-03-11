@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'coffee-rails', '~> 3.2.1'
 
 gem "paperclip", "~> 3.0" #and for resize image need install "ImageMagick"
+gem 'ckeditor_rails', '~> 4.0.2'
 
 group :development, :test do
 	gem 'sqlite3'
