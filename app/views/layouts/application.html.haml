@@ -34,7 +34,10 @@
 						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;", class: "active"
 					- else
 						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;"
-					.nohover{style: " width: 12.5%;"}
+					- if (params[:action] == "convertsizes")
+						= link_to "<i class='icon-refresh'></i> Перевод размеров".html_safe, "/convertsizes", style: " width: 12.5%;", class: "active"
+					- else
+						= link_to "<i class='icon-refresh'></i> Перевод размеров".html_safe, "/convertsizes", style: " width: 12.5%;"
 					- if @current_user
 						- if (params[:controller] == "users") 
 							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, style: " width: 12.5%;", class: "active"

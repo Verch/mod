@@ -13,6 +13,9 @@
           = product_color.name
       .clear
       %br
+      - if @product_type.id < 15
+        = render "product_type_#{@product_type.id}_sizes_table"
+      %br
       .span12
         #to_order_menu
           - if @white_prices_old.show_old_flag
