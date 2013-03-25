@@ -1,12 +1,12 @@
 %h1 Настройка таблицы скидок
 
-%table
+%table.table-condensed{border: "1"}
   %tr
     %th Количество
     %th Скидка
     %th
     %th
-    %th
+
 
   - @discounts.each do |discount|
     %tr
@@ -18,4 +18,4 @@
 %br
 = link_to 'Добавить скидку', new_discount_path, class: "btn-glass btn-glass-light"
 %br
-= link_to 'Назад', @current_user
+= link_to 'Назад', :back
