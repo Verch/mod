@@ -4,7 +4,7 @@
   %ul.nav.nav-tabs.nav-stacked
     - @product_types.each do |product_type|
       %li=link_to product_type.name, product_sizes_path(get_product_type_id: product_type.id)
-      -if (product_type.id == 4) || (product_type.id == 8)
+      -if (product_type.id == 10) || (product_type.id == 12) || (product_type.id == 14)
         %hr
 - else
   %h1 Просмотр склада

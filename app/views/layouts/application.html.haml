@@ -19,9 +19,9 @@
 				.main_nav
 					= link_to "<i class='icon-home'></i> Главная".html_safe, root_path, style: " width: 12.5%;"
 					- if ((params[:controller] == "products") || (params[:controller] == "product_types") || params[:get_product_type_id]) && (params[:action] == "index")
-						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", style: " width: 12.5%;", class: "active"
+						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/sklad", style: " width: 12.5%;", class: "active"
 					- else
-						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/products", style: " width: 12.5%;"
+						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/sklad", style: " width: 12.5%;"
 					- if (params[:action] == "scheme")
 						= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", style: " width: 12.5%;", class: "active"
 					- else

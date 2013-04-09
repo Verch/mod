@@ -1,7 +1,7 @@
 ﻿class ProductTypesController < ApplicationController
   # GET /product_types
   def index
-    @product_types = ProductType.where("product_id = ?", params[:get_product_id])
+    @product_types = ProductType.all
     respond_to :html # index.html.erb
   end
 
