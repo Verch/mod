@@ -7,8 +7,8 @@
     <div class="pull-left" style="width:30px;height:12px;background-color:#fcf8e3;margin:2px;"></div>
     Зарезервировано
     <div class="clear"></div>
-    <%= link_to 'Спрятать резервы', "#", remote: true, class: "span3 btn-glass btn-glass-light reserv_hide_button pull-right" %>
-    <%= link_to 'Показать резервы', "#", remote: true, class: "span3 btn-glass btn-glass-light reserv_view_button hide pull-right" %>
+    <%= link_to 'Показать резервы', "#", remote: true, class: "span3 btn-glass btn-glass-light reserv_view_button pull-right" %>
+    <%= link_to 'Спрятать резервы', "#", remote: true, class: "span3 btn-glass btn-glass-light reserv_hide_button hide pull-right" %>
     <div class="clear"></div>
   <% end %>
   <h3>Количество:</h3>
@@ -23,14 +23,12 @@
     <% @products.each do |product| %>
       <div class='tab-pane' id="<%= product.id %>">
         <h4><%= product.name %></h4>
-        <% if @current_group && @current_group.admin_flag %>
-          <%=link_to "Редактировать", product_types_path(get_product_id: product.id), class: "span3 btn-glass btn-glass-light" %>
-          <div class="clear"></div>
-          <br>
-        <% end %>
         <div class="hide"><%= @product_types = ProductType.find_all_by_product_id(product.id) %></div>
         <table class="table-bordered table-considered">
           <% @product_types.each do |product_type| %>
+            <tr>
+              <td colspan="2">&nbsp;</td>
+            </tr>
             <tr>
               <td class="span4">
                 <h5><%= product_type.name %></h5>
@@ -72,7 +70,7 @@
                       </td>
                     </tr>
                     <% if @current_group && @current_group.view_reserv_flag %>
-                      <tr class="warning hdhd">
+                      <tr class="warning hdhd hide">
                         <td class="span4"></td>
                         <% @product_sizes.each do |product_size| %>
                           <td class="span1"><%= product_size.reserv %></td>
@@ -83,9 +81,6 @@
                   <% end %>
                 </table>
               </td>
-            </tr>
-            <tr>
-              <td colspan="2">&nbsp;</td>
             </tr>
           <% end %>
         </table>

@@ -15,6 +15,7 @@ Modernimport::Application.routes.draw do
   resources :tools
   resources :discounts
 
+  match "/sklad" => "pages#warehouse"
   match "/convertsizes" => "pages#convertsizes"
   match "/scheme" => "pages#scheme"
   match "/about" => "pages#about"
