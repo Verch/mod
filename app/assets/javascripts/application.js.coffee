@@ -5,9 +5,6 @@
 #= require twitter/bootstrap
 #= require_tree .
 
-$ ->
-  setTimeout($.fn.snow, 30000)
-
 # product_type#show
 $ ->
 	$('#link_to_order_menu').click(()->
