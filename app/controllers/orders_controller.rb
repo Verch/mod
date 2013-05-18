@@ -245,6 +245,11 @@
       @order.toggle(:archive_flag)
       if @order.archive_flag
         @order.status = "Завершен (перемещен в архив)"
+        @unp = Unp.find_by_unp(User.find_by_id(@order.user_id).unp)
+        @order.line_items.each do |line_item|
+          @unp.total_amount_products = @unp.total_amount_products + line_item.quantity
+        end
+        @unp.save
       else
         @order.status = "Ожидает (восстановлен из архива)"
       end
