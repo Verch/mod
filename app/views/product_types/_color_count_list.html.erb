@@ -1,12 +1,12 @@
 <table class="table table-bordered table-considered">
   <tr>
-    <td class="span2">
+    <td class="span4">
       <div class="hide"><%= @product_sizes = ProductSize.find_all_by_product_color_id(@product_colors.first.id) %></div>
     </td>
     <% @product_sizes.each do |product_size| %>
       <td class="span1"><%= product_size.name %></td>
     <% end %>
-    <td class="span1">Сумма</td>
+    <td class="span1">Всего</td>
   </tr>
   <% @product_colors.each do |product_color| %>
     <tr class="info">
@@ -26,12 +26,12 @@
       </td>
     </tr>
     <% if @current_group && @current_group.view_reserv_flag %>
-      <tr class="warning">
+      <tr class="warning hide reserv">
         <td class="span4"></td>
         <% @product_sizes.each do |product_size| %>
           <td class="span1"><%= product_size.reserv %></td>
         <% end %>
-        <td class="span2"></td>
+        <td class="span1"></td>
       </tr>
     <% end %>
   <% end %>

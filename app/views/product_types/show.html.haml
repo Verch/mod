@@ -125,7 +125,7 @@
                 .well
                   %h6 * Выберите цвет:
                   = form_tag @product_type, method: :get, remote: true do
-                    = select_tag "get_product_color_id", options_from_collection_for_select(@product_colors, "id", "name", @product_color.id), class: "span12"
+                    = select_tag "get_product_color_id", options_from_collection_for_select(@product_colors, "id", "name", 0), prompt: '---------', class: "span12"
           .clear
 .clear
 - if @current_user && @current_group.view_sklad_flag
@@ -138,4 +138,11 @@
     .pull-left{style: "width:30px;height:12px;background-color:#fcf8e3;margin:2px;"}
     Зарезервировано
     .clear
+    .span10{style: "margin:10px 0px 10px 0px"}
+      .view_button.span3.btn-glass.btn-glass-light.sklad_view_button
+        Показать резервы
+      .hide_button.span3.btn-glass.btn-glass-light.sklad_view_button.hide
+        Скрыть резервы
+    .clear
+  
   = render "color_count_list"

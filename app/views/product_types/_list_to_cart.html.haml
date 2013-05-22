@@ -1,17 +1,18 @@
 ﻿.table_to_cart
-  = form_tag line_items_path, remote: true, method: :post, id: "clear_form"  do
-    %table.table-bordered
-      %tr 
-        %td{colspan: @product_sizes.count, class: "span12"}
-          %br &nbsp;
-      %tr
-        - @product_sizes.each do |product_size_to_cart|
-          %td
-            = label_tag product_size_to_cart.id, product_size_to_cart.name, class: "span12"
-      %tr
-        - @product_sizes.each do |product_size_to_cart|
-          %td
-            = text_field_tag "product_sizes[#{product_size_to_cart.id}]", "", class: "span12"
-      %tr 
-        %td{colspan: @product_sizes.count} 
-          = submit_tag "Добавить в корзину", class: "btn-glass btn-glass-green", id: "button_to_cart", disable_with: "Добавлено"
+  - if @product_sizes != nil
+    = form_tag line_items_path, remote: true, method: :post, id: "clear_form"  do
+      %table.table-bordered
+        %tr 
+          %td{colspan: @product_sizes.count, class: "span12"}
+            %br &nbsp;
+        %tr
+          - @product_sizes.each do |product_size_to_cart|
+            %td
+              = label_tag product_size_to_cart.id, product_size_to_cart.name, class: "span12"
+        %tr
+          - @product_sizes.each do |product_size_to_cart|
+            %td
+              = text_field_tag "product_sizes[#{product_size_to_cart.id}]", "", class: "span12"
+        %tr 
+          %td{colspan: @product_sizes.count} 
+            = submit_tag "Добавить в корзину", class: "btn-glass btn-glass-green", id: "button_to_cart", disable_with: "Добавлено"
