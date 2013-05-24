@@ -16,6 +16,10 @@ $ ->
 		$('#to_order_menu').slideToggle(500))
 
 $ ->
+  $(".button_to_cart").click(->
+    $("#get_product_color_id").closest("form").submit())
+
+$ ->
   $("#get_product_color_id").mouseup(->
     $(this).closest("form").submit())
 

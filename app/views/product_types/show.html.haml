@@ -125,7 +125,7 @@
                 .well
                   %h6 * Выберите цвет:
                   = form_tag @product_type, method: :get, remote: true do
-                    = select_tag "get_product_color_id", options_from_collection_for_select(@product_colors, "id", "name", 0), prompt: '---------', class: "span12"
+                    = select_tag "get_product_color_id", options_from_collection_for_select(@product_colors, "id", "name", 0), class: "span12"
           .clear
 .clear
 - if @current_user && @current_group.view_sklad_flag

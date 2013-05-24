@@ -32,12 +32,17 @@
 	padding: 1px 3px;
 }
 
+.logo img{
+	width: 100%;
+}
+
 .main_nav {
 	padding: 0px;
 	margin: 0px;
 }
 
 .main_nav > a {
+	width: 12.5%;
 	float: left;
 	text-align: center;
 	margin: 0px; 
@@ -47,7 +52,7 @@
 	display: block;
 	color: white;
 	height: 30px;
-	background: url(<%= asset_path '1border.png' %>) no-repeat;
+	background: url(<%= asset_path '1border.png' %>) 100% 100% no-repeat;
 	background-size: 100% 35px;
 }
 
@@ -56,22 +61,27 @@
 	margin: 0px; 
 	line-height: 24px;
 	font-size: 12px;
-	padding-top: 6px;
 	display: block;
 	height: 30px;
-	background: url(<%= asset_path '1border.png' %>) no-repeat;
+	background: url(<%= asset_path '1border.png' %>) 100% 100% repeat;
 	background-size: 100% 35px;
 }
 
 .main_nav > a:hover {
-	background: url(<%= asset_path '1border-hover.png' %>) no-repeat;
-	background-size: 100% 35px;
+	background: url(<%= asset_path '1border-hover.png' %>) 100% 100% repeat;
 	color: white;
+	float: left;
+	margin: 0px; 
+	line-height: 24px;
+	font-size: 12px;
+	display: block;
+	height: 30px;
 	text-decoration: none;
+	background-size: 100% 35px;
 }
 
 .main_nav > a.active {
-	background: url(<%= asset_path '1border-hover.png' %>) no-repeat;
+	background: url(<%= asset_path '1border-hover.png' %>) 100% 100% repeat;
 	background-size: 100% 35px;
 	color: white;
 }
@@ -123,10 +133,8 @@ html, body {
 	width: 85%;
 	margin: 0 auto;
 	text-align: center;
-	padding-top: 5px;
 }
 #p_footer {
-	margin: 7px;
 }
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
