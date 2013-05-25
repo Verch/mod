@@ -42,6 +42,7 @@ class ProductSizesController < ApplicationController
   # PUT /product_sizes/1
   def update
     @product_size = ProductSize.find(params[:id])
+    @product_type = ProductType.find_by_id(@product_size.product_type_id)
 
     if params[:product_size]
       @product_color = ProductColor.find_by_id(@product_size.product_color_id)

@@ -16,7 +16,7 @@
 				=params
 			%div.logo
 				=image_tag "Hat.png"
-			%div{style: "background: url(#{asset_path '0border.png' }); background-size: cover;"}
+			%div{style: "background: url(#{asset_path '1border.png' }); background-size: cover;"}
 				.main_nav
 					= link_to "<i class='icon-home'></i> Главная".html_safe, root_path
 					- if ((params[:controller] == "products") || (params[:controller] == "product_types") || params[:get_product_type_id]) && (params[:action] == "index")
