@@ -15,6 +15,9 @@
       %br
       - if @product_type.id < 15
         = render "product_type_#{@product_type.id}_sizes_table"
+        .clear
+      - if @product_type.id == 1
+        %p Обращаем Ваше внимание, что цена моделей King Size (4XL и 5XL) отличается от указанной.
       %br
       .span12
         #to_order_menu
@@ -131,18 +134,5 @@
 - if @current_user && @current_group.view_sklad_flag
   %hr
   %h4 Товар на складе
-  - if @current_group && @current_group.view_reserv_flag
-    .pull-left{style: "width:30px;height:12px;background-color:#d9edf7;margin:2px;"}
-    Остаток на складе
-    .clear
-    .pull-left{style: "width:30px;height:12px;background-color:#fcf8e3;margin:2px;"}
-    Зарезервировано
-    .clear
-    .span10{style: "margin:10px 0px 10px 0px"}
-      .view_button.span3.btn-glass.btn-glass-light.sklad_view_button
-        Показать резервы
-      .hide_button.span3.btn-glass.btn-glass-light.sklad_view_button.hide
-        Скрыть резервы
-    .clear
   
   = render "color_count_list"

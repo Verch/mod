@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
   				  :user_group_id, :type_of_ownership
   belongs_to :user_groups
   has_many :orders
-  validates :name, :company_name, :email, :juridical_address,
-            :type_of_ownership,
+  validates :name, :company_name, :email, :type_of_ownership,
             presence: true, #валидация наличия
             length: { maximum: 100 } #валидация длинны
   validates :email, 
