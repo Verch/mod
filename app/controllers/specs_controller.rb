@@ -23,21 +23,20 @@
     @spec.order_id = @order.id
     
     if @order.user_id == 0
-      @spec.number = 0
       @spec.company_name = @order.name
       @spec.unp_id = 0
     else
       @spec_user = User.find_by_id(@order.user_id) 
-      if (spec_nums = Spec.where("user_id > ?", 0).order("created_at ASC")).size != 0
-        @spec.number = spec_nums.last.number + 1
-      else
-        @spec.number = 1
-      end
       @spec.company_name = @spec_user.company_name
       @spec.unp_id = Unp.find_by_unp(@spec_user.unp).id
       @spec.user_id = @order.user_id
       
     end
+    if (spec_nums = Spec.where("user_id > ?", 0).order("created_at ASC")).size != 0
+        @spec.number = spec_nums.last.number + 1
+      else
+        @spec.number = 1
+      end
     @spec.date = Time.now.in_time_zone('Minsk').strftime("%d.%m.%Y")
     @spec.pay_type = "Оплачено в кассу"
     respond_to :html

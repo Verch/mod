@@ -3,7 +3,7 @@ class Spec < ActiveRecord::Base
   attr_accessible :company_name, :date, :user_id, :unp_id, :order_id,
   				  :number, :pay_type, :spec_num, :summa, :xls_tab
 
-  validates :company_name, :date, :user_id, :summa, :number, :order_id, presence: true
+  validates :company_name, :date, :summa, :number, :order_id, presence: true
   validates :number, :order_id, uniqueness: true
 
   has_attached_file :xls_tab,
