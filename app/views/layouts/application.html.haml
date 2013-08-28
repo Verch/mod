@@ -14,48 +14,49 @@
 		#wrap.gradient
 			#temp_params_info.hide
 				=params
-			=image_tag "Hat.png",{width: "100%"}
-			%div{style: "background: url(#{asset_path '0border.png' }); background-size: cover;"}
+			%div.logo
+				=image_tag "Hat.png"
+			%div{style: "background: url(#{asset_path '1border.png' }); background-size: cover;"}
 				.main_nav
-					= link_to "<i class='icon-home'></i> Главная".html_safe, root_path, style: " width: 12.5%;"
+					= link_to "<i class='icon-home'></i> Главная".html_safe, root_path
 					- if ((params[:controller] == "products") || (params[:controller] == "product_types") || params[:get_product_type_id]) && (params[:action] == "index")
-						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/sklad", style: " width: 12.5%;", class: "active"
+						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/sklad", class: "active"
 					- else
-						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/sklad", style: " width: 12.5%;"
+						= link_to "<i class='icon-tasks'></i> Склад".html_safe, "/sklad"
 					- if (params[:action] == "scheme")
-						= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", style: " width: 12.5%;", class: "active"
+						= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", class: "active"
 					- else
-						= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme", style: " width: 12.5%;"
+						= link_to "<i class='icon-random'></i> Схема проезда".html_safe, "/scheme"
 					- if (params[:action] == "about")
-						= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about", style: " width: 12.5%;", class: "active"
+						= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about", class: "active"
 					- else
-						= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about", style: " width: 12.5%;"
+						= link_to "<i class='icon-comment'></i> О нас".html_safe, "/about"
 					- if (params[:action] == "contact")
-						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;", class: "active"
+						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", class: "active"
 					- else
-						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact", style: " width: 12.5%;"
+						= link_to "<i class='icon-envelope'></i> Контакты".html_safe, "/contact"
 					- if (params[:action] == "convertsizes")
-						= link_to "<i class='icon-refresh'></i> Перевод размеров".html_safe, "/convertsizes", style: " width: 12.5%;", class: "active"
+						= link_to "<i class='icon-refresh'></i> Перевод размеров".html_safe, "/convertsizes", class: "active"
 					- else
-						= link_to "<i class='icon-refresh'></i> Перевод размеров".html_safe, "/convertsizes", style: " width: 12.5%;"
+						= link_to "<i class='icon-refresh'></i> Перевод размеров".html_safe, "/convertsizes"
 					- if @current_user
 						- if (params[:controller] == "users") 
-							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, style: " width: 12.5%;", class: "active"
+							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, class: "active"
 						- else
-							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user, style: " width: 12.5%;"
+							= link_to "<i class='icon-user'></i> #{@current_user.name}".html_safe, @current_user
 						- if (params[:controller] == "sessions") 
-							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, style: " width: 12.5%;", class: "active"
+							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, class: "active"
 						- else
-							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete, style: " width: 12.5%;"
+							= link_to "<i class='icon-share-alt'></i> Выйти".html_safe, logout_path, method: :delete
 					- else
 						- if (params[:controller] == "users")
-							= link_to "Регистрация", "/register", style: " width: 12.5%;", class: "active"
+							= link_to "Регистрация", "/register", class: "active"
 						- else
-							= link_to "Регистрация", "/register", style: " width: 12.5%;"
+							= link_to "Регистрация", "/register"
 						- if (params[:controller] == "sessions")
-							= link_to "Вход", login_path, style: " width: 12.5%;", class: "active"
+							= link_to "Вход", login_path, class: "active"
 						- else
-							= link_to "Вход", login_path, style: " width: 12.5%;"
+							= link_to "Вход", login_path
 					.clear
 			.container-fluid.up15
 				.row-fluid
@@ -191,10 +192,11 @@
 							= yield
 			#push
 		%footer#footer
-			%p#p_footer &copy; Модерн Импорт 2013
-			%p#p_footer
-				Оптимизация и продвижение сайта
-				=link_to "Qmedia", "http://www.qmedia.by", target: :blank
-				%br
-				Powered by
-				=link_to "Verch", "http://www.verch.pro/web", target: :blank
+			.footer#footer
+				%p#p_footer &copy; Модерн Импорт 2013
+				%p#p_footer
+					Оптимизация и продвижение сайта
+					=link_to "Qmedia", "http://www.qmedia.by", target: :blank
+					%br
+					Powered by
+					=link_to "Verch", "http://www.verch.pro/web", target: :blank

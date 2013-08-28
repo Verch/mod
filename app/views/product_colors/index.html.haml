@@ -1,8 +1,10 @@
 - if params[:get_product_type_id]
   - if @current_group.admin_flag
     %h1 Редактирование элементов склада
-    =link_to "Назад", product_sizes_path(get_product_type_id: params[:get_product_type_id])
     %h5= @product_type.name
+    =link_to "Редактирование количества", product_sizes_path(get_product_type_id: params[:get_product_type_id]), class: "span3 btn-glass btn-glass-light"
+    %br
+    %br
     #price_editor
       =render "price_editor"
   - else

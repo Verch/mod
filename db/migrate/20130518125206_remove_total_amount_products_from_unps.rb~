@@ -1,0 +1,11 @@
+class RemoveTotalAmountProductsFromUnps < ActiveRecord::Migration
+  def up
+    remove_column :unps, :total_amount_products
+    remove_column :unps, :default
+  end
+
+  def down
+    add_column :unps, :default :0
+    add_column :unps, :total_amount_products, :integer
+  end
+end

@@ -14,8 +14,13 @@ $ ->
 	$('#link_out_order_menu').click(()->
 		$('#order_menu').slideToggle(500)
 		$('#to_order_menu').slideToggle(500))
+
 $ ->
-  $("#get_product_color_id").change(->
+  $(".button_to_cart").click(->
+    $("#get_product_color_id").closest("form").submit())
+
+$ ->
+  $("#get_product_color_id").mouseup(->
     $(this).closest("form").submit())
 
 # product_sizes#index (search product)
@@ -137,3 +142,15 @@ $ ->
     $('.warning').removeClass("hide")
     $('.reserv_view_button').addClass("hide")
     $('.reserv_hide_button').removeClass("hide"))
+
+#product_types reserv show/hide
+$ ->
+  $('.hide_button').click(()->
+    $('.reserv').addClass("hide")
+    $('.hide_button').addClass("hide")
+    $('.view_button').removeClass("hide"))
+$ ->
+  $('.view_button').click(()->
+    $('.reserv').removeClass("hide")
+    $('.view_button').addClass("hide")
+    $('.hide_button').removeClass("hide"))

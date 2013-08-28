@@ -9,6 +9,9 @@
   def show
     @product_type = ProductType.find(params[:id])
 
+    @title = @product_type.name
+    @meta_desc = @product_type.name + " - Модерн Импорт - покупайте в Минске"
+
     if @product_type.id == 1 
       @title = "Футболки оптом: мужские, женские и детские футболки купить в Минске"
       @meta_desc = "Футболки Модерн Импорт - футболки мужские короткий рукав, 155 гр, хлопок 100% - покупайте в Минске!"
@@ -110,9 +113,6 @@
     else
       @product_color = @product_colors.first
     end
-
-    @title = @product_type.name
-    @meta_desc = @product_type.name+" - Модерн Импорт - покупайте в Минске"
 
     respond_to :html, :js # show.html.erb
   end

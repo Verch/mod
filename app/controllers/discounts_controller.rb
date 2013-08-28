@@ -1,4 +1,5 @@
-﻿class DiscountsController < ApplicationController
+﻿
+class DiscountsController < ApplicationController
   # GET /discounts
   # GET /discounts.json
   def index

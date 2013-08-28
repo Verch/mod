@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121227203422) do
+ActiveRecord::Schema.define(:version => 20130518125456) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -161,9 +161,9 @@ ActiveRecord::Schema.define(:version => 20121227203422) do
   create_table "unps", :force => true do |t|
     t.string   "unp"
     t.integer  "total_amount_money"
-    t.string   "total_amount_product_integer"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "total_amount_products", :default => 0
   end
 
   create_table "user_groups", :force => true do |t|

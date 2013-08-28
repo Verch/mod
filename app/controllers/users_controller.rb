@@ -20,7 +20,7 @@
     @unp = Unp.find_by_unp(@user.unp)
     @user_discount = 0
     @discounts.each do |disc|
-      if (disc.count < @unp.total_amount_product_integer.to_i)
+      if (disc.count < @unp.total_amount_products)
         @user_discount = disc.value
       end
     end

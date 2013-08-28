@@ -38,13 +38,15 @@
         %tr
           %td.span2 Количество
           - @discounts.each do |discount|
-            %td=discount.count
+            %td
+              =discount.count
+              ="%".html_safe
         %tr
           %td.span2 Скидка
           - @discounts.each do |discount|
-            %td=discount.value
+            %td= number_to_currency discount.value, :precision => 0, :unit => "руб.", :delimiter => ".", :format => "%n %u"
       Общее количество заказанных вами товаров:
-      =@unp.total_amount_product_integer.to_i
+      =@unp.total_amount_products
       %br
       Ваша скидка
       =@user_discount

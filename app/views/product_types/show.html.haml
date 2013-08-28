@@ -15,6 +15,9 @@
       %br
       - if @product_type.id < 15
         = render "product_type_#{@product_type.id}_sizes_table"
+        .clear
+      - if @product_type.id == 1
+        %p Обращаем Ваше внимание, что цена моделей King Size (4XL и 5XL) отличается от указанной.
       %br
       .span12
         #to_order_menu
@@ -125,17 +128,11 @@
                 .well
                   %h6 * Выберите цвет:
                   = form_tag @product_type, method: :get, remote: true do
-                    = select_tag "get_product_color_id", options_from_collection_for_select(@product_colors, "id", "name", @product_color.id), class: "span12"
+                    = select_tag "get_product_color_id", options_from_collection_for_select(@product_colors, "id", "name", 0), class: "span12"
           .clear
 .clear
 - if @current_user && @current_group.view_sklad_flag
   %hr
   %h4 Товар на складе
-  - if @current_group && @current_group.view_reserv_flag
-    .pull-left{style: "width:30px;height:12px;background-color:#d9edf7;margin:2px;"}
-    Остаток на складе
-    .clear
-    .pull-left{style: "width:30px;height:12px;background-color:#fcf8e3;margin:2px;"}
-    Зарезервировано
-    .clear
+  
   = render "color_count_list"
