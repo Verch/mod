@@ -1,4 +1,9 @@
 Modernimport::Application.configure do
+
+  #this for redirect from www. to non-www. version (add by hand)
+  require 'www_ditcher'
+  config.middleware.use "WwwDitcher"
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests

@@ -1,6 +1,7 @@
 ﻿class PagesController < ApplicationController
   before_filter :authorize, only: :warehouse
   def home
+    @title = "Трикотаж в Минске оптом: футболки, бейсболки, толстовки, рубашки поло | Мужской, женский, детский трикотаж"
     @news = Tool.first.news
   end
 
@@ -22,6 +23,7 @@
   end
 
   def about
+    @title = "О компании Модерн Импорт"
   end
 
   def contact
